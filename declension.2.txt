@@ -1,0 +1,10 @@
+us,^i
+
+-us
+-^i
+-^o
+-um
+-e
+-^orum
+-^is
+-^os

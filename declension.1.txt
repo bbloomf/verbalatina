@@ -1,0 +1,8 @@
+a,ae
+
+-a
+-ae
+-am
+-^a
+-^arum
+-^is

@@ -1,0 +1,7 @@
+^u,^us
+
+-^u
+-^us
+-ua
+-uum
+-ibus

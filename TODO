@@ -1,0 +1,24 @@
+Script
+Figure out how to read the <gramGrp> tags
+  If there is a <gen> tag, the word is obviously a noun, and what was in the <itype> tag indicates the ending of the genitive.
+    I need a way to figure out how much of the ending of the nominative to take off before adding the genitive and other endings.
+  If there are three endings listed, it is a verb, and they are endings for 1st-pers perfect, supine, infinitive
+    What about verbs that don't have a supine?  (&mdash appears in its place) Or verbs that only have a perfect tense? (isse is given for the itype)
+    For audeo, <itype> ausus sum, </itype> is given.
+  For adjectives and adverbs, <pos>adj.</pos> or adv. is given.
+  For deponents, <pos>dep.</pos> is given
+  For prepositions, sometimes praep. or prep. is there, but there is nothing for "in"
+
+  Really, I only need to worry about conjugating verbs and declining nouns and adjectives, so for anything else, I can just put in the word as it appears in the dictionary.
+
+  Some words have multiple spellings, with alternate beginnings or endings given in parentheses; these must be accounted for.
+
+  Verbs must be fully conjugated,
+    past participle (supine)
+    future participle (supine-^urus)
+    present participle (like 3rd person plural indicative -ns -ntis)
+    future passive participle (like present participle -ndus -ndi)
+
+    comparitives of particples?
+  nouns and adjectives must be fully declined
+  comparitives of adjectives must also be dealt with

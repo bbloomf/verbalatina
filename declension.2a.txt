@@ -1,0 +1,9 @@
+um,^i
+
+-um
+-^i
+-^o
+-um
+-a
+-^orum
+-^is
