@@ -100,7 +100,7 @@ for(i in gabcs) {
           }
         }
         if(syllables.length <= 2 && hasAccents) {
-          console.info('%s: %s',curWord,fn);
+          //console.info('%s: %s',curWord,fn);
         }
         if(syllables.length <= 2 || !hasAccents) {
           curWord = [];
@@ -137,7 +137,7 @@ for(w in results) {
     totalAmbiguous += Object.keys(results[w]).length;
   }
 }
-//fs.writeFileSync('wordListFromGabc.json', JSON.stringify(results));
+fs.writeFileSync('wordListFromGabc.json', JSON.stringify(results));
 
 console.info(ambiguous);
 console.info('Count total words: ' + totalWords);
