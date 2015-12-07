@@ -2,7 +2,8 @@ var fs = require('fs'),
     regexEntry = /([a-z-]+)\t((?:\{[^}]*\})+)[\r\n]+/gi,
     regexInner = /\{\d+ [01249] ([a-z_^-]+)(?:,([a-z_^-]+))?\S*\t[^\t]*\t([^}\t]+)[^}]*\}/g,
     regexLatin = /((?:<\w+>)*)(((?:(?:(\s+)|^)(?:s[uú](?:bs?|s(?=[cpqt]))|tr[aáā]ns|p[oóō]st|[aáā]d|[oóō]bs|[eéē]x|p[eéēoóō]r|[iíī]n|r[eéē](?:d(?=d|[aeiouyáéëïíóúýǽæœāēīōūȳ]))))|(?:(?:(\s+)|)(?:(?:i(?!i)|(?:n[cg]|q)u)(?=[aeiouyáéëïíóúýǽæœāēīōūȳ])|[bcdfghjklmnprstvwxz]*)([aá]u|[ao][eé]?|[eiuyáéëïíóúýǽæœāēīōūȳ])(?:[\wáéíóúýǽæœāēīōūȳ]*(?=-)|(?=(?:n[cg]u|sc|s[tp]r?|gn|ps)[aeiouyáéëïíóúýǽæœāēīōūȳ]|[bcdgptf][lrh][\wáéíóúýǽæœāēīōūȳ])|(?:[bcdfghjklmnpqrstvwxz]+(?=$|[^\wáëïéíóúýǽæœāēīōūȳ])|[bcdfghjklmnpqrstvwxz](?=[bcdfghjklmnpqrstvwxz]+))?)))(?:([\*-])|([^\w\sáëïéíóúýǽæœāēīōūȳ]*(?:\s[:;†\*\"«»‘’“”„‟‹›‛])*\.?(?=\s|$))?)(?=(\s*|$)))((?:<\/\w+>)*)/gi,
-    analyses = fs.readFileSync('latin-analyses.txt', {encoding:'utf8'});
+    analyses = fs.readFileSync('latin-analyses.txt', {encoding:'utf8'}),
+    debugging = false;
 String.prototype.reverse = function() {
   return this.split('').reverse().join('');
 }
@@ -141,11 +142,12 @@ String.prototype.longestCommonPart = function(that) {
     if(thisTest.slice(0,i) == thatTest.slice(0,i)) return this.slice(0,i) + that.slice(i);
     --i;
   }
-  return '';
+  return that;
 }
 var match, result = {}, wordsLength = {}, ambiguities = {};
 function doWork() {
   while((match = regexEntry.exec(analyses))) {
+    if(debugging) debugger;
     var word = match[1].replace(/-/g,''),
         syllables = word.match(regexLatin),
         innerMatch, lastNormalized;
@@ -182,7 +184,7 @@ function doWork() {
         }
 
         wordsLength[orthography] = true;
-
+        if(word == 'euge') continue;
         var accentForm = orthography.getAccentForm();
         var plainForm;
         if(accentForm && !((plainForm = accentForm.removeDiacritics()) in ambiguities) && !(accentForm in result)) {
