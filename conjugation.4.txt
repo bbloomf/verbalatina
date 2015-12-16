@@ -1,82 +1,82 @@
-i^o,^ire
+iō,īre
 
--i^o
--^is
+-iō
+-īs
 -it
--^imus
--^itis
+-īmus
+-ītis
 -iunt
 
--i^ebam
--i^eb^as
--i^ebat
--i^eb^amus
--i^eb^atis
--i^ebant
+-iēbam
+-iēbās
+-iēbat
+-iēbāmus
+-iēbātis
+-iēbant
 
 -iam
--i^es
+-iēs
 -iet
--i^emus
--i^etis
+-iēmus
+-iētis
 -ient
 
--^iri
+-īri
 -ior
--^iris
--^itur
--^imur
--^imin^i
+-īris
+-ītur
+-īmur
+-īminī
 -iuntur
 
--i^ebar
--i^eb^aris
--i^eb^atur
--i^eb^amur
--i^eb^amin^i
--i^ebantur
+-iēbar
+-iēbāris
+-iēbātur
+-iēbāmur
+-iēbāminī
+-iēbantur
 
 -iar
--i^eris
--i^etur
--i^emur
--i^emini
+-iēris
+-iētur
+-iēmur
+-iēmini
 -ientur
 
 
 -iam
--i^as
+-iās
 -iat
--i^amus
--i^atis
+-iāmus
+-iātis
 -iant
 
--^irem
--^ir^es
--^iret
--^ir^emus
--^ir^etis
--^irent
+-īrem
+-īrēs
+-īret
+-īrēmus
+-īrētis
+-īrent
 
 -iar
--i^aris
--i^atur
--i^amur
--i^amin^i
+-iāris
+-iātur
+-iāmur
+-iāminī
 -iantur
 
--^irer
--^ir^eris
--^ir^etur
--^ir^emur
--^ir^emin^i
--^irentur
+-īrer
+-īrēris
+-īrētur
+-īrēmur
+-īrēminī
+-īrentur
 
--^i
--^ite
--^it^o
--^it^ote
--iunt^o
--^ire
--^itor
+-ī
+-īte
+-ītō
+-ītōte
+-iuntō
+-īre
+-ītor
 -iuntor

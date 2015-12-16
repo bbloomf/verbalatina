@@ -1,22 +1,22 @@
-^i
+ī
 
 -isse
 
--^i
--ist^i
+-ī
+-istī
 -it
 -imus
 -istis
--^erunt
+-ērunt
 
 -eram
--er^as
+-erās
 -erat
--er^amus
--er^atis
+-erāmus
+-erātis
 -erant
 
--er^o
+-erō
 -eris
 -erit
 -erimus
@@ -26,8 +26,8 @@
 -erim
 
 -issem
--iss^es
+-issēs
 -isset
--iss^emus
--iss^etis
+-issēmus
+-issētis
 -issent

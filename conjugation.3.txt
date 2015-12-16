@@ -1,24 +1,24 @@
-^o,ere
+ō,ere
 
--^o
+-ō
 -is
 -it
 -imus
 -itis
 -unt
 
--^ebam
--^eb^as
--^ebat
--^eb^amus
--^eb^atis
--^ebant
+-ēbam
+-ēbās
+-ēbat
+-ēbāmus
+-ēbātis
+-ēbant
 
 -am
--^es
+-ēs
 -et
--^emus
--^etis
+-ēmus
+-ētis
 -ent
 
 -i
@@ -26,57 +26,57 @@
 -eris
 -itur
 -imur
--imin^i
+-iminī
 -untur
 
--^ebar
--^eb^aris
--^eb^atur
--^eb^amur
--^eb^amin^i
--^ebantur
+-ēbar
+-ēbāris
+-ēbātur
+-ēbāmur
+-ēbāminī
+-ēbantur
 
 -ar
--^eris
--^etur
--^emur
--^emin^i
+-ēris
+-ētur
+-ēmur
+-ēminī
 -entur
 
 
 -am
--^as
+-ās
 -at
--^amus
--^atis
+-āmus
+-ātis
 -ant
 
 -erem
--er^es
+-erēs
 -eret
--er^emus
--er^etis
+-erēmus
+-erētis
 -erent
 
 -ar
--^aris
--^atur
--^amur
--^amin^i
+-āris
+-ātur
+-āmur
+-āminī
 -antur
 
 -erer
--er^eris
--er^etur
--er^emur
--er^emin^i
+-erēris
+-erētur
+-erēmur
+-erēminī
 -erentur
 
 -e
 -ite
--it^o
--it^ote
--unt^o
+-itō
+-itōte
+-untō
 -ere
 -itor
 -untor
