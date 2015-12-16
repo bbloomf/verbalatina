@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Verb Tester</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+<table class='table'>
+<thead>
+<tr><th>Verb</th><th>Class</th><th>Endings</th><th>Entire Entry</th></tr>
+</thead>
+<tbody></tbody>
+</table>
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script>
+$(function($){
+  $.getJSON('output/verbs.json',function(verbs){
+    var $tbody = $('tbody');
+    verbs.forEach(function(verb){
+      var tr = $('<tr/>');
+      tr.append($('<td/>').text(verb.orthography));
+      tr.append($('<td/>')); // TO Do, determine verb conjugation, 1,2,3,3io,4
+      tr.append($('<td/>').text(verb.verbType));
+      tr.append($('<td/>').html(verb.fullText.replace(verb.verbType,'<b>'+verb.verbType+'</b>').split(/\s+/g).splice(0,50).join(' ')));
+      $tbody.append(tr);
+    })
+  });
+});
+</script>
+</body>
+</html>

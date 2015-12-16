@@ -1,7 +1,7 @@
 var regexLatin = /((?:<(?:b|i|sc)>)*)(((?:(?:(\s+)|^)(?:s[uú](?:bs?|s(?=[cpqt]))|tr[aáā]ns|p[oóō]st|[aáā]d|[oóō]bs|[eéē]x|p[eéēoóō]r|[iíī]n|r[eéē](?:d(?=d|[aeiouyáéëïíóúýǽæœāēīōūȳ]))))|(?:(?:(\s+)|)(?:(?:i(?!i)|(?:n[cg]|q)u)(?=[aeiouyáéëïíóúýǽæœāēīōūȳ])|[bcdfghjklmnprstvwxz]*)([aá]u|[ao][eé]?|[eiuyáéëïíóúýǽæœāēīōūȳ])(?:[\wáéíóúýǽæœāēīōūȳ]*(?=-)|(?=(?:n[cg]u|sc|[sc][tp]r?|gn|ps)[aeiouyáéëïíóúýǽæœāēīōūȳ]|[bcdgptf][lrh][\wáéíóúýǽæœāēīōūȳ])|(?:[bcdfghjklmnpqrstvwxz]+(?=$|[^\wáëïéíóúýǽæœāēīōūȳ])|[bcdfghjklmnpqrstvwxz](?=[bcdfghjklmnpqrstvwxz]+))?)))(?:([\*-])|([^\w\sáëïéíóúýǽæœāēīōūȳ]*(?:\s[:;†\*\"«»‘’“”„‟‹›‛])*\.?(?=\s|$))?)(?=(\s*|$)))((?:<\/(?:b|i|sc)>)*)/gi;
 String.prototype.endsWith = function(s){return s.length==0 || this.slice(-s.length)==s;}
 var debug = {
-  showThirdDeclensions: true,
+  showThirdDeclensions: false,
   showCrossReferences: false,
   showAllDeclensions: false
 };
@@ -14,14 +14,26 @@ var handleDiacritics = function(string) {
       'i': 'ī',
       'o': 'ō',
       'u': 'ū',
-      'y': 'ȳ'
+      'y': 'ȳ',
+      'A': 'Ā',
+      'E': 'Ē',
+      'I': 'Ī',
+      'O': 'Ō',
+      'U': 'Ū',
+      'Y': 'Ȳ'
     }) : ({
       'a': 'ä',
       'e': 'ë',
       'i': 'ï',
       'o': 'ö',
       'u': 'ü',
-      'y': 'ÿ'
+      'y': 'ÿ',
+      'A': 'Ä',
+      'E': 'Ë',
+      'I': 'Ï',
+      'O': 'Ö',
+      'U': 'Ü',
+      'Y': 'Ÿ'
     }))[vowel];
   });
 }
@@ -36,6 +48,7 @@ var findThirdDeclensionRoot = function(nom,gen) {
   // 
   //   
   //
+  var showDebug = (nom.match(/Iuppiter/i) || debug.showThirdDeclensions);
   for(var x=1; x<3; x++) {
     var match = nom.match('^(.+)([aeiouyœæāēīōūȳ][^aeiouyœæāēīōūȳ]*){'+x+'}$');
     if(!match) break;
@@ -44,6 +57,8 @@ var findThirdDeclensionRoot = function(nom,gen) {
     while(match = gen.match('(?:[aeiouyœæāēīōūȳ][^aeiouyœæāēīōūȳ]*){'+y+'}$')) {
       var candidate = nomRoot + match[0];
       if(candidate.match(gen+'$')) {
+        candidate = candidate.slice(0,-2);
+        if(showDebug) console.info('%s, %s-',nom,candidate);
         return candidate;
       }
       y++;
@@ -56,10 +71,13 @@ var findThirdDeclensionRoot = function(nom,gen) {
     firstPart = gen.match(/^(.*?)[aeiouyœæāēīōūȳ]/)[1].slice(0,1);
   }
   var index = nom.lastIndexOf(firstPart);
+  gen = gen.slice(0,-2);
   if(index>=0 && index<nom.length) {
     var candidate = nom.slice(0,index) + gen;
+    if(showDebug) console.info('%s, %s-',nom,candidate);
     return candidate
   }
+  if(showDebug) console.info('%s, %s-',nom,gen);
   return gen;
 }
 
@@ -100,17 +118,26 @@ var declineAdjective = (function(){
       } else if(gen) {
         neu = gen[1] + 'um';
       } else {
-        console.info('What is this?  ' + nom + ': ' + itype);
+        console.info('What is this?  %s: %s', nom, itype);
         return;
       }
       neu = handleDiacritics(neu);
       if(neu[0]=='(') console.info('Warning (%s): genitive = ' + neu, nom);
       root = findThirdDeclensionRoot(nom,neu);
       endings = block['ī'];
-    } else { // TODO: add pluralia tanta.
-      console.info('ERROR determinining declension of adjective: ' + nom + ': '+ itype);
+    } else if(nom.match(/ī$/)) {
+      //plurale tantum
+      endings = block['ōrum'];
+    } else if(nom.match(/ēs$/)) {
+      var gen = itype.match(/\s*(\S+)a[,;.]*(?:\s|$)/i);
+      if(gen) {
+        endings = block['is'];
+        root = findThirdDeclensionRoot(nom,gen[1]);
+      } else return;
+    } else {
+      console.info('ERROR determinining declension of adjective: %s: (%s)', nom, itype);
       return;
-    }
+    } 
     for(var i=0; i < endings.length; ++i) {
       var newWord = root + endings[i];
       if(result.indexOf(newWord)<0) result.push(newWord);
@@ -160,14 +187,13 @@ var declineNoun = (function(){
     return result;
   }
 })();
-
 var fs = require('fs'),
     xml = fs.readFileSync('lewis.xml',{encoding:'utf8'}),
     fileIndeclinables = 'output/indeclinables.txt',
     fileNouns = 'output/nouns.txt',
     fileVerbs = 'output/verbs.txt',
     fileAdjectives = 'output/adjectives.txt',
-    regexEntry = /<entry[^>]*?>[^`]*?<orth[^>]*?>[^a-z&]*([^\s<]+)\s*([^<]*)[^`]*?<\/orth>[^`]*?<\/entry>/gi,
+    regexEntry = /<entry[^>]*?>[^`]*?<orth[^>]*?>[^a-z&-]*([a-z&;-]+)\s*([^<]*)[^`]*?<\/orth>[^`]*?<\/entry>/gi,
     regexGramGrp = /<gramGrp(?:\s[^>]*)?>([^`]*?)<\/gramGrp>/i,
     regexGramGen = /<gen>\s*([mfn])\s*<\/gen>/i,
     regexGramType = /<itype>([^`]*?)<\/itype>/i,
@@ -241,6 +267,7 @@ while( (entry = regexEntry.exec(xml)) ) {
     } else if(gen) {
       //if(!type) console.info('noun w/o type: ' + orth);
       //noun
+      
       var genitive = type && type.match(/(?:\s*\([^)]+\))?([^\s,]+)[\s,]+$/);
       if(genitive) {
         genitive = handleDiacritics(genitive[1]);
