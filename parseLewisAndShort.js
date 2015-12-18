@@ -1,5 +1,20 @@
 var regexLatin = /((?:<(?:b|i|sc)>)*)(((?:(?:(\s+)|^)(?:s[uú](?:bs?|s(?=[cpqt]))|tr[aáā]ns|p[oóō]st|[aáā]d|[oóō]bs|[eéē]x|p[eéēoóō]r|[iíī]n|r[eéē](?:d(?=d|[aeiouyáéëïíóúýǽæœāēīōūȳ]))))|(?:(?:(\s+)|)(?:(?:i(?!i)|(?:n[cg]|q)u)(?=[aeiouyáéëïíóúýǽæœāēīōūȳ])|[bcdfghjklmnprstvwxz]*)([aá]u|[ao][eé]?|[eiuyáéëïíóúýǽæœāēīōūȳ])(?:[\wáéíóúýǽæœāēīōūȳ]*(?=-)|(?=(?:n[cg]u|sc|[sc][tp]r?|gn|ps)[aeiouyáéëïíóúýǽæœāēīōūȳ]|[bcdgptf][lrh][\wáéíóúýǽæœāēīōūȳ])|(?:[bcdfghjklmnpqrstvwxz]+(?=$|[^\wáëïéíóúýǽæœāēīōūȳ])|[bcdfghjklmnpqrstvwxz](?=[bcdfghjklmnpqrstvwxz]+))?)))(?:([\*-])|([^\w\sáëïéíóúýǽæœāēīōūȳ]*(?:\s[:;†\*\"«»‘’“”„‟‹›‛])*\.?(?=\s|$))?)(?=(\s*|$)))((?:<\/(?:b|i|sc)>)*)/gi;
 String.prototype.endsWith = function(s){return s.length==0 || this.slice(-s.length)==s;}
+Array.prototype.addToIndex = function(index, object) {
+  switch(typeof(this[index])) {
+    case 'undefined':
+      this[index] = [object];
+      break;
+    case 'object':
+      if(Array == this[index].constructor) {
+        this[index].push(object);
+        break;
+      }
+    default:
+      this[index] = [this[index],object];
+      break;
+  }
+};
 var debug = {
   showThirdDeclensions: false,
   showCrossReferences: false,
@@ -166,6 +181,7 @@ var declineNoun = (function(){
     for(decl in declensions) {
       var endings = declensions[decl];
       for(i in endings) {
+        if(!endings.hasOwnProperty(i)) continue;
         var curEndings = endings[i];
         var j = 0;
         if(found || (nom.endsWith(curEndings[0]) && gen.endsWith(curEndings[1]))) {
@@ -201,14 +217,11 @@ var fs = require('fs'),
     regexOrth = /<orth[^>]*?>[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*([a-zāăäēĕëīĭïōŏöūŭüȳÿ_^ -]+)([^<]*)<\/orth>/i,
     regexGramGen = /<gen>([mfn]|comm?)\.<\/gen>/i,
     regexAdjType = /<\/(?:orth|gen)>(?:[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*(?:<[^>]+>)?(?:\([^)]+\))?)*([a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*(?:is|ae|[iī]|[aā]rum|[oō]rum|ūs|um|ius)|a, um|indecl\.)[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]/i,
-// todo: first get rid of tags and parenthetic remarks, then find the verb type. The tags are not reliable enough
-    regexVerbType = /<\/(?:orth|gen)>(?:[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*(?:<[^>]+>)?(?:\([^)]+\))?)*((?:(?:\s*\([^)]+\)\s*)?(?:[,]| and| or)?\s*(?:rarely\s*)?(?:([a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*(?:[āēeĕī]r[eĕiī]|[īit]|u[ms](?: (?:sum|est))?))|([1-4])|no perf.))+)[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]/i,
-    //regexVerbType = /<itype>((?:(?:.*?, )?(1|[āaä]r[eiī])|(2|[ēë]r[eiī])|(3|ere|[iī])|(4|[īiï]r[eiī]))|([^<]+))<\/itype>/i,
-    regexVerbParts = /<itype>[a-zāăäēĕëīĭïōŏöūŭüȳÿ-]+[iīt],\s+[a-zāăäēĕëīĭïōŏöūŭüȳÿ-]+um(?:, ([1-4]|[a-zāăäēĕëīĭïōŏöūŭüȳÿ-]+re))?<\/itype>/i,
+    regexVerb = / v\. (?:[n|a]|inch|dep|impers|act|neutral)[\.,\s]/,
+    regexVerbType = /(?:([1-4])|([āaäeëēĕīiï]r[eiīï])|([a-zāăäēĕëīĭïōŏöūŭüȳÿ]*(?:i|um|ferre|(?:ss|ll)e|us))(?:\s+(?:sum|est))?|(?:or|no perf|freq|orig))(?:\s?[,;\.]*\s+)+/gi,
     //P. a. == participial adjective
     regexGramPos = /<pos>(P\. a|(?:(?:num|pron)\. )?ad[jv](?:\. num)?|prep|interj|v\. (?:freq|inch\. )?((?:dep|impers|[an])(?:\. )?)+)\.<\/pos>/i,
     regexGramPosFallback = /<hi rend="ital">(P\. a|(?:(?:num|pron)\. )?ad[jv](?:\. num)?|prep|interj|v\. (?:freq|inch\. )?((?:dep|impers|[an])(?:\. )?)+)[^`]*?\.<\/hi>/i,
-    //regexVerbParts = /,\s*(?:([āēīae])r(e)|([āēī])?ī)[,;]?\s*/i,
     declensions = {
       'a': {
         'ae': '1st declension',
@@ -235,7 +248,60 @@ var fs = require('fs'),
       dep:  0,
       prep: 0
     };
-
+function getVerbMatch(orth, verbParts) {
+  debugger;
+  console.info(orth, verbParts)
+  regexVerbType.exec('');
+  var match = regexVerbType.exec(verbParts);
+  var verbMatch = [];
+  while(match) {
+    var i=1; for(i = i; i < match.length; ++i) {
+      if(match[i]) verbMatch.addToIndex(i, i==1? parseInt(match[i]) : match[i]);
+    }
+    match = regexVerbType.exec(verbParts);
+  }
+  var regexInfinitive = /(?:([āaä])|([ëē])|([eĕ])|([īiï]))r[eiīï]/i;
+  var regexPerfect = /(?:([āaä])|([ëē])|([eĕ])|([īiï]))(?:v[eiīï]|t[uŭüū]s)/i;
+  if(verbMatch[2]) {
+    verbMatch[2].forEach(function(ending) {
+      match = ending.match(regexInfinitive);
+      for(var i=1; match && i<5; ++i) {
+        if(match[i] && (!verbMatch[1] || verbMatch[1].indexOf(i)<0)) {
+          verbMatch.addToIndex(1, i);
+        }
+      }
+    });
+  }
+  if(verbMatch[3]) {
+    verbMatch[3].forEach(function(ending) {
+      match = ending.match(regexPerfect);
+      var i=1;
+      if(match && match[i] && !verbMatch[1]) {
+        verbMatch.addToIndex(1, i);
+      }
+      var verbClass = null;
+      if(!verbMatch[1]) {
+        if(ending.match(/(?:tŭli|lātum|ferre)$/) && orth.match(/f[eĕ]ro$/)) {
+          verbClass = 'ferre';
+        } else if(ending.match(/(?:fui|f[ŭu]tūrus|esse|posse)$/) && orth.match(/s[uūŭ]m$/)) {
+          verbClass = 'esse';
+        } else if(ending.match(/isse$/)) {
+          verbClass = 'perfect';
+        } else {
+          match = orth.match(/([eĕ]?)o(r?)$/);
+          if(match) {
+            var verbType = match[1]? 2 : 3;
+            verbMatch.addToIndex(1, verbType);
+          }
+        }
+      }
+      if(verbClass && (!verbMatch[1] || verbMatch[1].indexOf(verbClass)<0)) {
+        verbMatch.addToIndex(1, verbClass);
+      }
+    });
+  }
+  return verbMatch;
+}
 while( (entry = regexEntry.exec(xml)) ) {
   ++count;
   var orth = handleDiacritics(entry[3]);
@@ -248,15 +314,20 @@ console.info('\north: ' + orth);
   }
   var gen = regexGramGen.exec(entry[1]);
   var adjType = regexAdjType.exec(entry[1]);
-  var verbType = regexVerbType.exec(entry[1]);
   var pos = regexGramPos.exec(entry[1]);
-  var verbParts = regexVerbParts.exec(entry[1]);
   var fullEntry = entry[1].match(/<\/orth>([^`]*?)(?:$|<\/entryFree>)/);
   var fullText = fullEntry[1].replace(/<(bibl|foreign|cit|quote|etym)[^>]*>.*?<\/\1>;?|<[^>]+>/g,'');
   var fullTextSansParentheses = fullText.replace(regexParentheses,' ').replace(regexParentheses,' ').replace(/\s*\[[^\]]+\]\s*/g,' ');
+  var verbMatch = fullTextSansParentheses.match(regexVerb);
+  var verbParts;
+  if(verbMatch) {
+    verbParts = fullTextSansParentheses.slice(0,verbMatch.index+verbMatch[0].length);
+    regexVerbType.exec('');
+    verbMatch = regexVerbType.exec(verbParts);
+  }
   //TODO: use other orths, besides the first one; var orths = regexOrth.exec(entry[1]);
   if(!pos) pos = regexGramPosFallback.exec(entry[1]);
-  if(gen || pos || adjType || verbType) {
+  if(gen || pos || adjType || verbMatch) {
     if(gen) {
       ++numGen;
       gen = gen[1];
@@ -267,10 +338,11 @@ console.info('\north: ' + orth);
       ++numAdjType;
       console.info('adjType: ' + adjType);
     }
-    if(verbType) {
-      verbType = verbType[1];
+    if(verbMatch) {
+      verbMatch = getVerbMatch(orth,verbParts);
+      //verbParts = getVerbParts(verbMatch);
       ++numVerbType;
-      console.info('verbType: ' + verbType);
+      console.info('verbType: ' + verbMatch);
     }
     if(pos) {
       pos = pos[1];
@@ -283,10 +355,10 @@ console.info('\north: ' + orth);
       else console.info('no adjType....why?')
     } else if(adjType && adjType != 'indecl.' && (!pos || pos.match(/adj\./))) {
       console.info('adj declension:', declineAdjective(orth,adjType));
-    } else if(fullTextSansParentheses.match(/ v\. (?:[n|a]|inch|dep|impers|act|neutral)[\.,\s]/)) {
+    } else if(verbMatch) {
       //console.info('infinitive:', conjugateVerb(orth,verbType));
       numVerb++;
-      verbs.push({orthography: orth, verbType: verbType, fullText: fullTextSansParentheses});
+      verbs.push({orthography: orth, verbParts: verbParts, verbMatch: verbMatch, fullText: fullTextSansParentheses});
       // Algorithm:
 
       // if the ending starts with a consonant (e.g. xi, ctum), find the last consonant of the same class (e.g., [cgqx], abdiC)
@@ -328,10 +400,7 @@ console.info('\north: ' + orth);
     }
     continue;
     //if(gen && pos) console.info(orth);
-    if((type && type.match(regexVerbParts)) || gramGrp.match(regexVerbParts)) {
-      //verb
-      numVerb++;
-    } else if(pos.match(/adj\./)) {
+    if(pos.match(/adj\./)) {
       //adjective...
       declineAdjective(orth,handleDiacritics(type||gramGrp.match(/^<gramGrp(?:\s[^>]*)?>(?:\s*?\([^)]+\)[,;.\s]*(?=[^,.;\s]))?([^]+)<\/gramGrp>/)[1]));
     } else if(pos.match(/P\. a\./)) {
