@@ -281,7 +281,7 @@ function getVerbMatch(orth, verbParts) {
       }
       var verbClass = null;
       if(!verbMatch[1]) {
-        if(ending.match(/(?:tŭli|lātum|ferre)$/) && orth.match(/f[eĕ]ro$/)) {
+        if(ending.match(/(?:tŭli|lātum|ferre)$/) && orth.match(/f[eĕ]r[ot]$/)) {
           verbClass = 'ferre';
         } else if(ending.match(/(?:fui|f[ŭu]tūrus|esse|posse)$/) && orth.match(/s[uūŭ]m$/)) {
           verbClass = 'esse';
@@ -340,7 +340,7 @@ console.info('\north: ' + orth);
     }
     if(verbMatch) {
       verbMatch = getVerbMatch(orth,verbParts);
-      //verbParts = getVerbParts(verbMatch);
+      //verbParts = getVerbParts(orth,verbMatch);
       ++numVerbType;
       console.info('verbType: ' + verbMatch);
     }
