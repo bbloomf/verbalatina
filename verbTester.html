@@ -1,9 +1,14 @@
 <html>
 <head>
+<meta charset="UTF-8">
 <title>Verb Tester</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 <body>
+<span id='verb-count'>0</span> verbs in list (<span id='queue'>0</span> in queue)
+<input id='regex' style='width: 100%'>
+<span id='valid'><span id='matches'>0</span> matches</span>
+<span id='invalid' style='color: darkred;'>Invalid regular expression: <span></span></span>
 <table class='table'>
 <thead>
 <tr><th>Verb</th><th>Class</th><th>Endings</th><th>Entire Entry</th></tr>
@@ -13,16 +18,164 @@
 <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 <script>
 $(function($){
+  var _verbs;
+  $('#regex').val(localStorage.verbRegex||'');
   $.getJSON('output/verbs.json',function(verbs){
+    _verbs = verbs;
+    $('#verb-count').text(verbs.length);
     var $tbody = $('tbody');
+    var i=0;
+    var verbRegex = / v\. (?:[n|a]|inch|dep|impers|act|neutral)[\.,\s]/;
     verbs.forEach(function(verb){
-      var tr = $('<tr/>');
+      var tr = $('<tr/>').hide();
       tr.append($('<td/>').text(verb.orthography));
       tr.append($('<td/>')); // TO Do, determine verb conjugation, 1,2,3,3io,4
       tr.append($('<td/>').text(verb.verbType));
-      tr.append($('<td/>').html(verb.fullText.replace(verb.verbType,'<b>'+verb.verbType+'</b>').split(/\s+/g).splice(0,50).join(' ')));
+      var match = verbRegex.exec(verb.fullText);
+      if(!match) {
+        console.info(verb.fullText);
+        tr.show();
+      }
+      else {
+        verb.verbParts = verb.fullText.slice(0,match.index+match[0].length);
+        tr.append($('<td/>').html(verb.verbParts.replace(verb.verbType,'<b>'+verb.verbType+'</b>')));
+      }
       $tbody.append(tr);
-    })
+    });
+    $rows = $('tbody>tr');
+    //$('#regex').keyup();
+  });
+  var $rows = $('tbody>tr');
+  $('#regex').on('keyup', function(){
+    var curVal = localStorage.verbRegex = $(this).val();
+    var regex;
+    try {
+      regex = new RegExp(curVal,'ig');
+    } catch(e) {
+      $('#valid').hide();
+      $('#invalid').text(e.toString()).show();
+      console.info(e);
+      return;
+    }
+    $('#valid').show(); $('#invalid').hide();
+    var queue = [];
+    var queueRunning = false;
+    var processCount = 0;
+    var processQueue = function(){
+      $('#queue').text(queue.length);
+      if(queue.length) {
+        queueRunning = true;
+        if(processCount == 0) {
+          processCount = 499;
+          setTimeout(queue.shift());
+        } else {
+          --processCount;
+          queue.shift()();
+        }
+      } else {
+        queueRunning = false;
+      }
+    }
+    Array.prototype.addToIndex = function(index, object) {
+      switch(typeof(this[index])) {
+        case 'undefined':
+          this[index] = [object];
+          break;
+        case 'object':
+          if($.isArray(this[index])) {
+            this[index].push(object);
+            break;
+          }
+        default:
+          this[index] = [this[index],object];
+          break;
+      }
+    };
+    $('#matches').text(_verbs.reduce(function(count, verb, index){
+      regex.exec('');
+      var match = regex.exec(verb.verbParts);
+      var $row = $($rows.get(index)).show();
+      if(match) queue.push(function() {
+        var tds = $row.find('td');
+        var initial = true;
+        regex.exec('');
+        var match = regex.exec(verb.verbParts);
+        var verbMatch = [];
+        while(match) {
+          var i=1; for(i = i; i < match.length; ++i) {
+            var td = tds.get(i == 1? 1 : i+2);
+            if(td) {
+              td = $(td);
+            } else {
+              td = $('<td>').appendTo($row);
+            }
+            if(initial || match[i]) td.text(function(j,txt){ return initial? '' : (txt + (txt?', ':'') + match[i]); });
+            if(!initial && match[i]) {
+              verbMatch.addToIndex(i, match[i]);
+            }
+          }
+          if(initial) {
+            initial = false;
+            tds = $row.find('td');
+          } else {
+            match = regex.exec(verb.verbParts);
+          }
+        }
+        var regexInfinitive = /(?:([āaä])|([ëē])|([eĕ])|([īiï]))r[eiīï]/i;
+        var regexPerfect = /(?:([āaä])|([ëē])|([eĕ])|([īiï]))(?:v[eiīï]|t[uŭüū]s)/i;
+        if(verbMatch[2]) {
+          verbMatch[2].forEach(function(ending) {
+            var testmatch = ending.match(regexInfinitive);
+            for(var i=1; testmatch && i<5; ++i) {
+              if(testmatch[i]) {
+                if(!verbMatch[1]) {
+                  verbMatch.addToIndex(1, i);
+                  $(tds.get(1)).text(i);
+                  break;
+                } else if(verbMatch[1][0] != i) {
+                  console.info('disagreement: '+ verbMatch[1][0] + ' or ' + i + '? ' + verb.orthography + verb.verbParts);
+                }
+              }
+            }
+          });
+        }
+        if(verbMatch[3]) {
+          verbMatch[3].forEach(function(ending) {
+            var testmatch = ending.match(regexPerfect);
+            var i=1;
+            if(testmatch && testmatch[i]) {
+              if(!verbMatch[1]) {
+                verbMatch.addToIndex(1, i);
+                $(tds.get(1)).text(i);
+              } else if(verbMatch[1][0] != i) {
+                console.info('disagreement: '+ verbMatch[1][0] + ' or ' + i + '? ' + verb.orthography + verb.verbParts);
+              }
+            }
+            if(ending.match(/(?:tŭli|lātum|ferre)$/)) {
+              verbMatch.addToIndex(1, 'ferre');
+              $(tds.get(1)).text('ferre');
+            } else if(ending.match(/(?:fui|f[ŭu]tūrus|esse|posse)$/)) {
+              verbMatch.addToIndex(1, 'esse');
+              $(tds.get(1)).text('esse');
+            } else if(ending.match(/isse$/)) {
+              verbMatch.addToIndex(1, 'perfect');
+              $(tds.get(1)).text('perfect');
+            } else if(!verbMatch[1]) {
+              testmatch = verb.orthography.match(/([eĕ]?)o(r?)$/);
+              if(testmatch) {
+                var verbType = testmatch[1]? 2 : 3;
+                verbMatch.addToIndex(1, verbType);
+                $(tds.get(1)).text(verbType);
+              }
+            }
+          });
+        }
+        $row.toggle(!verbMatch[1]);
+        processQueue();
+      });
+      if(!queueRunning) processQueue();
+      return count + (match? 1 : 0);
+    },0));
   });
 });
 </script>

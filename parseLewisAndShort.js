@@ -196,17 +196,18 @@ var fs = require('fs'),
     fileVerbs = 'output/verbs.json',
     verbs = [],
     fileAdjectives = 'output/adjectives.txt',
+    regexParentheses = /\s*[(（][^)）(（]+(?:[)）])\s*/g,
     regexEntry = /<entryFree[^>]*?>(([^`]*?<orth[^>]*?>[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*([a-zāăäēĕëīĭïōŏöūŭüȳÿ_^ -]+)([^<]*)<\/orth>)+?[^`]*?)<\/entryFree>/gi,
     regexOrth = /<orth[^>]*?>[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*([a-zāăäēĕëīĭïōŏöūŭüȳÿ_^ -]+)([^<]*)<\/orth>/i,
     regexGramGen = /<gen>([mfn]|comm?)\.<\/gen>/i,
     regexAdjType = /<\/(?:orth|gen)>(?:[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*(?:<[^>]+>)?(?:\([^)]+\))?)*([a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*(?:is|ae|[iī]|[aā]rum|[oō]rum|ūs|um|ius)|a, um|indecl\.)[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]/i,
 // todo: first get rid of tags and parenthetic remarks, then find the verb type. The tags are not reliable enough
-    regexVerbType = /<\/(?:orth|gen)>(?:[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*(?:<[^>]+>)?(?:\([^)]+\))?)*((?:(?:\s*\([^)]+\)\s*)?(?:[,]| and| or)?\s*(?:rarely\s*)?(?:([a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*(?:[āēeĕī]r[eĕiī]|[īi]|u[ms]))|([1-4])|no perf.))+)[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]/i,
+    regexVerbType = /<\/(?:orth|gen)>(?:[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*(?:<[^>]+>)?(?:\([^)]+\))?)*((?:(?:\s*\([^)]+\)\s*)?(?:[,]| and| or)?\s*(?:rarely\s*)?(?:([a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*(?:[āēeĕī]r[eĕiī]|[īit]|u[ms](?: (?:sum|est))?))|([1-4])|no perf.))+)[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]/i,
     //regexVerbType = /<itype>((?:(?:.*?, )?(1|[āaä]r[eiī])|(2|[ēë]r[eiī])|(3|ere|[iī])|(4|[īiï]r[eiī]))|([^<]+))<\/itype>/i,
-    regexVerbParts = /<itype>[a-zāăäēĕëīĭïōŏöūŭüȳÿ-]+[iī],\s+[a-zāăäēĕëīĭïōŏöūŭüȳÿ-]+um(?:, ([1-4]|[a-zāăäēĕëīĭïōŏöūŭüȳÿ-]+re))?<\/itype>/i,
+    regexVerbParts = /<itype>[a-zāăäēĕëīĭïōŏöūŭüȳÿ-]+[iīt],\s+[a-zāăäēĕëīĭïōŏöūŭüȳÿ-]+um(?:, ([1-4]|[a-zāăäēĕëīĭïōŏöūŭüȳÿ-]+re))?<\/itype>/i,
     //P. a. == participial adjective
-    regexGramPos = /<pos>(P\. a|(?:(?:num|pron)\. )?ad[jv](?:\. num)?|prep|interj|v\. (?:freq|inch\. )?((?:dep|[an])(?:\. )?)+)\.<\/pos>/i,
-    regexGramPosFallback = /<hi rend="ital">(P\. a|(?:(?:num|pron)\. )?ad[jv](?:\. num)?|prep|interj|v\. (?:freq|inch\. )?((?:dep|[an])(?:\. )?)+)[^`]*\.<\/hi>/i,
+    regexGramPos = /<pos>(P\. a|(?:(?:num|pron)\. )?ad[jv](?:\. num)?|prep|interj|v\. (?:freq|inch\. )?((?:dep|impers|[an])(?:\. )?)+)\.<\/pos>/i,
+    regexGramPosFallback = /<hi rend="ital">(P\. a|(?:(?:num|pron)\. )?ad[jv](?:\. num)?|prep|interj|v\. (?:freq|inch\. )?((?:dep|impers|[an])(?:\. )?)+)[^`]*?\.<\/hi>/i,
     //regexVerbParts = /,\s*(?:([āēīae])r(e)|([āēī])?ī)[,;]?\s*/i,
     declensions = {
       'a': {
@@ -250,6 +251,9 @@ console.info('\north: ' + orth);
   var verbType = regexVerbType.exec(entry[1]);
   var pos = regexGramPos.exec(entry[1]);
   var verbParts = regexVerbParts.exec(entry[1]);
+  var fullEntry = entry[1].match(/<\/orth>([^`]*?)(?:$|<\/entryFree>)/);
+  var fullText = fullEntry[1].replace(/<(bibl|foreign|cit|quote|etym)[^>]*>.*?<\/\1>;?|<[^>]+>/g,'');
+  var fullTextSansParentheses = fullText.replace(regexParentheses,' ').replace(regexParentheses,' ').replace(/\s*\[[^\]]+\]\s*/g,' ');
   //TODO: use other orths, besides the first one; var orths = regexOrth.exec(entry[1]);
   if(!pos) pos = regexGramPosFallback.exec(entry[1]);
   if(gen || pos || adjType || verbType) {
@@ -279,17 +283,28 @@ console.info('\north: ' + orth);
       else console.info('no adjType....why?')
     } else if(adjType && adjType != 'indecl.' && (!pos || pos.match(/adj\./))) {
       console.info('adj declension:', declineAdjective(orth,adjType));
-    } else if(pos && pos.match(/v\./)) {
+    } else if(fullTextSansParentheses.match(/ v\. (?:[n|a]|inch|dep|impers|act|neutral)[\.,\s]/)) {
       //console.info('infinitive:', conjugateVerb(orth,verbType));
-      var fullEntry = entry[1].match(/<\/orth>([^`]*?)(?:$|<\/entryFree>)/);
-      var fullText = fullEntry[1].replace(/<(bibl|foreign|cit|quote) [^>]+>.*?<\/\1>;?|<[^>]+>/g,'');
-      verbs.push({orthography: orth, verbType: verbType, fullText: fullText});
+      numVerb++;
+      verbs.push({orthography: orth, verbType: verbType, fullText: fullTextSansParentheses});
+      // Algorithm:
+
+      // if the ending starts with a consonant (e.g. xi, ctum), find the last consonant of the same class (e.g., [cgqx], abdiC)
+      // if, however, the ending is more than two syllables ('volutum'), ignore the last syllable of the root ('advol[vo]')
+          // if such a consonant isn't found, throw a warning
+      // if the ending starts with a vowel (-idi, -itum), check if the last vowel is a match. (e.g., abnuo,)
+      // otherwise, check if it is followed by the same consonant (ab-ripio, -eptum)
+      // consonant classes: [bp], [cgkqx], [dst], [fp], [ji], [mn], [vu]
+
+      // trickier:    ad-volvo, vi, vŏlūtum
+      // 
+
       // ab-dico, xi, ctum
-      // ab-do, idi, itum
+          // ab-do, idi, itum
       // ab-eo, ivi or ii, itum
       // ab-horreo, ui, ēre
       // abicio, ĕre, jēci, jēctum
-      // ab-ĭgo, ēgi, actum
+          // ab-ĭgo, ēgi, actum
       // ab-jungo, xi, ctum
       // ab-ligurrio, īvi, ītum
       // ab-lŭo, ŭi, ūtum
@@ -306,6 +321,7 @@ console.info('\north: ' + orth);
       // abs-cīdo, cīdi, cīsum, 3
       // ab-scindo, cidi, cissum
       // abs-condo, condi and condidi, conditum and consum
+      // ad-volvo, vi, vŏlūtum
       // benefacio, fēci, factum
       // beneplaceo, ŭi, itum, 2
 
