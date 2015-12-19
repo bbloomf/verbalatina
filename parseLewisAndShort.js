@@ -1,5 +1,8 @@
 var regexLatin = /((?:<(?:b|i|sc)>)*)(((?:(?:(\s+)|^)(?:s[uú](?:bs?|s(?=[cpqt]))|tr[aáā]ns|p[oóō]st|[aáā]d|[oóō]bs|[eéē]x|p[eéēoóō]r|[iíī]n|r[eéē](?:d(?=d|[aeiouyáéëïíóúýǽæœāēīōūȳ]))))|(?:(?:(\s+)|)(?:(?:i(?!i)|(?:n[cg]|q)u)(?=[aeiouyáéëïíóúýǽæœāēīōūȳ])|[bcdfghjklmnprstvwxz]*)([aá]u|[ao][eé]?|[eiuyáéëïíóúýǽæœāēīōūȳ])(?:[\wáéíóúýǽæœāēīōūȳ]*(?=-)|(?=(?:n[cg]u|sc|[sc][tp]r?|gn|ps)[aeiouyáéëïíóúýǽæœāēīōūȳ]|[bcdgptf][lrh][\wáéíóúýǽæœāēīōūȳ])|(?:[bcdfghjklmnpqrstvwxz]+(?=$|[^\wáëïéíóúýǽæœāēīōūȳ])|[bcdfghjklmnpqrstvwxz](?=[bcdfghjklmnpqrstvwxz]+))?)))(?:([\*-])|([^\w\sáëïéíóúýǽæœāēīōūȳ]*(?:\s[:;†\*\"«»‘’“”„‟‹›‛])*\.?(?=\s|$))?)(?=(\s*|$)))((?:<\/(?:b|i|sc)>)*)/gi;
 String.prototype.endsWith = function(s){return s.length==0 || this.slice(-s.length)==s;}
+Array.prototype.addIfNotIn = function(object) {
+  if(this.indexOf(object) < 0) this.push(object);
+}
 Array.prototype.addToIndex = function(index, object) {
   switch(typeof(this[index])) {
     case 'undefined':
@@ -7,7 +10,7 @@ Array.prototype.addToIndex = function(index, object) {
       break;
     case 'object':
       if(Array == this[index].constructor) {
-        this[index].push(object);
+        this[index].addIfNotIn(object);
         break;
       }
     default:
@@ -42,7 +45,7 @@ var handleDiacritics = function(string) {
 }
 var findThirdDeclensionRoot = function(nom,gen) {
   // nom,gen are, e.g., iter,itineris; ordo,inis; Acherōn, tis; expers, tis; supellex, supellectilis
-  // Algortihm:
+  // Algorithm:
   // if(gen.startsWith(vowel))
   //   nomRoot = nom (substring to last vowel), e.g., iter=>it, ordo=> ord
   //   start with the last vowel in the gen ending and keep checking if nom+genEnd.endsWith(gen);
@@ -249,7 +252,6 @@ var fs = require('fs'),
       prep: 0
     };
 function getVerbMatch(orth, verbParts) {
-  debugger;
   console.info(orth, verbParts)
   regexVerbType.exec('');
   var match = regexVerbType.exec(verbParts);
@@ -274,11 +276,11 @@ function getVerbMatch(orth, verbParts) {
   }
   if(verbMatch[3]) {
     verbMatch[3].forEach(function(ending) {
-      match = ending.match(regexPerfect);
-      var i=1;
-      if(match && match[i] && !verbMatch[1]) {
-        verbMatch.addToIndex(1, i);
-      }
+      // match = ending.match(regexPerfect);
+      // var i=1;
+      // if(match && match[i] && (!verbMatch[1] || verbMatch[1].indexOf(i)<0)) {
+      //   verbMatch.addToIndex(1, i);
+      // }
       var verbClass = null;
       if(!verbMatch[1]) {
         if(ending.match(/(?:tŭli|lātum|ferre)$/) && orth.match(/f[eĕ]r[ot]$/)) {
@@ -290,8 +292,7 @@ function getVerbMatch(orth, verbParts) {
         } else {
           match = orth.match(/([eĕ]?)o(r?)$/);
           if(match) {
-            var verbType = match[1]? 2 : 3;
-            verbMatch.addToIndex(1, verbType);
+            verbClass = match[1]? 2 : 3;
           }
         }
       }

@@ -11,20 +11,24 @@
 <span id='invalid' style='color: darkred;'>Invalid regular expression: <span></span></span>
 <table class='table'>
 <thead>
-<tr><th>Verb</th><th>Class</th><th>Infinitive</th><th>Entire Entry</th></tr>
+<tr><th>Verb</th><th>Class</th><th>Root</th><th>Infinitive</th><th>Perfect</th><th>Supine</th><th>Parts</th></tr>
 </thead>
 <tbody></tbody>
 </table>
 <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 <script>
+var regexLatin = /((?:<(?:b|i|sc)>)*)(((?:(?:(\s+)|^)(?:s[uú](?:bs?|s(?=[cpqt]))|tr[aáā]ns|p[oóō]st|[aáā]d|[oóō]bs|[eéē]x|p[eéēoóō]r|[iíī]n|r[eéē](?:d(?=d|[aeiouyáéëïíóúýǽæœāēīōūȳ]))))|(?:(?:(\s+)|)(?:(?:i(?!i)|(?:n[cg]|q)u)(?=[aeiouyáéëïíóúýǽæœāēīōūȳ])|[bcdfghjklmnprstvwxz]*)([aá]u|[ao][eé]?|[eiuyáéëïíóúýǽæœāēīōūȳ])(?:[\wáéíóúýǽæœāēīōūȳ]*(?=-)|(?=(?:n[cg]u|sc|[sc][tp]r?|gn|ps)[aeiouyáéëïíóúýǽæœāēīōūȳ]|[bcdgptf][lrh][\wáéíóúýǽæœāēīōūȳ])|(?:[bcdfghjklmnpqrstvwxz]+(?=$|[^\wáëïéíóúýǽæœāēīōūȳ])|[bcdfghjklmnpqrstvwxz](?=[bcdfghjklmnpqrstvwxz]+))?)))(?:([\*-])|([^\w\sáëïéíóúýǽæœāēīōūȳ]*(?:\s[:;†\*\"«»‘’“”„‟‹›‛])*\.?(?=\s|$))?)(?=(\s*|$)))((?:<\/(?:b|i|sc)>)*)/gi;
+Array.prototype.addIfNotIn = function(object) {
+  if(this.indexOf(object) < 0) this.push(object);
+}
 Array.prototype.addToIndex = function(index, object) {
   switch(typeof(this[index])) {
     case 'undefined':
       this[index] = [object];
       break;
     case 'object':
-      if($.isArray(this[index])) {
-        this[index].push(object);
+      if(Array == this[index].constructor) {
+        this[index].addIfNotIn(object);
         break;
       }
     default:
@@ -32,13 +36,139 @@ Array.prototype.addToIndex = function(index, object) {
       break;
   }
 };
+String.prototype.removeDiacritics = function() {
+  return this.toLowerCase().replace(/ae/g,'æ').replace(/oe/g,'œ').replace(/[āēīōūȳăĕĭŏŭäëïöüÿ]/g, function(match){
+    switch(match) {
+      case 'ā':
+      case 'ă':
+      case 'ä':
+        return 'a';
+      case 'ē':
+      case 'ĕ':
+      case 'ë':
+        return 'e';
+      case 'ī':
+      case 'ĭ':
+      case 'ï':
+        return 'i';
+      case 'ō':
+      case 'ŏ':
+      case 'ö':
+        return 'o';
+      case 'ū':
+      case 'ŭ':
+      case 'ü':
+        return 'u';
+      case 'ȳ':
+      case 'ÿ':
+        return 'y';
+    }
+  });
+}
+function findRootForEnding(root, ending, conj) {
+  var endingNoDiacritics = ending.removeDiacritics();
+  var rootBackwards = root.split('').reverse().join('');
+  var rootBackwardsNoDiacritics = rootBackwards.removeDiacritics();
+  var temp;
+  switch(conj) {
+    case 1:
+      if(endingNoDiacritics.match(/a(vi|tum)$/)) return root;
+      break;
+    case 2:
+      if(endingNoDiacritics.match(/e(vi|tum)$/)) return root;
+      break;
+    case 3:
+      temp = endingNoDiacritics.match(/([ui])(v?i|tum)$/);
+      if(temp && !rootBackwardsNoDiacritics[0] == temp[1]) return root;
+      break;
+    case 4:
+      if(endingNoDiacritics.match(/i(v?i|tum)$/)) return root;
+      break;
+  }
+  
+  var consonantClasses = ['bp', 'cgkqxh', 'dst', 'fp', 'ji', 'mn', 'vsu', 'aeoiuyæœ'];
+  var regexVowels = /[aieouyæœ]/g;
+  // Algorithm:
+
+  // if the ending starts with a consonant (e.g. xi, ctum), find the last consonant of the same class (e.g., [cgqx], abdiC)
+  // if, however, the ending is more than two syllables ('volutum'), ignore the last syllable of the root ('advol[vo]')
+      // if such a consonant isn't found, throw a warning
+  // if the ending starts with a vowel (-idi, -itum), check if the last vowel is a match. (e.g., -ŭi, -ūtum, for abnuo,)
+  // otherwise, check if it is followed by the same consonant (ab-ripio, -eptum)
+  // consonant classes: [bp], [cgkqx], [dst], [fp], [ji], [mn], [vu]
+
+  // trickier:    ad-volvo, vi, vŏlūtum
+  // 
+
+  var vowelsInRoot = (rootBackwardsNoDiacritics.match(regexVowels)||[]).length;
+  var vowelsInEnding = (endingNoDiacritics.match(regexVowels)||[]).length;
+  var regex;
+  if(endingNoDiacritics[0].match(regexVowels)) {
+    // ending starts with a vowel...
+    // check for this vowel, or a different vowel followed by the same consonant that this one is followed by.
+    var consonantClass = $.grep(consonantClasses, function(str){ return str.indexOf(endingNoDiacritics[1]) >= 0; })[0] || endingNoDiacritics[1];
+    var regex = new RegExp(endingNoDiacritics[0] + '|[' + consonantClass + '][aeiouyæœ]');
+  } else {
+    // ending starts with consonant...
+    // find the last consonant of the same consonant class
+    var consonantClass = $.grep(consonantClasses, function(str){ return str.indexOf(endingNoDiacritics[0]) >= 0; })[0] || endingNoDiacritics[0];
+    var regex = new RegExp('[' + consonantClass + ']');
+  }
+  var match = rootBackwardsNoDiacritics.match(regex);
+  if(match) {
+    // as long as the number of vowels taken away from the root is within two of what's being added on in the ending...
+    var newRoot = root.slice(0, -(match.index + match[0].length));
+    var vowelsTakenAway = (rootBackwardsNoDiacritics.slice(0, match.index + match[0].length).match(regexVowels)||[]).length;
+    if(vowelsTakenAway + 2 >= vowelsInEnding) {
+      return newRoot;
+    } else {
+      // number of syllables is too different.  Try again with the shorter newRoot.
+      return findRootForEnding(newRoot, ending, conj);
+    }
+
+  }
+  return root;
+
+
+  // ab-dico, xi, ctum
+      // ab-do, idi, itum
+  // ab-eo, ivi or ii, itum
+  // ab-horreo, ui, ēre
+  // abicio, ĕre, jēci, jēctum
+      // ab-ĭgo, ēgi, actum
+  // ab-jungo, xi, ctum
+  // ab-ligurrio, īvi, ītum
+  // ab-lŭo, ŭi, ūtum
+  // ab-nuo, ŭi, ŭitum
+  // ab-oleo, ēvi (ui), ĭtum
+  //     ăb-ŏlĕo</orth>, <itype>ēvi</itype> (ui), <itype>ĭtum, 2</itype>
+  // ăb-ōmĭnor, ātus
+  // ab-ortio, īre
+  // ab-rādo, si, sum
+  // ab-ripio, pui, eptum, 3
+  // ab-rodo, si, sum
+  // ab-rumpo, ūpi, uptum
+  // abs-cēdo, cessi, cessum, 3
+  // abs-cīdo, cīdi, cīsum, 3
+  // ab-scindo, cidi, cissum
+  // abs-condo, condi and condidi, conditum and consum
+  // ad-volvo, vi, vŏlūtum
+  // benefacio, fēci, factum
+  // beneplaceo, ŭi, itum, 2
+}
 function getVerbParts(orth, verbMatch) {
   if(!verbMatch[1]) {
     console.info('unknown verb:', orth);
     return {};
   }
-  var root = orth;
-  var parts = {};
+  var root = null;
+  var parts = {root: [], infinitive: [], supine: [], perfect: []};
+  var perfectEnding = $.grep(verbMatch[3]||[], function(ending) {
+    return ending.match(/[iīĭï]$/i);
+  });
+  var supineEnding = $.grep(verbMatch[3]||[], function(ending) {
+    return ending.match(/[uūŭü][ms]$/i);
+  });
   var verbEnding = orth.match(/(?:([eĕ])|([iĭ]))?([oōŏ])(r?)$|(f[eĕ]r[ot]|[aeiāăäĕēëīĭï]t|tur|sum)$/)
   if(!verbEnding) verbEnding = [];
   if(verbEnding[1]) verbEnding.eo = true; else verbEnding[1] = '';
@@ -48,57 +178,68 @@ function getVerbParts(orth, verbMatch) {
   verbMatch[1].forEach(function(conj) {
     switch(conj) {
       case 1:
-        if(verbEnding.firstPerson) root = orth.slice(0,-(verbEnding[3].length+verbEnding[4].length));
-        parts.infinitive = root + 'āre';
-        parts.supine = root + 'ātum';
-        parts.perfect = root + 'āvisse'
+        if(!root && orth.match(/[oōŏ]r?$/)) root = orth.slice(0,-(1+verbEnding[4].length));
+        if(!root && orth.match(/[aăāä]t$/)) root = orth.slice(0,-2);
+        parts.infinitive.push(root + 'āre');
+        supineEnding.addIfNotIn('ātum');
+        perfectEnding.addIfNotIn('āvi');
         break;
       case 2:
-        if(!verbEnding.eo) {
-          var tempMatch = orth.match(/[eēĕë]t(ur)?$/);
-          if(tempMatch) {
-            root = orth.slice(0,-(tempMatch[1]||'').length);
+        if(!root) {
+          if(!verbEnding.eo) {
+            var tempMatch = orth.match(/[eēĕë]t(ur)?$/);
+            if(tempMatch) {
+              root = orth.slice(0,-(tempMatch[1]||'').length);
+            } else {
+              console.warn(orth + ' should end with -eo because it is marked as second conjugation (ēre)');
+              root = orth.slice(0,-(verbEnding[2].length+verbEnding[3].length+verbEnding[4].length))
+            }
           } else {
-            console.warn(orth + ' should end with -eo because it is marked as second conjugation (ēre)');
+            root = orth.slice(0,-(verbEnding[1].length+verbEnding[3].length+verbEnding[4].length));
           }
-        } else {
-          root = orth.slice(0,-(verbEnding[1].length+verbEnding[3].length+verbEnding[4].length));
         }
-        parts.infinitive = root + 'ēre';
+        parts.infinitive.push(root + 'ēre');
         break;
       case 3:
-        root = orth.slice(0,-(verbEnding[2].length+verbEnding[3].length+verbEnding[4].length));
-        parts.infinitive = root + 'ĕre';
-        if(verbEnding.io) parts.infinitive += ' (io)';
+        if(!root) root = orth.slice(0,-(verbEnding[2].length+verbEnding[3].length+verbEnding[4].length));
+        parts.infinitive.push(root + 'ĕre');
         break;
       case 4:
-        if(!verbEnding.io && !verbEnding.eo) console.warn(orth + ' should end with -eo or -io because it is marked as fourth conjugation (īre)');
-        root = orth.slice(0,-(verbEnding[1].length+verbEnding[2].length+verbEnding[3].length+verbEnding[4].length));
-        parts.infinitive = root + 'īre';
+        if(!root && !verbEnding.io && !verbEnding.eo) console.warn(orth + ' should end with -eo or -io because it is marked as fourth conjugation (īre)');
+        if(!root) root = orth.slice(0,-(verbEnding[1].length+verbEnding[2].length+verbEnding[3].length+verbEnding[4].length));
+        if(root.match(/[iīĭ]$/)) root = root.slice(0,-1); // need a way to describe that there are two roots, but this only happens on one verb.
+        parts.infinitive.push(root + 'īre');
         if(verbEnding.eo) conj = 'eo';
         break;
       case 'perfect':
         if(orth.match(/[iīĭï]$/)) {
           root = orth.slice(0,-1);
-          parts.infinitive = parts.perfect = root + 'isse';
+          parts.infinitive.push(parts.perfect.push(root + 'isse'));
         } else console.warn(orth, ' does not end with -i but it is marked as a perfect stem verb');
         break;
       case 'esse':
         if(verbEnding[5] == 'sum') {
           root = orth.slice(0,-3);
-          parts.infinitive = root + (root.match(/s$/)? 'se' : 'esse');
+          parts.infinitive.push(root + (root.match(/s$/)? 'se' : 'esse'));
         }
         break;
       case 'ferre':
         if(verbEnding[5][0] == 'f') {
           root = orth.slice(0,-verbEnding[5].length);
-          parts.infinitive = root + 'ferre';
+          parts.infinitive.push(root + 'ferre');
         }
         break;
       default:
         console.warn('Unrecognized verb conjugation: ' + conj);
         break;
     }
+    perfectEnding.forEach(function(end){
+      parts.perfect.push(findRootForEnding(root,end,conj) + end);
+    });
+    supineEnding.forEach(function(end){
+      parts.supine.push(findRootForEnding(root,end,conj) + end);
+    })
+    if(root) parts.root.addIfNotIn(root);
   });
   return parts;
 }
@@ -116,7 +257,11 @@ $(function($){
       var tr = $('<tr/>');
       tr.append($('<td/>').text(verb.orthography));
       tr.append($('<td/>').text(verb.verbMatch[1] && verb.verbMatch[1].join(', ') || ''));
-      tr.append($('<td/>').text(parts.infinitive || 'undetermined'));
+      tr.append($('<td/>').text((parts.root || ['UNDETERMINED']).join(', ')));
+      tr.append($('<td/>').text((parts.infinitive || ['UNDETERMINED']).join(', ')));
+      tr.append($('<td/>').text((parts.perfect || ['UNDETERMINED']).join(', ')));
+      tr.append($('<td/>').text((parts.supine || ['UNDETERMINED']).join(', ')));
+      tr.append($('<td/>').text(verb.verbMatch.slice(2).join(' | ')));
       var match = verbRegex.exec(verb.fullText);
       if(!match) {
         console.info(verb.fullText);
