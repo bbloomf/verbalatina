@@ -36,6 +36,9 @@ Array.prototype.addToIndex = function(index, object) {
       break;
   }
 };
+String.prototype.reverse = function() {
+  return this.split('').reverse().join('');
+};
 String.prototype.removeDiacritics = function() {
   return this.toLowerCase().replace(/ae/g,'æ').replace(/oe/g,'œ').replace(/[āēīōūȳăĕĭŏŭäëïöüÿ]/g, function(match){
     switch(match) {
@@ -67,7 +70,7 @@ String.prototype.removeDiacritics = function() {
 }
 function findRootForEnding(root, ending, conj) {
   var endingNoDiacritics = ending.removeDiacritics();
-  var rootBackwardsNoDiacritics = root.removeDiacritics().split('').reverse().join('');
+  var rootBackwardsNoDiacritics = root.removeDiacritics().reverse();
   var conjVowel = ['',/a/,/e/,/i/,/i/];
   var temp;
   switch(conj) {
@@ -86,8 +89,9 @@ function findRootForEnding(root, ending, conj) {
       break;
   }
   
-  var consonantClasses = ['bp', 'cgkqxh', 'dst', 'fp', 'ji', 'mn', 'vsu', 'aeoiuyæœ'];
-  var regexVowels = /[aieouyæœ](?!q|gn)/g;
+  var consonantClasses = ['bp', 'cgkqxh', 'dst', 'fp', 'ji', 'mn', 'vsu', 'aeiouyæœ'];
+  var tightConsonantClasses = ['bp', 'cgkqxh', 'vs', 'ds', 'ts'];
+  var regexVowels = /[aeiouyæœ](?!q|gn)/g;
   // Algorithm:
 
   // if the ending starts with a consonant (e.g. xi, ctum), find the last consonant of the same class (e.g., [cgqx], abdiC)
@@ -101,26 +105,46 @@ function findRootForEnding(root, ending, conj) {
   // 
 
   var vowelsInRoot = (rootBackwardsNoDiacritics.match(regexVowels)||[]).length;
-  var vowelsInEnding = (endingNoDiacritics.split('').reverse().join('').match(regexVowels)||[]).length;
+  var vowelsInEnding = (endingNoDiacritics.reverse().match(regexVowels)||[]).length;
   var regex;
   if(endingNoDiacritics[0].match(regexVowels)) {
     // ending starts with a vowel...
     // check for this vowel, or a different vowel followed by the same consonant that this one is followed by.
-    var consonantClass = $.grep(consonantClasses, function(str){ return str.indexOf(endingNoDiacritics[1]) >= 0; })[0] || endingNoDiacritics[1];
+    var consonant = endingNoDiacritics.slice(1).match(/([aeiouyæœ]*)([^aeiouyæœ]|$)/);
+    var actualConsonant = consonant? consonant[2] : '';
+    consonant = consonant? consonant[1].reverse() : '';
+    var consonantClass = $.grep(tightConsonantClasses, function(str){ return str.indexOf(actualConsonant||null) >= 0; }).join('') || actualConsonant;
+    if(consonantClass) consonant = '[' + consonantClass + ']' + consonant;
     var vowel = endingNoDiacritics[0];
     var prefix = '';
     // if it starts with the conjugation's vowel
     if(conj && vowelsInEnding == 2 && vowel.match(conjVowel[conj])) prefix = '^|';
     if(vowel == 'u') vowel = '[vu]';
-    regex = new RegExp(prefix + vowel + '|[' + consonantClass + '][aeiouyæœ]');
+    regex = new RegExp(prefix + vowel + '|' + consonant + '[aeiouyæœ](?!q|gn)');
+    
   } else {
     // ending starts with consonant...
     // find the last consonant of the same consonant class
     // but prioritize the first letter after the prefix, if that is a match to the consonant class, and there is only a single vowel in the root
+    var firstEndingSyl = endingNoDiacritics.match(/([^aeiouyæœ]+([aeiouyæœ]))(.|$)/);
+    var newRegex = new RegExp(
+      (firstEndingSyl[2] == 'i' && firstEndingSyl[1].length == 1)? firstEndingSyl[0].reverse() : firstEndingSyl[1].reverse()
+    );
+
+    var newMatch = rootBackwardsNoDiacritics.match(newRegex);
+
     var consonantClass = $.grep(consonantClasses, function(str){ return str.indexOf(endingNoDiacritics[0]) >= 0; })[0] || endingNoDiacritics[0];
-    regex = new RegExp('^[^aieouyæœ]*[aieouyæœ][' + consonantClass + ']+(?=-)');
+    regex = new RegExp('^[^aeiouyæœ]*[aeiouyæœ][' + consonantClass + ']+(?=-)');
     if(!rootBackwardsNoDiacritics.match(regex)) {
-      regex = new RegExp('[' + consonantClass + ']+');
+      regex = new RegExp('([aeiouyæœ]|^)[' + consonantClass + ']+');
+    }
+
+    var oldMatch = rootBackwardsNoDiacritics.match(regex);
+    if(newMatch) {
+      regex = newRegex;
+      if(!oldMatch || (oldMatch.index+oldMatch[0].length) != (newMatch.index+newMatch[0].length)) {
+        console.warn(root+', -'+ending+' ('+firstEndingSyl+'): new match is different (' + root.slice(0, root.length-(newMatch.index + newMatch[0].length)) + ' instead of ' + (oldMatch?root.slice(0, root.length-(oldMatch.index + oldMatch[0].length)):'!!!') + ')');
+      }
     }
   }
   var match = rootBackwardsNoDiacritics.match(regex);
