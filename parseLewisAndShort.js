@@ -439,7 +439,7 @@ console.info('\north: ' + orth);
   }
   //console.info(orth + ': ' + (gramGrp && gramGrp[0]));
 }
-fs.writeFileSync(fileVerbs,JSON.stringify(verbs));
+fs.writeFileSync(fileVerbs,JSON.stringify(verbs, null, '\t'));
 console.info('Total: ' + count);
 console.info('Ignored: ' + ignore);
 console.info('No GramGrp: ' + noGram);
