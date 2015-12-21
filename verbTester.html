@@ -67,8 +67,8 @@ String.prototype.removeDiacritics = function() {
 }
 function findRootForEnding(root, ending, conj) {
   var endingNoDiacritics = ending.removeDiacritics();
-  var rootBackwards = root.split('').reverse().join('');
-  var rootBackwardsNoDiacritics = rootBackwards.removeDiacritics();
+  var rootBackwardsNoDiacritics = root.removeDiacritics().split('').reverse().join('');
+  var conjVowel = ['',/a/,/e/,/i/,/i/];
   var temp;
   switch(conj) {
     case 1:
@@ -87,7 +87,7 @@ function findRootForEnding(root, ending, conj) {
   }
   
   var consonantClasses = ['bp', 'cgkqxh', 'dst', 'fp', 'ji', 'mn', 'vsu', 'aeoiuyæœ'];
-  var regexVowels = /[aieouyæœ]/g;
+  var regexVowels = /[aieouyæœ](?!q|gn)/g;
   // Algorithm:
 
   // if the ending starts with a consonant (e.g. xi, ctum), find the last consonant of the same class (e.g., [cgqx], abdiC)
@@ -101,29 +101,42 @@ function findRootForEnding(root, ending, conj) {
   // 
 
   var vowelsInRoot = (rootBackwardsNoDiacritics.match(regexVowels)||[]).length;
-  var vowelsInEnding = (endingNoDiacritics.match(regexVowels)||[]).length;
+  var vowelsInEnding = (endingNoDiacritics.split('').reverse().join('').match(regexVowels)||[]).length;
   var regex;
   if(endingNoDiacritics[0].match(regexVowels)) {
     // ending starts with a vowel...
     // check for this vowel, or a different vowel followed by the same consonant that this one is followed by.
     var consonantClass = $.grep(consonantClasses, function(str){ return str.indexOf(endingNoDiacritics[1]) >= 0; })[0] || endingNoDiacritics[1];
-    var regex = new RegExp(endingNoDiacritics[0] + '|[' + consonantClass + '][aeiouyæœ]');
+    var vowel = endingNoDiacritics[0];
+    var prefix = '';
+    // if it starts with the conjugation's vowel
+    if(conj && vowelsInEnding == 2 && vowel.match(conjVowel[conj])) prefix = '^|';
+    if(vowel == 'u') vowel = '[vu]';
+    regex = new RegExp(prefix + vowel + '|[' + consonantClass + '][aeiouyæœ]');
   } else {
     // ending starts with consonant...
     // find the last consonant of the same consonant class
+    // but prioritize the first letter after the prefix, if that is a match to the consonant class, and there is only a single vowel in the root
     var consonantClass = $.grep(consonantClasses, function(str){ return str.indexOf(endingNoDiacritics[0]) >= 0; })[0] || endingNoDiacritics[0];
-    var regex = new RegExp('[' + consonantClass + ']');
+    regex = new RegExp('^[^aieouyæœ]*[aieouyæœ][' + consonantClass + ']+(?=-)');
+    if(!rootBackwardsNoDiacritics.match(regex)) {
+      regex = new RegExp('[' + consonantClass + ']+');
+    }
   }
   var match = rootBackwardsNoDiacritics.match(regex);
   if(match) {
     // as long as the number of vowels taken away from the root is within two of what's being added on in the ending...
-    var newRoot = root.slice(0, -(match.index + match[0].length));
+    var newRoot = root.slice(0, root.length-(match.index + match[0].length));
     var vowelsTakenAway = (rootBackwardsNoDiacritics.slice(0, match.index + match[0].length).match(regexVowels)||[]).length;
-    if(vowelsTakenAway + 2 >= vowelsInEnding) {
-      return newRoot;
-    } else {
+    var inchoativeAdjuster = rootBackwardsNoDiacritics.match(/^cs[aeiouyæœ]/)? 1 : 0;
+    if(endingNoDiacritics[0].match(regexVowels) && vowelsInEnding == 2 && (vowelsTakenAway - inchoativeAdjuster) > 1) {
+      // too many vowels taken away...just use the original root
+      return root;
+    } else if(newRoot && vowelsTakenAway + 2 < vowelsInEnding) {
       // number of syllables is too different.  Try again with the shorter newRoot.
       return findRootForEnding(newRoot, ending, conj);
+    } else {
+      return newRoot;
     }
 
   }
@@ -167,7 +180,7 @@ function getVerbParts(orth, verbMatch) {
     return ending.match(/[iīĭï]$/i);
   });
   var supineEnding = $.grep(verbMatch[3]||[], function(ending) {
-    return ending.match(/[uūŭü][ms]$/i);
+    return ending.match(/[rstxu][uūŭü][ms]$/i);
   });
   var verbEnding = orth.match(/(?:([eĕ])|([iĭ]))?([oōŏ])(r?)$|(f[eĕ]r[ot]|[aeiāăäĕēëīĭï]t|tur|sum)$/)
   if(!verbEnding) verbEnding = [];
@@ -244,16 +257,16 @@ function getVerbParts(orth, verbMatch) {
   return parts;
 }
 $(function($){
-  var _verbs;
   $('#regex').val(localStorage.verbRegex||'');
   $.getJSON('output/verbs.json',function(verbs){
-    _verbs = verbs;
+    window.verbs = verbs;
     $('#verb-count').text(verbs.length);
     var $tbody = $('tbody');
     var i=0;
     var verbRegex = / v\. (?:[n|a]|inch|dep|impers|act|neutral)[\.,\s]/;
     verbs.forEach(function(verb){
       var parts = getVerbParts(verb.orthography, verb.verbMatch);
+      verb.parts = parts;
       var tr = $('<tr/>');
       tr.append($('<td/>').text(verb.orthography));
       tr.append($('<td/>').text(verb.verbMatch[1] && verb.verbMatch[1].join(', ') || ''));
@@ -290,9 +303,10 @@ $(function($){
     }
     $('#valid').show(); $('#invalid').hide();
     
-    $('#matches').text(_verbs.reduce(function(count, verb, index){
+    $('#matches').text(verbs.reduce(function(count, verb, index){
       regex.exec('');
-      var match = regex.exec(verb.orthography);
+      var match = regex.exec(verb.parts.supine.join(', '));
+      if(!verb.parts.supine || !verb.parts.supine.length) match = [];
       var $row = $($rows.get(index)).toggle(!match);
       
       return count + (match? 1 : 0);

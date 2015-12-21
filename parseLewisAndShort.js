@@ -221,7 +221,7 @@ var fs = require('fs'),
     regexGramGen = /<gen>([mfn]|comm?)\.<\/gen>/i,
     regexAdjType = /<\/(?:orth|gen)>(?:[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*(?:<[^>]+>)?(?:\([^)]+\))?)*([a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*(?:is|ae|[iī]|[aā]rum|[oō]rum|ūs|um|ius)|a, um|indecl\.)[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]/i,
     regexVerb = / v\. (?:[n|a]|inch|dep|impers|act|neutral)[\.,\s]/,
-    regexVerbType = /(?:([1-4])|([āaäeëēĕīiï]r[eiīï])|([a-zāăäēĕëīĭïōŏöūŭüȳÿ]*(?:i|um|ferre|(?:ss|ll)e|us))(?:\s+(?:sum|est))?|(?:or|no perf|freq|orig))(?:\s?[,;\.]*\s+)+/gi,
+    regexVerbType = /(?:([1-4])|([āaäeëēĕīiï]r[eiīï])|([a-zāăäēĕëīĭïōŏöūŭüȳÿ]*(?:i|[rstxu][uūŭü][ms]|ferre|(?:ss|ll)e))(?:\s+(?:sum|est))?|(?:or|no perf|freq|orig))(?:\s?[,;\.]*\s+)+/gi,
     //P. a. == participial adjective
     regexGramPos = /<pos>(P\. a|(?:(?:num|pron)\. )?ad[jv](?:\. num)?|prep|interj|v\. (?:freq|inch\. )?((?:dep|impers|[an])(?:\. )?)+)\.<\/pos>/i,
     regexGramPosFallback = /<hi rend="ital">(P\. a|(?:(?:num|pron)\. )?ad[jv](?:\. num)?|prep|interj|v\. (?:freq|inch\. )?((?:dep|impers|[an])(?:\. )?)+)[^`]*?\.<\/hi>/i,
@@ -262,8 +262,8 @@ function getVerbMatch(orth, verbParts) {
     }
     match = regexVerbType.exec(verbParts);
   }
-  var regexInfinitive = /(?:([āaä])|([ëē])|([eĕ])|([īiï]))r[eiīï]/i;
-  var regexPerfect = /(?:([āaä])|([ëē])|([eĕ])|([īiï]))(?:v[eiīï]|t[uŭüū]s)/i;
+  var regexInfinitive = /(?:([āaä])|([ëē])|([eĕ])|([īiï]))r[eiīï]$/i;
+  var regexPerfect = /[āaä](?:t[uŭüū]s|v[iīĭï])$/i;
   if(verbMatch[2]) {
     verbMatch[2].forEach(function(ending) {
       match = ending.match(regexInfinitive);
@@ -276,11 +276,10 @@ function getVerbMatch(orth, verbParts) {
   }
   if(verbMatch[3]) {
     verbMatch[3].forEach(function(ending) {
-      // match = ending.match(regexPerfect);
-      // var i=1;
-      // if(match && match[i] && (!verbMatch[1] || verbMatch[1].indexOf(i)<0)) {
-      //   verbMatch.addToIndex(1, i);
-      // }
+      match = ending.match(regexPerfect);
+      if(match && (!verbMatch[1] || verbMatch[1].length == 0)) {
+        verbMatch.addToIndex(1, 1);
+      }
       var verbClass = null;
       if(!verbMatch[1]) {
         if(ending.match(/(?:tŭli|lātum|ferre)$/) && orth.match(/f[eĕ]r[ot]$/)) {
