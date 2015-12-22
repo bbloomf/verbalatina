@@ -68,7 +68,7 @@ String.prototype.removeDiacritics = function() {
     }
   });
 }
-function findRootForEnding(root, ending, conj) {
+function getRootWithEnding(root, ending, conj) {
   var endingNoDiacritics = ending.removeDiacritics();
   var rootBackwardsNoDiacritics = root.removeDiacritics().reverse();
   var conjVowel = ['',/a/,/e/,/i/,/i/];
@@ -89,9 +89,9 @@ function findRootForEnding(root, ending, conj) {
       break;
   }
   
-  var consonantClasses = ['bp', 'cgkqxh', 'dst', 'fp', 'mn', 'vsu', 'aeiouyæœ'];
+  var consonantClasses = ['bp', 'cgkqxh', 'dst', 'fp', 'mn', 'vu', 'vs', 'aeiouyæœ', 'xv', 'sr', 'scg'];
   var tightConsonantClasses = ['bp', 'cgkqxh', 'vs', 'ds', 'ts'];
-  var regexVowels = /[aeiouyæœ](?!q|gn)/g;
+  var regexVowels = /[aeioyæœ]|u(?!q|gn)/g;
   // Algorithm:
 
   // if the ending starts with a consonant (e.g. xi, ctum), find the last consonant of the same class (e.g., [cgqx], abdiC)
@@ -138,6 +138,14 @@ function findRootForEnding(root, ending, conj) {
     if(firstEndingSyl[2] == 'j') {
       var secondConsonant = firstEndingSyl[4] || firstEndingSyl[5];
       regex = new RegExp(secondConsonant + '([aeiouyæœ]j|i)');
+    } else if(firstEndingSyl[2] == 'ct') {
+      regex = new RegExp('^(uq|ug(?=n)|[cgkxh]|(?=[aeiouyæœ]))');
+    } else if(vowelsInEnding < 2) {
+      var mnlr = 'mnlr'.split('');
+      if(endingNoDiacritics.match(/^[mnlr]/)) {
+        mnlr.splice(mnlr.indexOf(endingNoDiacritics[0]),1);
+      }
+      regex = new RegExp((firstEndingSyl[2].length == 1? ('^'+firstEndingSyl[2]+'|') : '') + '^(uq|ug(?=n))?[^aeiouyæœ]*?(?=(['+mnlr.join('')+'])?[aeiouyæœ])');
     } else {
       regex = new RegExp(
         ((firstEndingSyl[3] == 'i' && firstEndingSyl[1].length == 2)?
@@ -146,11 +154,18 @@ function findRootForEnding(root, ending, conj) {
         )
       );
     }
-    if(vowelsInEnding < 2 || !rootBackwardsNoDiacritics.match(regex)) {
+    if(firstEndingSyl[2].length > 1 && !rootBackwardsNoDiacritics.match(regex)) {
+      regex = new RegExp('(^|[aeiouyæœ])' + firstEndingSyl[2].reverse());
+    }
+    if(!rootBackwardsNoDiacritics.match(regex)) {
       var consonantClass = $.grep(consonantClasses, function(str){ return str.indexOf(endingNoDiacritics[0]) >= 0; })[0] || endingNoDiacritics[0];
       regex = new RegExp('^[^aeiouyæœ]*[aeiouyæœ][' + consonantClass + ']+(?=-)');
       if(!rootBackwardsNoDiacritics.match(regex)) {
-        regex = new RegExp('([aeiouyæœ]|^)[' + consonantClass + ']+');
+        regex = new RegExp('(^|[aeiouyæœ])[' + consonantClass + ']+');
+        if(!rootBackwardsNoDiacritics.match(regex)) {
+          consonantClass = $.grep(consonantClasses, function(str){ return str.indexOf(endingNoDiacritics[0]) >= 0; }).join('') || endingNoDiacritics[0];
+          regex = new RegExp('([aeiouyæœ]|^)[' + consonantClass + ']+');
+        }
       }
     }
   }
@@ -158,20 +173,28 @@ function findRootForEnding(root, ending, conj) {
   if(match) {
     // as long as the number of vowels taken away from the root is within two of what's being added on in the ending...
     var newRoot = root.slice(0, root.length-(match.index + match[0].length));
+    var choppedOff = root.slice(root.length-(match.index + match[0].length));
+    if(choppedOff.match(/^[rl][^aeiouyæœ]/)) { // if it chopped off an r or l follewed by another consonant, put the r or l back
+      newRoot += choppedOff[0];
+    }
     var vowelsTakenAway = (rootBackwardsNoDiacritics.slice(0, match.index + match[0].length).match(regexVowels)||[]).length;
     var inchoativeAdjuster = rootBackwardsNoDiacritics.match(/^cs[aeiouyæœ]/)? 1 : 0;
     if(endingNoDiacritics[0].match(regexVowels) && vowelsInEnding == 2 && (vowelsTakenAway - inchoativeAdjuster) > 1) {
       // too many vowels taken away...just use the original root
-      return root;
+      return root + ending;
     } else if(newRoot && vowelsTakenAway + 2 < vowelsInEnding) {
       // number of syllables is too different.  Try again with the shorter newRoot.
-      return findRootForEnding(newRoot, ending, conj);
+      return getRootWithEnding(newRoot, ending, conj);
     } else {
-      return newRoot;
+      // verbs -sisto, -stitum may be in either ex-sistitum or ex-stitum
+      if(endingNoDiacritics.match(/^stit/) && newRoot.match(/si$/)) {
+        return [newRoot + ending, newRoot.slice(0,-2) + ending];
+      }
+      return newRoot + ending;
     }
 
   }
-  return root;
+  return root + ending;
 
 
   // ab-dico, xi, ctum
@@ -278,10 +301,10 @@ function getVerbParts(orth, verbMatch) {
         break;
     }
     perfectEnding.forEach(function(end){
-      parts.perfect.push(findRootForEnding(root,end,conj) + end);
+      parts.perfect = parts.perfect.concat(getRootWithEnding(root,end,conj));
     });
     supineEnding.forEach(function(end){
-      parts.supine.push(findRootForEnding(root,end,conj) + end);
+      parts.supine = parts.supine.concat(getRootWithEnding(root,end,conj));
     })
     if(root) parts.root.addIfNotIn(root);
   });
