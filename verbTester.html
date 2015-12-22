@@ -306,6 +306,11 @@ function getVerbParts(orth, verbMatch) {
         console.warn('Unrecognized verb conjugation: ' + conj);
         break;
     }
+    if(root == null) {
+      console.warn('unknown verb: ' + orth);
+      console.info(verbMatch);
+      return null;
+    }
     perfectEnding.forEach(function(end){
       parts.perfect.addIfNotIn(findRootForEnding(root,end,conj) + end);
     });
