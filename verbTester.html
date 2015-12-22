@@ -119,8 +119,14 @@ function findRootForEnding(root, ending, conj) {
     var prefix = '';
     // if it starts with the conjugation's vowel
     if(conj && vowelsInEnding == 2 && vowel.match(conjVowel[conj])) prefix = '^|';
-    if(vowel == 'u') vowel = '[vu]';
-    regex = new RegExp(prefix + vowel + '|' + consonant + '[aeiouyæœ](?!q|gn)');
+    if(vowel == 'u') {
+      vowel = '(^v|u)';
+      if(rootBackwardsNoDiacritics.match(/^cs[aeiouyæœ]/)) {
+        root = root.slice(0, -3);
+        rootBackwardsNoDiacritics = root.slice(3);
+      }
+    }
+    regex = new RegExp(prefix + vowel + (consonant? ('|' + consonant + '[aeiouyæœ](?!q|gn)') : ''));
     
   } else {
     // ending starts with consonant...
