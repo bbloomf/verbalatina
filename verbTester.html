@@ -68,7 +68,7 @@ String.prototype.removeDiacritics = function() {
     }
   });
 }
-function getRootWithEnding(root, ending, conj) {
+function findRootForEnding(root, ending, conj) {
   var endingNoDiacritics = ending.removeDiacritics();
   var rootBackwardsNoDiacritics = root.removeDiacritics().reverse();
   var conjVowel = ['',/a/,/e/,/i/,/i/];
@@ -181,20 +181,20 @@ function getRootWithEnding(root, ending, conj) {
     var inchoativeAdjuster = rootBackwardsNoDiacritics.match(/^cs[aeiouyæœ]/)? 1 : 0;
     if(endingNoDiacritics[0].match(regexVowels) && vowelsInEnding == 2 && (vowelsTakenAway - inchoativeAdjuster) > 1) {
       // too many vowels taken away...just use the original root
-      return root + ending;
+      return root;
     } else if(newRoot && vowelsTakenAway + 2 < vowelsInEnding) {
       // number of syllables is too different.  Try again with the shorter newRoot.
-      return getRootWithEnding(newRoot, ending, conj);
+      return findRootForEnding(newRoot, ending, conj);
     } else {
-      // verbs -sisto, -stitum may be in either ex-sistitum or ex-stitum
-      if(endingNoDiacritics.match(/^stit/) && newRoot.match(/si$/)) {
-        return [newRoot + ending, newRoot.slice(0,-2) + ending];
+      // verbs -sisto, -stitum become ex-stitum or ex-steti
+      if(endingNoDiacritics.match(/^st[ei]t/) && newRoot.match(/si$/)) {
+        return newRoot.slice(0,-2);
       }
-      return newRoot + ending;
+      return newRoot;
     }
 
   }
-  return root + ending;
+  return root;
 
 
   // ab-dico, xi, ctum
@@ -301,10 +301,10 @@ function getVerbParts(orth, verbMatch) {
         break;
     }
     perfectEnding.forEach(function(end){
-      parts.perfect = parts.perfect.concat(getRootWithEnding(root,end,conj));
+      parts.perfect.push(findRootForEnding(root,end,conj) + end);
     });
     supineEnding.forEach(function(end){
-      parts.supine = parts.supine.concat(getRootWithEnding(root,end,conj));
+      parts.supine.push(findRootForEnding(root,end,conj) + end);
     })
     if(root) parts.root.addIfNotIn(root);
   });
