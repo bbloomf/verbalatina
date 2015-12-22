@@ -126,24 +126,19 @@ function findRootForEnding(root, ending, conj) {
     // ending starts with consonant...
     // find the last consonant of the same consonant class
     // but prioritize the first letter after the prefix, if that is a match to the consonant class, and there is only a single vowel in the root
-    var firstEndingSyl = endingNoDiacritics.match(/([^aeiouyæœ]+([aeiouyæœ]))(.|$)/);
-    var newRegex = new RegExp(
-      (firstEndingSyl[2] == 'i' && firstEndingSyl[1].length == 1)? firstEndingSyl[0].reverse() : firstEndingSyl[1].reverse()
+    // first priority to an occurence of the first consonants followed by the first vowel of the ending, or if the root ends with those first consonants currently.  Make sure that the vowel matched is also followed/not followed by [rl] the same as the vowel in the ending.
+    var firstEndingSyl = endingNoDiacritics.match(/([^aeiouyæœ]+([aeiouyæœ])([rl]?))(.|$)/);
+    regex = new RegExp(
+      ((firstEndingSyl[2] == 'i' && firstEndingSyl[1].length == 2)?
+        firstEndingSyl[0].reverse() :
+        ((firstEndingSyl[3]? '':'(^|[^rl])')+firstEndingSyl[1].reverse())
+      )
     );
-
-    var newMatch = rootBackwardsNoDiacritics.match(newRegex);
-
-    var consonantClass = $.grep(consonantClasses, function(str){ return str.indexOf(endingNoDiacritics[0]) >= 0; })[0] || endingNoDiacritics[0];
-    regex = new RegExp('^[^aeiouyæœ]*[aeiouyæœ][' + consonantClass + ']+(?=-)');
-    if(!rootBackwardsNoDiacritics.match(regex)) {
-      regex = new RegExp('([aeiouyæœ]|^)[' + consonantClass + ']+');
-    }
-
-    var oldMatch = rootBackwardsNoDiacritics.match(regex);
-    if(newMatch) {
-      regex = newRegex;
-      if(!oldMatch || (oldMatch.index+oldMatch[0].length) != (newMatch.index+newMatch[0].length)) {
-        console.warn(root+', -'+ending+' ('+firstEndingSyl+'): new match is different (' + root.slice(0, root.length-(newMatch.index + newMatch[0].length)) + ' instead of ' + (oldMatch?root.slice(0, root.length-(oldMatch.index + oldMatch[0].length)):'!!!') + ')');
+    if(vowelsInEnding < 2 || !rootBackwardsNoDiacritics.match(regex)) {
+      var consonantClass = $.grep(consonantClasses, function(str){ return str.indexOf(endingNoDiacritics[0]) >= 0; })[0] || endingNoDiacritics[0];
+      regex = new RegExp('^[^aeiouyæœ]*[aeiouyæœ][' + consonantClass + ']+(?=-)');
+      if(!rootBackwardsNoDiacritics.match(regex)) {
+        regex = new RegExp('([aeiouyæœ]|^)[' + consonantClass + ']+');
       }
     }
   }
