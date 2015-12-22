@@ -222,7 +222,7 @@ var fs = require('fs'),
     regexGramGen = /<gen>([mfn]|comm?)\.<\/gen>/i,
     regexAdjType = /<\/(?:orth|gen)>(?:[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*(?:<[^>]+>)?(?:\([^)]+\))?)*([a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*(?:is|ae|[iī]|[aā]rum|[oō]rum|ūs|um|ius)|a, um|indecl\.)[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]/i,
     regexVerb = / v\. (?:[n|a]|inch|dep|impers|act|neutral)[\.,\s]/,
-    regexVerbType = /(?:([1-4])|([āaäeëēĕīiï]r[eiīï])|([a-zāăäēĕëīĭïōŏöūŭüȳÿ]*(?:i|[rstxu][uūŭü][ms]|ferre|(?:ss|ll)e))(?:\s+(?:sum|est))?|(?:or|no perf|freq|orig))(?:\s?[,;\.]*\s+)+/gi,
+    regexVerbType = /(?:([1-4])|(d?[āaăäeëēĕīiï]r[eiīï])|([a-zāăäēĕëīĭïōŏöūŭüȳÿ]*(?:i|[rstxu][uūŭü][ms]|ferre|(?:ss|ll)e))(?:\s+(?:sum|est))?|(?:or|no perf|freq|orig))(?:\s?[,;\.]*\s+)+/gi,
     //P. a. == participial adjective
     regexGramPos = /<pos>(P\. a|(?:(?:num|pron)\. )?ad[jv](?:\. num)?|prep|interj|v\. (?:freq|inch\. )?((?:dep|impers|[an])(?:\. )?)+)\.<\/pos>/i,
     regexGramPosFallback = /<hi rend="ital">(P\. a|(?:(?:num|pron)\. )?ad[jv](?:\. num)?|prep|interj|v\. (?:freq|inch\. )?((?:dep|impers|[an])(?:\. )?)+)[^`]*?\.<\/hi>/i,
@@ -356,48 +356,11 @@ console.info('\north: ' + orth);
       else console.info('no adjType....why?')
     } else if(adjType && adjType != 'indecl.' && (!pos || pos.match(/adj\./))) {
       console.info('adj declension:', declineAdjective(orth,adjType));
-    } else if(verbMatch) {
+    }
+    if(verbMatch && orth.reverse().match(/^([oōŏörmtiīïĭ]|[eēĕë]r)/)) {
       //console.info('infinitive:', conjugateVerb(orth,verbType));
       numVerb++;
       verbs.push({orthography: orth, verbParts: verbParts, verbMatch: verbMatch, fullText: fullTextSansParentheses});
-      // Algorithm:
-
-      // if the ending starts with a consonant (e.g. xi, ctum), find the last consonant of the same class (e.g., [cgqx], abdiC)
-      // if, however, the ending is more than two syllables ('volutum'), ignore the last syllable of the root ('advol[vo]')
-          // if such a consonant isn't found, throw a warning
-      // if the ending starts with a vowel (-idi, -itum), check if the last vowel is a match. (e.g., abnuo,)
-      // otherwise, check if it is followed by the same consonant (ab-ripio, -eptum)
-      // consonant classes: [bp], [cgkqx], [dst], [fp], [ji], [mn], [vu]
-
-      // trickier:    ad-volvo, vi, vŏlūtum
-      // 
-
-      // ab-dico, xi, ctum
-          // ab-do, idi, itum
-      // ab-eo, ivi or ii, itum
-      // ab-horreo, ui, ēre
-      // abicio, ĕre, jēci, jēctum
-          // ab-ĭgo, ēgi, actum
-      // ab-jungo, xi, ctum
-      // ab-ligurrio, īvi, ītum
-      // ab-lŭo, ŭi, ūtum
-      // ab-nuo, ŭi, ŭitum
-      // ab-oleo, ēvi (ui), ĭtum
-      //     ăb-ŏlĕo</orth>, <itype>ēvi</itype> (ui), <itype>ĭtum, 2</itype>
-      // ăb-ōmĭnor, ātus
-      // ab-ortio, īre
-      // ab-rādo, si, sum
-      // ab-ripio, pui, eptum, 3
-      // ab-rodo, si, sum
-      // ab-rumpo, ūpi, uptum
-      // abs-cēdo, cessi, cessum, 3
-      // abs-cīdo, cīdi, cīsum, 3
-      // ab-scindo, cidi, cissum
-      // abs-condo, condi and condidi, conditum and consum
-      // ad-volvo, vi, vŏlūtum
-      // benefacio, fēci, factum
-      // beneplaceo, ŭi, itum, 2
-
     }
     continue;
     //if(gen && pos) console.info(orth);

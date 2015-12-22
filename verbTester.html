@@ -254,10 +254,8 @@ function getVerbParts(orth, verbMatch) {
         if(!root && orth.match(/[oōŏ]r?$/)) root = orth.slice(0,-(1+verbEnding[4].length));
         if(!root && orth.match(/[aăāä]t$/)) root = orth.slice(0,-2);
         parts.infinitive.addIfNotIn(root + 'āre');
-        if(!root.match(/-d$/)) {
-          supineEnding.addIfNotIn('ātum');
-          perfectEnding.addIfNotIn('āvi');
-        }
+        if(!supineEnding.length) supineEnding.addIfNotIn('ātum');
+        if(!perfectEnding.length) perfectEnding.addIfNotIn('āvi');
         break;
       case 2:
         if(!root) {
