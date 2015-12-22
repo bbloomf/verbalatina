@@ -89,7 +89,7 @@ function findRootForEnding(root, ending, conj) {
       break;
   }
   
-  var consonantClasses = ['bp', 'cgkqxh', 'dst', 'fp', 'ji', 'mn', 'vsu', 'aeiouyæœ'];
+  var consonantClasses = ['bp', 'cgkqxh', 'dst', 'fp', 'mn', 'vsu', 'aeiouyæœ'];
   var tightConsonantClasses = ['bp', 'cgkqxh', 'vs', 'ds', 'ts'];
   var regexVowels = /[aeiouyæœ](?!q|gn)/g;
   // Algorithm:
@@ -133,13 +133,19 @@ function findRootForEnding(root, ending, conj) {
     // find the last consonant of the same consonant class
     // but prioritize the first letter after the prefix, if that is a match to the consonant class, and there is only a single vowel in the root
     // first priority to an occurence of the first consonants followed by the first vowel of the ending, or if the root ends with those first consonants currently.  Make sure that the vowel matched is also followed/not followed by [rl] the same as the vowel in the ending.
-    var firstEndingSyl = endingNoDiacritics.match(/([^aeiouyæœ]+([aeiouyæœ])([rl]?))(.|$)/);
-    regex = new RegExp(
-      ((firstEndingSyl[2] == 'i' && firstEndingSyl[1].length == 2)?
-        firstEndingSyl[0].reverse() :
-        ((firstEndingSyl[3]? '':'(^|[^rl])')+firstEndingSyl[1].reverse())
-      )
-    );
+    // if it starts with j[vowel][consonant], look for both that AND i[consonant]
+    var firstEndingSyl = endingNoDiacritics.match(/(([^aeiouyæœ]+)([aeiouyæœ])([rl]?))(.|$)/);
+    if(firstEndingSyl[2] == 'j') {
+      var secondConsonant = firstEndingSyl[4] || firstEndingSyl[5];
+      regex = new RegExp(secondConsonant + '([aeiouyæœ]j|i)');
+    } else {
+      regex = new RegExp(
+        ((firstEndingSyl[3] == 'i' && firstEndingSyl[1].length == 2)?
+          firstEndingSyl[0].reverse() :
+          ((firstEndingSyl[4]? '':'(^|[^rl])')+firstEndingSyl[1].reverse())
+        )
+      );
+    }
     if(vowelsInEnding < 2 || !rootBackwardsNoDiacritics.match(regex)) {
       var consonantClass = $.grep(consonantClasses, function(str){ return str.indexOf(endingNoDiacritics[0]) >= 0; })[0] || endingNoDiacritics[0];
       regex = new RegExp('^[^aeiouyæœ]*[aeiouyæœ][' + consonantClass + ']+(?=-)');
