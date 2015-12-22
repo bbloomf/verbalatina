@@ -75,17 +75,17 @@ function findRootForEnding(root, ending, conj) {
   var temp;
   switch(conj) {
     case 1:
-      if(endingNoDiacritics.match(/a(vi|tum)$/)) return root;
+      if(endingNoDiacritics.match(/^a(vi|tum)$/)) return root;
       break;
     case 2:
-      if(endingNoDiacritics.match(/e(vi|tum)$/)) return root;
+      if(endingNoDiacritics.match(/^e(vi|tum)$/)) return root;
       break;
     case 3:
-      temp = endingNoDiacritics.match(/([ui])(v?i|tum)$/);
+      temp = endingNoDiacritics.match(/^([ui])(v?i|tum)$/);
       if(temp && !rootBackwardsNoDiacritics[0] == temp[1]) return root;
       break;
     case 4:
-      if(endingNoDiacritics.match(/i(v?i|tum)$/)) return root;
+      if(endingNoDiacritics.match(/^i(v?i|tum)$/)) return root;
       break;
   }
   
@@ -141,11 +141,11 @@ function findRootForEnding(root, ending, conj) {
     } else if(firstEndingSyl[2] == 'ct') {
       regex = new RegExp('^(uq|ug(?=n)|[cgkxh]|(?=[aeiouyæœ]))');
     } else if(vowelsInEnding < 2) {
-      var mnlr = 'mnlr'.split('');
-      if(endingNoDiacritics.match(/^[mnlr]/)) {
-        mnlr.splice(mnlr.indexOf(endingNoDiacritics[0]),1);
+      var lmnr = 'lmnr'.split('');
+      if(endingNoDiacritics.match(/^[lmnr]/)) {
+        lmnr.splice(lmnr.indexOf(endingNoDiacritics[0]),1);
       }
-      regex = new RegExp((firstEndingSyl[2].length == 1? ('^'+firstEndingSyl[2]+'|') : '') + '^(uq|ug(?=n))?[^aeiouyæœ]*?(?=(['+mnlr.join('')+'])?[aeiouyæœ])');
+      regex = new RegExp((firstEndingSyl[2].length == 1? ('^'+firstEndingSyl[2]+'|') : '') + '^(uq|ug(?=n))?[^aeiouyæœ]*?(?=(['+lmnr.join('')+'])?[aeiouyæœ])');
     } else {
       regex = new RegExp(
         ((firstEndingSyl[3] == 'i' && firstEndingSyl[1].length == 2)?
@@ -174,7 +174,13 @@ function findRootForEnding(root, ending, conj) {
     // as long as the number of vowels taken away from the root is within two of what's being added on in the ending...
     var newRoot = root.slice(0, root.length-(match.index + match[0].length));
     var choppedOff = root.slice(root.length-(match.index + match[0].length));
-    if(choppedOff.match(/^[rl][^aeiouyæœ]/)) { // if it chopped off an r or l follewed by another consonant, put the r or l back
+    var lmnr = 'lmnr'.split('');
+    var doubleConsonant = '';
+    if(endingNoDiacritics.match(/^[lmnr]/)) {
+      lmnr.splice(lmnr.indexOf(endingNoDiacritics[0]),1);
+      doubleConsonant = '^'+endingNoDiacritics[0]+'(?='+endingNoDiacritics[0]+')|';
+    }
+    if(choppedOff.match(new RegExp(doubleConsonant+'^['+lmnr.join('')+'][^aeiouyæœ-]'))) { // if it chopped off an l,m,n, or r follewed by another consonant, put the r or l back
       newRoot += choppedOff[0];
     }
     var vowelsTakenAway = (rootBackwardsNoDiacritics.slice(0, match.index + match[0].length).match(regexVowels)||[]).length;
@@ -192,7 +198,7 @@ function findRootForEnding(root, ending, conj) {
       }
       return newRoot;
     }
-
+    // TODO: astiti should not become as-sastiti
   }
   return root;
 
@@ -247,9 +253,11 @@ function getVerbParts(orth, verbMatch) {
       case 1:
         if(!root && orth.match(/[oōŏ]r?$/)) root = orth.slice(0,-(1+verbEnding[4].length));
         if(!root && orth.match(/[aăāä]t$/)) root = orth.slice(0,-2);
-        parts.infinitive.push(root + 'āre');
-        supineEnding.addIfNotIn('ātum');
-        perfectEnding.addIfNotIn('āvi');
+        parts.infinitive.addIfNotIn(root + 'āre');
+        if(!root.match(/-d$/)) {
+          supineEnding.addIfNotIn('ātum');
+          perfectEnding.addIfNotIn('āvi');
+        }
         break;
       case 2:
         if(!root) {
@@ -265,35 +273,35 @@ function getVerbParts(orth, verbMatch) {
             root = orth.slice(0,-(verbEnding[1].length+verbEnding[3].length+verbEnding[4].length));
           }
         }
-        parts.infinitive.push(root + 'ēre');
+        parts.infinitive.addIfNotIn(root + 'ēre');
         break;
       case 3:
         if(!root) root = orth.slice(0,-(verbEnding[2].length+verbEnding[3].length+verbEnding[4].length));
-        parts.infinitive.push(root + 'ĕre');
+        parts.infinitive.addIfNotIn(root + 'ĕre');
         break;
       case 4:
         if(!root && !verbEnding.io && !verbEnding.eo) console.warn(orth + ' should end with -eo or -io because it is marked as fourth conjugation (īre)');
         if(!root) root = orth.slice(0,-(verbEnding[1].length+verbEnding[2].length+verbEnding[3].length+verbEnding[4].length));
         if(root.match(/[iīĭ]$/)) root = root.slice(0,-1); // need a way to describe that there are two roots, but this only happens on one verb.
-        parts.infinitive.push(root + 'īre');
+        parts.infinitive.addIfNotIn(root + 'īre');
         if(verbEnding.eo) conj = 'eo';
         break;
       case 'perfect':
         if(orth.match(/[iīĭï]$/)) {
           root = orth.slice(0,-1);
-          parts.infinitive.push(parts.perfect.push(root + 'isse'));
+          parts.infinitive.addIfNotIn(root + 'isse');
         } else console.warn(orth, ' does not end with -i but it is marked as a perfect stem verb');
         break;
       case 'esse':
         if(verbEnding[5] == 'sum') {
           root = orth.slice(0,-3);
-          parts.infinitive.push(root + (root.match(/s$/)? 'se' : 'esse'));
+          parts.infinitive.addIfNotIn(root + (root.match(/s$/)? 'se' : 'esse'));
         }
         break;
       case 'ferre':
         if(verbEnding[5][0] == 'f') {
           root = orth.slice(0,-verbEnding[5].length);
-          parts.infinitive.push(root + 'ferre');
+          parts.infinitive.addIfNotIn(root + 'ferre');
         }
         break;
       default:
@@ -301,10 +309,10 @@ function getVerbParts(orth, verbMatch) {
         break;
     }
     perfectEnding.forEach(function(end){
-      parts.perfect.push(findRootForEnding(root,end,conj) + end);
+      parts.perfect.addIfNotIn(findRootForEnding(root,end,conj) + end);
     });
     supineEnding.forEach(function(end){
-      parts.supine.push(findRootForEnding(root,end,conj) + end);
+      parts.supine.addIfNotIn(findRootForEnding(root,end,conj) + end);
     })
     if(root) parts.root.addIfNotIn(root);
   });
@@ -348,7 +356,7 @@ $(function($){
     var curVal = localStorage.verbRegex = $(this).val();
     var regex;
     try {
-      regex = new RegExp(curVal,'ig');
+      regex = new RegExp(curVal,'i');
     } catch(e) {
       $('#valid').hide();
       $('#invalid').text(e.toString()).show();
@@ -356,13 +364,14 @@ $(function($){
       return;
     }
     $('#valid').show(); $('#invalid').hide();
-    
+    [].concat(verbs[0].verbMatch[2],verbs[0].verbMatch[3]) 
+
     $('#matches').text(verbs.reduce(function(count, verb, index){
-      regex.exec('');
-      var match = regex.exec(verb.parts.supine.join(', '));
-      if(!verb.parts.supine || !verb.parts.supine.length) match = [];
-      var $row = $($rows.get(index)).toggle(!match);
-      
+      var match = [].concat(verb.verbMatch[2],verb.verbMatch[3]).reduce(function(matching, ending, index){
+        if(!matching && ending) return ending.match(regex);
+        return matching;
+      }, false);
+      var $row = $($rows.get(index)).toggle(!!match);
       return count + (match? 1 : 0);
     },0));
   });
