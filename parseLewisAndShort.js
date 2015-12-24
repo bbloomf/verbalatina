@@ -252,7 +252,26 @@ var fs = require('fs'),
       adv:  0,
       dep:  0,
       prep: 0
-    };
+    },
+    conjugation = {
+      '1': [],
+      '2': [],
+      '3': [],
+      '3io': [],
+      '4': [],
+      'facio': [],
+      'esse': [],
+      'ferre': []
+    }
+Object.keys(conjugation).forEach(function(conj){
+  var endings = fs.readFileSync('conjugation.'+conj+'.txt',{encoding:'utf8'}).split(/\s*\n\s*/).filter(function(ending){
+    return ending.match(/^-/);
+  });
+  conjugation[conj] = endings.map(function(ending){
+    return ending.replace(/^-/,'');
+  });
+});
+return;
 function getVerbMatch(orth, verbParts) {
   console.info(orth, verbParts)
   regexVerbType.exec('');
