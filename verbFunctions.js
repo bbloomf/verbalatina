@@ -166,6 +166,10 @@ function findRootForEnding(root, ending, conj) {
     }
     var vowelsTakenAway = (rootBackwardsNoDiacritics.slice(0, match.index + match[0].length).match(regexVowels)||[]).length;
     var inchoativeAdjuster = rootBackwardsNoDiacritics.match(/^cs[aeiouyæœ]/)? 1 : 0;
+    var testMatch = rootBackwardsNoDiacritics.match(/-([^-]+)$/);
+    if(testMatch && endingNoDiacritics.match(new RegExp('^' + testMatch[1].reverse() + '(?!$)'))) {
+      console.info(root + '-, ' + ending);
+    }
     if(endingNoDiacritics[0].match(regexVowels) && vowelsInEnding == 2 && (vowelsTakenAway - inchoativeAdjuster) > 1) {
       // too many vowels taken away...just use the original root
       return root;
@@ -176,10 +180,12 @@ function findRootForEnding(root, ending, conj) {
       // verbs -sisto, -stitum become ex-stitum or ex-steti
       if(endingNoDiacritics.match(/^st[ei]t/) && newRoot.match(/si$/)) {
         return newRoot.slice(0,-2);
+      } else if(endingNoDiacritics.match(/^ast[ei]t/)) {
+        return '';
       }
       return newRoot;
     }
-    // TODO: astiti should not become as-sastiti
+    // TODO: super-sum should not become super-fui
   }
   return root;
 
