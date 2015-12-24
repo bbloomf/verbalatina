@@ -15,7 +15,8 @@
 </thead>
 <tbody></tbody>
 </table>
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<!-- <script src="//code.jquery.com/jquery-2.1.4.min.js"></script> -->
+<script src="jquery.min.js"></script>
 <script>var exports = {};</script>
 <script src="verbFunctions.js"></script>
 <script>
@@ -29,6 +30,15 @@ $(function($){
     var verbRegex = / v\. (?:[n|a]|inch|dep|impers|act|neutral)[\.,\s]/;
     verbs.forEach(function(verb){
       var parts = getVerbParts(verb.orthography, verb.verbMatch);
+      if(JSON.stringify(parts) != JSON.stringify(verb.parts)) {
+        console.info(verb.orthography + ' has changed');
+        if(JSON.stringify(verb.parts.supine) != JSON.stringify(parts.supine)) {
+          console.info(parts.supine + ' (' + verb.parts.supine + ')');
+        }
+        if(JSON.stringify(verb.parts.perfect) != JSON.stringify(parts.perfect)) {
+          console.info(parts.perfect + ' (' + verb.parts.perfect + ')');
+        }
+      }
       verb.parts = parts;
       var tr = $('<tr/>');
       tr.append($('<td/>').text(verb.orthography));

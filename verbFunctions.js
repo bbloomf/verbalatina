@@ -128,12 +128,20 @@ function findRootForEnding(root, ending, conj) {
       }
       regex = new RegExp((firstEndingSyl[2].length == 1? ('^'+firstEndingSyl[2]+'|') : '') + '^(uq|ug(?=n))?[^aeiouyæœ]*?(?=(['+lmnr.join('')+'])?[aeiouyæœ])');
     } else {
-      regex = new RegExp(
-        ((firstEndingSyl[3] == 'i' && firstEndingSyl[1].length == 2)?
-          firstEndingSyl[0].reverse() :
-          ((firstEndingSyl[4]? '':'(^|[^rl])')+firstEndingSyl[1].reverse())
-        )
-      );
+      var actualConsonant = firstEndingSyl[5];
+      var consonantClass = tightConsonantClasses.filter(function(str){ return str.indexOf(actualConsonant||null) >= 0; }).join('') || actualConsonant;
+      regex = new RegExp(firstEndingSyl[2] + '[aeiouyæœ]['+consonantClass+'](?![^-]*-)');
+
+      if(rootBackwardsNoDiacritics.reverse().match(regex)) {
+        regex = new RegExp('['+consonantClass+'][aeiouyæœ]'+firstEndingSyl[2].reverse());
+      } else {
+        regex = new RegExp(
+          ((firstEndingSyl[3] == 'i' && firstEndingSyl[1].length == 2)?
+            firstEndingSyl[0].reverse() :
+            ((firstEndingSyl[4]? '':'(^|[^rl])')+firstEndingSyl[1].reverse())
+          )
+        );
+      }
     }
     if(firstEndingSyl[2].length > 1 && !rootBackwardsNoDiacritics.match(regex)) {
       regex = new RegExp('(^|[aeiouyæœ])' + firstEndingSyl[2].reverse());
@@ -166,10 +174,6 @@ function findRootForEnding(root, ending, conj) {
     }
     var vowelsTakenAway = (rootBackwardsNoDiacritics.slice(0, match.index + match[0].length).match(regexVowels)||[]).length;
     var inchoativeAdjuster = rootBackwardsNoDiacritics.match(/^cs[aeiouyæœ]/)? 1 : 0;
-    var testMatch = rootBackwardsNoDiacritics.match(/-([^-]+)$/);
-    if(testMatch && endingNoDiacritics.match(new RegExp('^' + testMatch[1].reverse() + '(?!$)'))) {
-      console.info(root + '-, ' + ending);
-    }
     if(endingNoDiacritics[0].match(regexVowels) && vowelsInEnding == 2 && (vowelsTakenAway - inchoativeAdjuster) > 1) {
       // too many vowels taken away...just use the original root
       return root;
