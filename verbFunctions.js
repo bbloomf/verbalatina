@@ -165,11 +165,15 @@ function findRootForEnding(root, ending, conj) {
     var choppedOff = root.slice(root.length-(match.index + match[0].length));
     var lmnr = 'lmnr'.split('');
     var doubleConsonant = '';
+    if(choppedOff.match(/^[^-]+-/) && newRoot.length) {
+      newRoot = root.slice(0, root.indexOf('-')+1);
+      choppedOff = root.slice(root.length - newRoot.length);
+    }
     if(endingNoDiacritics.match(/^[lmnr]/)) {
       lmnr.splice(lmnr.indexOf(endingNoDiacritics[0]),1);
       doubleConsonant = '^'+endingNoDiacritics[0]+'(?='+endingNoDiacritics[0]+')|';
     }
-    if(choppedOff.match(new RegExp(doubleConsonant+'^['+lmnr.join('')+'][^aeiouyæœ-]'))) { // if it chopped off an l,m,n, or r follewed by another consonant, put the r or l back
+    if(choppedOff.match(new RegExp(doubleConsonant+'^['+lmnr.join('')+'][^aeiouyæœ-]'))) { // if it chopped off an l,m,n, or r follewed by another consonant, put it back
       newRoot += choppedOff[0];
     }
     var vowelsTakenAway = (rootBackwardsNoDiacritics.slice(0, match.index + match[0].length).match(regexVowels)||[]).length;
