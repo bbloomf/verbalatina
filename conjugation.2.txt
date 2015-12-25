@@ -1,4 +1,6 @@
 eō,ēre
+-ens
+-endus
 
 -eō
 -ēs

@@ -1,4 +1,6 @@
 faciō,facere
+-faciens
+-faciendus
 
 -faciō
 -facis

@@ -1,4 +1,6 @@
 iō,īre
+-iens
+-iendus
 
 -iō
 -īs

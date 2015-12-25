@@ -1,4 +1,6 @@
 ferō,ferre
+-ferens
+-ferendus
 
 -ferō
 -fers

@@ -277,6 +277,8 @@ getVerbParts = exports.getVerbParts = function getVerbParts(orth, verbMatch) {
         if(!root) root = orth.slice(0,-(verbEnding[1].length+verbEnding[2].length+verbEnding[3].length+verbEnding[4].length));
         if(root.match(/[iīĭ]$/)) root = root.slice(0,-1); // need a way to describe that there are two roots, but this only happens on one verb.
         parts.infinitive.addIfNotIn(root + 'īre');
+        if(!supineEnding.length) supineEnding.addIfNotIn('ītum');
+        if(!perfectEnding.length) perfectEnding.addIfNotIn('īvi');
         if(verbEnding.eo) conj = 'eo';
         break;
       case 'perfect':
