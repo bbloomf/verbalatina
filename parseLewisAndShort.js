@@ -261,7 +261,8 @@ var fs = require('fs'),
       '4': [],
       'facio': [],
       'esse': [],
-      'ferre': []
+      'ferre': [],
+      'perfect': []
     }
 Object.keys(conjugation).forEach(function(conj){
   var endings = fs.readFileSync('conjugation.'+conj+'.txt',{encoding:'utf8'}).split(/\s*\n\s*/).filter(function(ending){
@@ -271,7 +272,6 @@ Object.keys(conjugation).forEach(function(conj){
     return ending.replace(/^-/,'');
   });
 });
-return;
 function getVerbMatch(orth, verbParts) {
   console.info(orth, verbParts)
   regexVerbType.exec('');

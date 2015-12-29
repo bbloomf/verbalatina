@@ -1,4 +1,6 @@
 sum,esse
+-(s)endus
+-(s)ens
 
 -sum
 -es
