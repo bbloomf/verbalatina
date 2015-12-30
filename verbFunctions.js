@@ -162,12 +162,22 @@ function findRootForEnding(root, ending, conj) {
   if(match) {
     // as long as the number of vowels taken away from the root is within two of what's being added on in the ending...
     var newRoot = root.slice(0, root.length-(match.index + match[0].length));
-    var choppedOff = root.slice(root.length-(match.index + match[0].length));
+    var choppedOff = root.slice(newRoot.length);
     var lmnr = 'lmnr'.split('');
     var doubleConsonant = '';
-    if(choppedOff.match(/^[^-]+-/) && newRoot.length) {
-      newRoot = root.slice(0, root.indexOf('-')+1);
-      choppedOff = root.slice(root.length - newRoot.length);
+    if(choppedOff.match(/^[^-]+-/)) {
+      if(newRoot.length) {
+        newRoot = root.slice(0, root.indexOf('-')+1);
+        choppedOff = root.slice(root.length - newRoot.length);
+      } else {
+        // make sure that the new ending starts with the same vowel, if we're chopping off an entire prefix.
+        var rootFirstSyl = rootBackwardsNoDiacritics.reverse().match(/^[^aeiouyæœ]*[aeiouyæœ]/)[0];
+        var endingFirstSyl = endingNoDiacritics.match(/^[^aeiouyæœ]*[aeiouyæœ]/)[0];
+        if(rootFirstSyl != endingFirstSyl) {
+          newRoot = root;
+          choppedOff = '';
+        }
+      }
     }
     if(endingNoDiacritics.match(/^[lmnr]/)) {
       lmnr.splice(lmnr.indexOf(endingNoDiacritics[0]),1);
