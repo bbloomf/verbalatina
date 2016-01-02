@@ -222,7 +222,7 @@ var fs = require('fs'),
     regexOrth = /<orth[^>]*?>[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*([a-zāăäēĕëīĭïōŏöūŭüȳÿ_^ -]+)([^<]*)<\/orth>/i,
     regexGramGen = /<gen>([mfn]|comm?)\.<\/gen>/i,
     regexAdjType = /<\/(?:orth|gen)>(?:[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*(?:<[^>]+>)?(?:\([^)]+\))?)*([a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*(?:is|ae|[iī]|[aā]rum|[oō]rum|ūs|um|ius)|a, um|indecl\.)[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]/i,
-    regexVerb = / v(?:erb)?\. (?:[n|a]|inch|dep|impers|act|neutral|de(?:fect|sid))[\.,\s]/,
+    regexVerb = / v(?:erb)?\. (?:[n|a]|inch|dep|impers|act|neutral|de(fect|sid))[\.,\s]/,
     regexVerbType = /(?:([1-4])|(d?[āaăäeëēĕīiï]r[eiīï])|([a-zāăäēĕëīĭïōŏöūŭüȳÿ]*(?:i|[rstxu][uūŭü][ms]|ferre|(?:ss|ll)e))(?:\s+(?:sum|est))?|(?:or|no perf|freq|orig))(?:\s?[,;\.]*\s+)+/gi,
     //P. a. == participial adjective
     regexGramPos = /<pos>(P\. a|(?:(?:num|pron)\. )?ad[jv](?:\. num)?|prep|interj|v\. (?:freq|inch\. )?((?:dep|impers|[an])(?:\. )?)+)\.<\/pos>/i,
@@ -342,9 +342,14 @@ console.info('\north: ' + orth);
   var verbMatch = fullTextSansParentheses.match(regexVerb);
   var verbParts;
   if(verbMatch) {
+    var useBackupParts = (verbMatch[1] == 'fect');
     verbParts = fullTextSansParentheses.slice(0,verbMatch.index+verbMatch[0].length);
     regexVerbType.exec('');
     verbMatch = regexVerbType.exec(verbParts);
+    if(!verbMatch && useBackupParts) {
+      verbParts = ', ĕre, 3';
+      verbMatch = true;
+    }
   }
   //TODO: use other orths, besides the first one; var orths = regexOrth.exec(entry[1]);
   if(!pos) pos = regexGramPosFallback.exec(entry[1]);
@@ -360,6 +365,7 @@ console.info('\north: ' + orth);
       console.info('adjType: ' + adjType);
     }
     if(verbMatch) {
+      // if the verb is defective, don't look for parts.
       verbMatch = getVerbMatch(orth,verbParts);
       //verbParts = getVerbParts(orth,verbMatch);
       ++numVerbType;
