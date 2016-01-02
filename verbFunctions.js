@@ -247,12 +247,16 @@ getVerbParts = exports.getVerbParts = function getVerbParts(orth, verbMatch) {
   var supineEnding = (verbMatch[3]||[]).filter(function(ending) {
     return ending.match(/[rstxu][uūŭü][ms]$/i);
   });
-  var verbEnding = orth.match(/(?:([eĕ])|([iĭ]))?([oōŏ])(r?)$|(f[eĕ]r[ot]|[aeiāăäĕēëīĭï]t|tur|sum)$/)
+  var verbEnding = orth.match(/(?:([eĕ])|([iĭ]))?([oōŏ])(r?)$|(f[eĕ]r[ot]|[aeiāăäĕēëīĭï]t|tur|sum)$|am$/)
   if(!verbEnding) verbEnding = [];
   if(verbEnding[1]) verbEnding.eo = true; else verbEnding[1] = '';
   if(verbEnding[2]) verbEnding.io = true; else verbEnding[2] = '';
   if(verbEnding[3]) verbEnding.firstPerson = true; else verbEnding[3] = '';
   if(verbEnding[4]) verbEnding.deponent = true; else verbEnding[4] = '';
+  if(verbEnding[0] == 'am') {
+    verbEnding.io = true;
+    verbEnding[2] = 'am';
+  }
   verbMatch[1].forEach(function(conj) {
     switch(conj) {
       case 1:
