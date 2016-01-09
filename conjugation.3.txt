@@ -46,7 +46,7 @@
 -entur
 
 
--am
+(-am)
 -ās
 -at
 -āmus
@@ -60,7 +60,7 @@
 -erētis
 -erent
 
--ar
+(-ar)
 -āris
 -ātur
 -āmur

@@ -29,8 +29,24 @@ var debug = {
 var verbEndings = {
 
 }
+var removeBreves = function(string) {
+  return string.replace(/[ăĕĭŏŭ]/ig, function(shortVowel){
+    return ({
+      'ă': 'a',
+      'ĕ': 'e',
+      'ĭ': 'i',
+      'ŏ': 'o',
+      'ŭ': 'u',
+      'Ă': 'A',
+      'Ĕ': 'E',
+      'Ĭ': 'I',
+      'Ŏ': 'O',
+      'Ŭ': 'U'
+    })[shortVowel];
+  });
+}
 var handleDiacritics = function(string) {
-  return string.replace(/([āēīōūȳ])\^|(ăĕĭŏŭ)_/ig, function(match,longVowel,shortVowel){
+  return string.replace(/([āēīōūȳ])\^|([ăĕĭŏŭ])_/ig, function(match,longVowel,shortVowel){
     return longVowel || ({
       'ă': 'ā',
       'ĕ': 'ē',
@@ -87,19 +103,6 @@ var findThirdDeclensionRoot = function(nom,gen) {
   }
   if(showDebug) console.info('%s, %s-',nom,gen);
   return gen;
-}
-
-var conjugateVerb = function(orth,verbInfo) {
-  var root = orth;
-  var conj = verbInfo.match(/(?:^|\s)([1-4])(?:$|[,<\s])/);
-  if(conj) conj = conj[1];
-  if(orth.match(/[oōöŏ]$/)) {
-    root = root.slice(0, 
-      (conj == 2 || conj == 4 || (conj == 3 && orth.slice(-2)[0].match(/[iïĭ]/i)))? -2 : -1);
-  } else if(orth.match(/[aäāēëeiïī]t$/)) {
-    root = root.slice(0, -2);
-  }
-  return root + (['', 'āre', 'ēre', 'ere', 'īre'])[conj];
 }
 
 var declineAdjective = (function(){
@@ -210,12 +213,29 @@ var declineNoun = (function(){
     return result;
   }
 })();
+var IndexVerborum = function(){};
+IndexVerborum.prototype._add = function(array, root) {
+  var verba = this;
+  if(typeof array == 'string') {
+    root = array;
+    array = [root];
+  }
+  array.map(function(word){
+    return removeBreves(word.replace(/-/g,''));
+  }).forEach(function(word) {
+    var tmp = verba[word] = verba[word] || [];
+    tmp.addIfNotIn(root);
+  });
+}
 var fs = require('fs'),
     xml = fs.readFileSync('lewisAndShort.xml',{encoding:'utf8'}),
     fileIndeclinables = 'output/indeclinables.txt',
-    fileNouns = 'output/nouns.txt',
+    fileNouns = 'output/nouns.json',
     fileVerbs = 'output/verbs.json',
+    fileOmniaVerba = 'output/omnia-verba.txt',
     verbs = [],
+    nouns = [],
+    omniaVerba = new IndexVerborum(),
     fileAdjectives = 'output/adjectives.txt',
     regexParentheses = /\s*[(（][^)）(（]+(?:[)）])\s*/g,
     regexEntry = /<entryFree[^>]*?>(([^`]*?<orth[^>]*?>[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*([a-zāăäēĕëīĭïōŏöūŭüȳÿ_^ -]+)([^<]*)<\/orth>)+?[^`]*?)<\/entryFree>/gi,
@@ -252,28 +272,9 @@ var fs = require('fs'),
       adv:  0,
       dep:  0,
       prep: 0
-    },
-    conjugation = {
-      '1': [],
-      '2': [],
-      '3': [],
-      '3io': [],
-      '4': [],
-      'facio': [],
-      'esse': [],
-      'ferre': [],
-      'perfect': []
-    }
-Object.keys(conjugation).forEach(function(conj){
-  var endings = fs.readFileSync('conjugation.'+conj+'.txt',{encoding:'utf8'}).split(/\s*\n\s*/).filter(function(ending){
-    return ending.match(/^-/);
-  });
-  conjugation[conj] = endings.map(function(ending){
-    return ending.replace(/^-/,'');
-  });
-});
+    };
 function getVerbMatch(orth, verbParts) {
-  console.info(orth, verbParts)
+  //console.info(orth, verbParts)
   regexVerbType.exec('');
   var match = regexVerbType.exec(verbParts);
   var verbMatch = [];
@@ -357,72 +358,50 @@ console.info('\north: ' + orth);
     if(gen) {
       ++numGen;
       gen = gen[1];
-      console.info('gen: ' + gen);
+      //console.info('gen: ' + gen);
     }
     if(adjType) {
       adjType = adjType[1];
       ++numAdjType;
-      console.info('adjType: ' + adjType);
+      //console.info('adjType: ' + adjType);
     }
     if(verbMatch) {
       // if the verb is defective, don't look for parts.
       verbMatch = getVerbMatch(orth,verbParts);
       //verbParts = getVerbParts(orth,verbMatch);
       ++numVerbType;
-      console.info('verbType: ' + verbMatch);
+      //console.info('verbType: ' + verbMatch);
     }
     if(pos) {
       pos = pos[1];
       ++(numPos[pos]);
-      console.info('pos: ' + pos);
+      //console.info('pos: ' + pos);
     }
     if(gen) {
       // noun
-      if(adjType) console.info('noun declension:', declineNoun(orth,adjType));
-      else console.info('no adjType....why?')
+      if(adjType) {
+        //console.info('noun declension:', declineNoun(orth,adjType));
+        numGen++;
+        nouns.push({orthography: orth, type: adjType, pos: 'noun'});
+        omniaVerba._add(declineNoun(orth, adjType), orth);
+      }
+      else {
+        console.info('no adjType....why?')
+      }
     } else if(adjType && adjType != 'indecl.' && (!pos || pos.match(/adj\./))) {
-      console.info('adj declension:', declineAdjective(orth,adjType));
+      //console.info('adj declension:', declineAdjective(orth,adjType));
+      numAdjType++;
+      nouns.push({orthography: orth, type: adjType, pos: 'adj'});
+      omniaVerba._add(declineNoun(orth, adjType), orth);
     }
     if(verbMatch && orth.reverse().match(/^([oōŏörmtiīïĭ]|[eēĕë]r)/)) {
-      //console.info('infinitive:', conjugateVerb(orth,verbType));
+      //console.info('verb:', orth);
       numVerb++;
-      verbs.push({orthography: orth, verbParts: verbParts, parts: verbFunctions.getVerbParts(orth, verbMatch), verbMatch: verbMatch, fullText: fullTextSansParentheses});
+      var verb = {orthography: orth, verbParts: verbParts, parts: verbFunctions.getVerbParts(orth, verbMatch), verbMatch: verbMatch, fullText: fullTextSansParentheses};
+      verbs.push(verb);
+      omniaVerba._add(conjugateVerb(verb.parts), orth);
     }
     continue;
-    //if(gen && pos) console.info(orth);
-    if(pos.match(/adj\./)) {
-      //adjective...
-      declineAdjective(orth,handleDiacritics(type||gramGrp.match(/^<gramGrp(?:\s[^>]*)?>(?:\s*?\([^)]+\)[,;.\s]*(?=[^,.;\s]))?([^]+)<\/gramGrp>/)[1]));
-    } else if(pos.match(/P\. a\./)) {
-      //TODO: delcine participial adjective
-    } else if(pos) {
-      //indeclinable
-    } else if(gen) {
-      //if(!type) console.info('noun w/o type: ' + orth);
-      //noun
-      
-      var genitive = type && type.match(/(?:\s*\([^)]+\))?([^\s,]+)[\s,]+$/);
-      if(genitive) {
-        genitive = handleDiacritics(genitive[1]);
-        if(console.showAllDeclensions) {
-          console.info(orth + ':' + genitive + ':' + JSON.stringify(declineNoun(orth,genitive)));
-        }
-      }
-    } else if(emph && emph.match(/(num|pra?ep|conj|pron(?:om)?)\.?/)) {
-      //number / prep: indeclinable
-    } else if(type && type.match(/^\s*see\s/i)) {
-      if(debug.showCrossReferences) {
-        console.info('cross reference: ' + type + ' (' + orth + ')');
-      }
-    } else {
-      //unknown...
-      if(emph) {
-        //console.info('unknown: ' + orth);
-       //console.info(' (' + emph + ')');
-     }
-      ++numUnknown;
-    }
-
   } else {
     //consider it indeclinable
     console.info('no gender nor pos...indeclinable?');
@@ -430,6 +409,8 @@ console.info('\north: ' + orth);
   //console.info(orth + ': ' + (gramGrp && gramGrp[0]));
 }
 fs.writeFileSync(fileVerbs,JSON.stringify(verbs, null, '\t'));
+fs.writeFileSync(fileNouns,JSON.stringify(nouns, null, '\t'));
+fs.writeFileSync(fileOmniaVerba, JSON.stringify(omniaVerba, null, '\t'));
 console.info('Total: ' + count);
 console.info('Ignored: ' + ignore);
 console.info('No GramGrp: ' + noGram);

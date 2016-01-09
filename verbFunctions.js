@@ -49,6 +49,28 @@ String.prototype.removeDiacritics = function() {
     }
   });
 }
+var fs = require && require('fs'),
+  conjugation = {
+    '1': [],
+    '2': [],
+    '3': [],
+    '3io': [],
+    '4': [],
+    'facio': [],
+    'esse': [],
+    'ferre': [],
+    'perfect': []
+  };
+if(fs) {
+  Object.keys(conjugation).forEach(function(conj){
+    var endings = fs.readFileSync('conjugation.'+conj+'.txt',{encoding:'utf8'}).split(/\s*\n\s*/).filter(function(ending){
+      return ending.match(/^-/);
+    });
+    conjugation[conj] = endings.map(function(ending){
+      return ending.replace(/^-/,'');
+    });
+  });
+}
 function findRootForEnding(root, ending, conj) {
   var endingNoDiacritics = ending.removeDiacritics();
   var rootBackwardsNoDiacritics = root.removeDiacritics().reverse();
@@ -234,13 +256,34 @@ function findRootForEnding(root, ending, conj) {
   // benefacio, fēci, factum
   // beneplaceo, ŭi, itum, 2
 }
+conjugateVerb = exports.conjugateVerb = function(parts) {
+  var result = [];
+  (parts.root || []).forEach(function(root) {
+    (parts.conjugation || []).forEach(function(conj) {
+      Array.prototype.push.apply(result, conjugation[conj].map(function(ending){
+        return root + ending;
+      }));
+    });
+  });
+  // TODO: deal with the supine properly
+  (parts.supine || []).forEach(function(supine) {
+    Array.prototype.push.apply(result, [supine]);
+  });
+  (parts.perfect || []).forEach(function(perfect) {
+    var root = perfect.slice(0, -1);
+    Array.prototype.push.apply(result, conjugation.perfect.map(function(ending){
+      return root + ending;
+    }));
+  });
+  return result;
+}
 getVerbParts = exports.getVerbParts = function getVerbParts(orth, verbMatch) {
   if(!verbMatch[1]) {
     console.info('unknown verb:', orth);
     return {};
   }
   var root = null;
-  var parts = {root: [], infinitive: [], supine: [], perfect: []};
+  var parts = {root: [], infinitive: [], supine: [], perfect: [], conjugation: []};
   var perfectEnding = (verbMatch[3]||[]).filter(function(ending) {
     return ending.match(/[iīĭï]$/i);
   });
@@ -258,6 +301,11 @@ getVerbParts = exports.getVerbParts = function getVerbParts(orth, verbMatch) {
     verbEnding[2] = 'am';
   }
   verbMatch[1].forEach(function(conj) {
+    if(conj == '3' && verbEnding.io) {
+      parts.conjugation.push('3io');
+    } else {
+      parts.conjugation.push(conj);
+    }
     switch(conj) {
       case 1:
         if(!root && orth.match(/[oōŏ]r?$/)) root = orth.slice(0,-(1+verbEnding[4].length));
@@ -298,6 +346,7 @@ getVerbParts = exports.getVerbParts = function getVerbParts(orth, verbMatch) {
       case 'perfect':
         if(orth.match(/[iīĭï]$/)) {
           root = orth.slice(0,-1);
+          parts.perfect.addIfNotIn(root + 'i');
           parts.infinitive.addIfNotIn(root + 'isse');
         } else console.warn(orth, ' does not end with -i but it is marked as a perfect stem verb');
         break;
