@@ -49,7 +49,8 @@ String.prototype.removeDiacritics = function() {
     }
   });
 }
-var fs = require && require('fs'),
+var require = require || null,
+  fs = require && require('fs'),
   conjugation = {
     '1': [],
     '2': [],
@@ -381,3 +382,85 @@ getVerbParts = exports.getVerbParts = function getVerbParts(orth, verbMatch) {
   });
   return parts;
 }
+findThirdDeclensionRoot = exports.findThirdDeclensionRoot = function findThirdDeclensionRoot(nom,gen) {
+  // nom,gen are, e.g., iter,itineris; ordo,inis; Acherōn, tis; expers, tis; supellex, supellectilis
+  // Algorithm:
+  // if(gen.startsWith(vowel))
+  //   nomRoot = nom (substring to last vowel), e.g., iter=>it, ordo=> ord
+  //   start with the last vowel in the gen ending and keep checking if nom+genEnd.endsWith(gen);
+  //   e.g., itis? no. iteris? no. itineris? yes. return.
+  //         ordis? no.  rdinis? yes. return.
+  // 
+  //   
+  //
+  for(var x=1; x<3; x++) {
+    var match = nom.match('^(.+)([aeiouyœæāēīōūȳ][^aeiouyœæāēīōūȳ]*){'+x+'}$');
+    if(!match) break;
+    var nomRoot = match[1];
+    var y = 1;
+    while(match = gen.match('(?:[aeiouyœæāēīōūȳ][^aeiouyœæāēīōūȳ]*){'+y+'}$')) {
+      var candidate = nomRoot + match[0];
+      if(candidate.match(gen+'$')) {
+        candidate = candidate.slice(0,-2);
+        return candidate;
+      }
+      y++;
+    }
+  }
+  var firstPart;
+  if(gen.match(/^tis$/)) firstPart = 's';
+  else if(gen.match(/^cis$/)) firstPart = 'x';
+  else {
+    firstPart = gen.match(/^(.*?)[aeiouyœæāēīōūȳ]/)[1].slice(0,1);
+  }
+  var index = nom.lastIndexOf(firstPart);
+  gen = gen.slice(0,-2);
+  if(index>=0 && index<nom.length) {
+    var candidate = nom.slice(0,index) + gen;
+    return candidate
+  }
+  return gen;
+}
+declineNoun = exports.declineNoun = (function(){
+  var declensions = {
+    '1': [['a','ae','am','ā'],['ae','ārum','īs','ās','ābus']],
+    '2': [['us','ī','ō','um','e'],['ī','ōrum','īs','ōs','ōbus']],
+    '2n':[['um','ī','ō'],['a','ōrum','īs']],
+    '3': [['','is','ī','em','e'],['ēs','um','ium','ibus']],
+    '3n1':[['','is','ī','e'],['ia','ium','ibus','a','um']],
+    '3n2':[['','is','ī','e'],['a','um','ibus','ia','ium']],
+    '4': [['us','ūs','ui','um','ū'],['ūs','uum','ibus']],
+    '4n':[['ū','ūs'],['ua','uum','ibus']],
+    '5': [['ēs','ēī','em','ē','ērum','ēbus']],
+    '5a':[['es','eī','em','ē','ēs','ērum','ēbus']]
+  }
+  return function(nom,gen) {
+    if(gen == 'i') gen = 'ī';
+    var decl, i, found = false, result = [nom], root;
+    for(decl in declensions) {
+      var endings = declensions[decl];
+      for(i in endings) {
+        if(!endings.hasOwnProperty(i)) continue;
+        var curEndings = endings[i];
+        var j = 0;
+        if(found || (nom.endsWith(curEndings[0]) && gen.endsWith(curEndings[1]))) {
+          found = true;
+          if(!root) {
+            j = 1;
+            root = nom.slice(0,-curEndings[0].length);
+            if(!root) {
+              if(gen[0]=='(') console.info('Warning (%s): genitive = ' + gen, nom);
+              root = findThirdDeclensionRoot(nom,gen);
+            }
+          }
+          for(; j < curEndings.length; ++j) {
+            var newWord = root + curEndings[j];
+            if(result.indexOf(newWord)<0) result.push(newWord);
+          }
+        }
+      }
+      if(found) break;
+    }
+    return result;
+  }
+})();
