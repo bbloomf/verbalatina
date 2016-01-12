@@ -1,4 +1,6 @@
 var regexLatin = /((?:<(?:b|i|sc)>)*)(((?:(?:(\s+)|^)(?:s[uú](?:bs?|s(?=[cpqt]))|tr[aáā]ns|p[oóō]st|[aáā]d|[oóō]bs|[eéē]x|p[eéēoóō]r|[iíī]n|r[eéē](?:d(?=d|[aeiouyáéëïíóúýǽæœāēīōūȳ]))))|(?:(?:(\s+)|)(?:(?:i(?!i)|(?:n[cg]|q)u)(?=[aeiouyáéëïíóúýǽæœāēīōūȳ])|[bcdfghjklmnprstvwxz]*)([aá]u|[ao][eé]?|[eiuyáéëïíóúýǽæœāēīōūȳ])(?:[\wáéíóúýǽæœāēīōūȳ]*(?=-)|(?=(?:n[cg]u|sc|[sc][tp]r?|gn|ps)[aeiouyáéëïíóúýǽæœāēīōūȳ]|[bcdgptf][lrh][\wáéíóúýǽæœāēīōūȳ])|(?:[bcdfghjklmnpqrstvwxz]+(?=$|[^\wáëïéíóúýǽæœāēīōūȳ])|[bcdfghjklmnpqrstvwxz](?=[bcdfghjklmnpqrstvwxz]+))?)))(?:([\*-])|([^\w\sáëïéíóúýǽæœāēīōūȳ]*(?:\s[:;†\*\"«»‘’“”„‟‹›‛])*\.?(?=\s|$))?)(?=(\s*|$)))((?:<\/(?:b|i|sc)>)*)/gi;
+var regexLatinAccent = /([ao]e|au|[aeiouyāēīōūȳăĕĭŏŭäëïöüÿ])(([^aeiouyāēīōūȳăĕĭŏŭäëïöüÿ]*)((?:qu)?[aeiouyăĕĭŏŭ]([bcdgkpt][rl]|qu|[bcdfghjklmnprstvy]?)|)([ao]e|au|[aeiouyāēīōūȳăĕĭŏŭäëïöüÿ])[^aeiouyāēīōūȳăĕĭŏŭäëïöüÿ]*)$/i;
+var regexBackwardLatinAccent = /^[^aeiouyāēīōūȳăĕĭŏŭäëïöüÿ]*(e[ao]|ua|[aeiouyāēīōūȳăĕĭŏŭäëïöüÿ])(([rl][bcdgkpt]|uq|[bcdfghjklmnprstvy]?)[aeiouyăĕĭŏŭ](?:uq)?|)([^aeiouyāēīōūȳăĕĭŏŭäëïöüÿ])*(e[ao]|ua|[aeiouyāēīōūȳăĕĭŏŭäëïöüÿ])/i;
 Array.prototype.addIfNotIn = function(object) {
   if(this.indexOf(object) < 0) this.push(object);
 }
@@ -20,6 +22,38 @@ Array.prototype.addToIndex = function(index, object) {
 String.prototype.reverse = function() {
   return this.split('').reverse().join('');
 };
+String.prototype.getAccentedForm = function() {
+  var tmp = this.replace(/[^aeiouyāēīōūȳăĕĭŏŭäëïöüÿbcdfghjklmnpqrstvxz]+/ig,'');
+  var match = tmp.match(regexLatinAccent);
+  return tmp.slice(0, match.index).removeDiacritics() + ({
+    "au": "áu",
+    "ae": "ǽ",
+    "oe": "oé",
+    "a": "á",
+    "ā": "á",
+    "ă": "á",
+    "ä": "á",
+    "e": "é",
+    "ē": "é",
+    "ĕ": "é",
+    "ë": "é",
+    "i": "í",
+    "ī": "í",
+    "ĭ": "í",
+    "ï": "í",
+    "o": "ó",
+    "ō": "ó",
+    "ŏ": "ó",
+    "ö": "ó",
+    "u": "ú",
+    "ū": "ú",
+    "ŭ": "ú",
+    "ü": "ú",
+    "y": "ý",
+    "ȳ": "ý",
+    "ÿ": "ý"
+  })[match[1]] + match[2].removeDiacritics();
+}
 String.prototype.removeDiacritics = function() {
   return this.toLowerCase().replace(/ae/g,'æ').replace(/oe/g,'œ').replace(/[āēīōūȳăĕĭŏŭäëïöüÿ]/g, function(match){
     switch(match) {
