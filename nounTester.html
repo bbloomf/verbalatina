@@ -11,7 +11,7 @@
 <span id='invalid' style='color: darkred;'>Invalid regular expression: <span></span></span>
 <table class='table'>
 <thead>
-<tr><th>Noun</th><th>Type</th><th>PoS</th><th>Root</th><th>Parts</th></tr>
+<tr><th>Noun</th><th>´</th><th>Type</th><th>PoS</th><th>Root</th><th>Parts</th></tr>
 </thead>
 <tbody></tbody>
 </table>
@@ -28,19 +28,24 @@ $(function($){
     var $tbody = $('tbody');
     var i=0;
     nouns.forEach(function(noun){
-      var parts = declineNoun(noun.orthography, noun.type);
+      var parts = (noun.pos=='noun'? declineNoun : declineAdjective)(noun.orthography, noun.type);
+      if(!parts) parts = declineNoun(noun.orthography, noun.type);
       if(noun.parts && JSON.stringify(parts) != JSON.stringify(noun.parts)) {
         console.info(noun.orthography + ' has changed');
         console.info(parts + ' (' + noun.parts + ')');
       }
       noun.parts = parts;
+      var accentedParts = parts.map(function(orth){return orth.getAccentedForm(); });
       var tr = $('<tr/>');
       tr.append($('<td/>').text(noun.orthography));
+      tr.append($('<td/>').html(accentedParts.slice(0,2).join('<br>')).attr('title',accentedParts.join(', ')));
       tr.append($('<td/>').text(noun.type));
       tr.append($('<td/>').text(noun.pos));
-      var root;
+      var root = '';
       try {
-        root = findThirdDeclensionRoot(noun.orthography,noun.type);
+        if(noun.type.match(/is$/)) {
+          root = findThirdDeclensionRoot(noun.orthography,noun.type);
+        }
       } catch(e) {
         root = '[EXCEPTION]';
       }

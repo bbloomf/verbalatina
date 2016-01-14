@@ -11,7 +11,7 @@
 <span id='invalid' style='color: darkred;'>Invalid regular expression: <span></span></span>
 <table class='table'>
 <thead>
-<tr><th>Verb</th><th>Class</th><th>Root</th><th>Infinitive</th><th>Perfect</th><th>Supine</th><th>Parts</th></tr>
+<tr><th>Verb</th><th>´</th><th>Class</th><th>Root</th><th>Infinitive</th><th>Perfect</th><th>Supine</th><th>Parts</th></tr>
 </thead>
 <tbody></tbody>
 </table>
@@ -42,6 +42,7 @@ $(function($){
       verb.parts = parts;
       var tr = $('<tr/>');
       tr.append($('<td/>').text(verb.orthography));
+      tr.append($('<td/>').text(verb.orthography.getAccentedForm()));
       tr.append($('<td/>').text(verb.verbMatch[1] && verb.verbMatch[1].join(', ') || ''));
       tr.append($('<td/>').text((parts.root || ['UNDETERMINED']).join(', ')));
       tr.append($('<td/>').text((parts.infinitive || ['UNDETERMINED']).join(', ')));

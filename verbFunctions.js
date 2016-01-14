@@ -1,6 +1,7 @@
 var regexLatin = /((?:<(?:b|i|sc)>)*)(((?:(?:(\s+)|^)(?:s[uú](?:bs?|s(?=[cpqt]))|tr[aáā]ns|p[oóō]st|[aáā]d|[oóō]bs|[eéē]x|p[eéēoóō]r|[iíī]n|r[eéē](?:d(?=d|[aeiouyáéëïíóúýǽæœāēīōūȳ]))))|(?:(?:(\s+)|)(?:(?:i(?!i)|(?:n[cg]|q)u)(?=[aeiouyáéëïíóúýǽæœāēīōūȳ])|[bcdfghjklmnprstvwxz]*)([aá]u|[ao][eé]?|[eiuyáéëïíóúýǽæœāēīōūȳ])(?:[\wáéíóúýǽæœāēīōūȳ]*(?=-)|(?=(?:n[cg]u|sc|[sc][tp]r?|gn|ps)[aeiouyáéëïíóúýǽæœāēīōūȳ]|[bcdgptf][lrh][\wáéíóúýǽæœāēīōūȳ])|(?:[bcdfghjklmnpqrstvwxz]+(?=$|[^\wáëïéíóúýǽæœāēīōūȳ])|[bcdfghjklmnpqrstvwxz](?=[bcdfghjklmnpqrstvwxz]+))?)))(?:([\*-])|([^\w\sáëïéíóúýǽæœāēīōūȳ]*(?:\s[:;†\*\"«»‘’“”„‟‹›‛])*\.?(?=\s|$))?)(?=(\s*|$)))((?:<\/(?:b|i|sc)>)*)/gi;
-var regexLatinAccent = /([ao]e|au|[aeiouyāēīōūȳăĕĭŏŭäëïöüÿ])(([^aeiouyāēīōūȳăĕĭŏŭäëïöüÿ]*)((?:qu)?[aeiouyăĕĭŏŭ]([bcdgkpt][rl]|qu|[bcdfghjklmnprstvy]?)|)([ao]e|au|[aeiouyāēīōūȳăĕĭŏŭäëïöüÿ])[^aeiouyāēīōūȳăĕĭŏŭäëïöüÿ]*)$/i;
-var regexBackwardLatinAccent = /^[^aeiouyāēīōūȳăĕĭŏŭäëïöüÿ]*(e[ao]|ua|[aeiouyāēīōūȳăĕĭŏŭäëïöüÿ])(([rl][bcdgkpt]|uq|[bcdfghjklmnprstvy]?)[aeiouyăĕĭŏŭ](?:uq)?|)([^aeiouyāēīōūȳăĕĭŏŭäëïöüÿ])*(e[ao]|ua|[aeiouyāēīōūȳăĕĭŏŭäëïöüÿ])/i;
+var regexLatinAccent = /([ao]e|au|[aeiouyāēīōūȳăĕĭŏŭäëïöüÿ])(([^aeiouyāēīōūȳăĕĭŏŭäëïöüÿ]*)((?:qu|ngu)?[aeiouyăĕĭŏŭ]([bcdgkpt][rl]|qu|[bcdfghjklmnprstvy]?)|)([ao]e|au|[aeiouyāēīōūȳăĕĭŏŭäëïöüÿ])[^aeiouyāēīōūȳăĕĭŏŭäëïöüÿ]*)$/i;
+var regexBackwardLatinAccent = /^[^aeiouyāēīōūȳăĕĭŏŭäëïöüÿ]*(e[ao]|ua|[aeiouyāēīōūȳăĕĭŏŭäëïöüÿ])(([rl][bcdgkpt]|uq|[bcdfghjklmnprstvy]?)[aeiouyăĕĭŏŭ](?:uq|ugn)?|)([^aeiouyāēīōūȳăĕĭŏŭäëïöüÿ])*(e[ao]|ua|[aeiouyāēīōūȳăĕĭŏŭäëïöüÿ])/i;
+var regexLatinSylCount = /((q|ng)u)?([ao]e|au|[aeiouyāēīōūȳăĕĭŏŭäëïöüÿ])/gi;
 Array.prototype.addIfNotIn = function(object) {
   if(this.indexOf(object) < 0) this.push(object);
 }
@@ -22,8 +23,12 @@ Array.prototype.addToIndex = function(index, object) {
 String.prototype.reverse = function() {
   return this.split('').reverse().join('');
 };
+String.prototype.countSyllables = function() {
+  return (this.match(regexLatinSylCount)||[]).length;
+}
 String.prototype.getAccentedForm = function() {
   var tmp = this.replace(/[^aeiouyāēīōūȳăĕĭŏŭäëïöüÿbcdfghjklmnpqrstvxz]+/ig,'');
+  if(this.countSyllables()<3) return tmp.removeDiacritics();
   var match = tmp.match(regexLatinAccent);
   return tmp.slice(0, match.index).removeDiacritics() + ({
     "au": "áu",
@@ -51,11 +56,37 @@ String.prototype.getAccentedForm = function() {
     "ü": "ú",
     "y": "ý",
     "ȳ": "ý",
-    "ÿ": "ý"
+    "ÿ": "ý",
+    "Au": "Áu",
+    "Ae": "Ǽ",
+    "Oe": "Oé",
+    "A": "Á",
+    "Ā": "Á",
+    "Ă": "Á",
+    "Ä": "Á",
+    "E": "É",
+    "Ē": "É",
+    "Ĕ": "É",
+    "Ë": "É",
+    "I": "Í",
+    "Ī": "Í",
+    "Ĭ": "Í",
+    "Ï": "Í",
+    "O": "Ó",
+    "Ō": "Ó",
+    "Ŏ": "Ó",
+    "Ö": "Ó",
+    "U": "Ú",
+    "Ū": "Ú",
+    "Ŭ": "Ú",
+    "Ü": "Ú",
+    "Y": "Ý",
+    "Ȳ": "Ý",
+    "Ÿ": "Ý"
   })[match[1]] + match[2].removeDiacritics();
 }
 String.prototype.removeDiacritics = function() {
-  return this.toLowerCase().replace(/ae/g,'æ').replace(/oe/g,'œ').replace(/[āēīōūȳăĕĭŏŭäëïöüÿ]/g, function(match){
+  return this.replace(/ae/g,'æ').replace(/oe/g,'œ').replace(/A[Ee]/g,'Æ').replace(/O[Ee]/g,'Œ').replace(/[āēīōūȳăĕĭŏŭäëïöüÿ]/gi, function(match){
     switch(match) {
       case 'ā':
       case 'ă':
@@ -80,7 +111,46 @@ String.prototype.removeDiacritics = function() {
       case 'ȳ':
       case 'ÿ':
         return 'y';
+      case 'Ā':
+      case 'Ă':
+      case 'Ä':
+        return 'A';
+      case 'Ē':
+      case 'Ĕ':
+      case 'Ë':
+        return 'E';
+      case 'Ī':
+      case 'Ĭ':
+      case 'Ï':
+        return 'I';
+      case 'Ō':
+      case 'Ŏ':
+      case 'Ö':
+        return 'O';
+      case 'Ū':
+      case 'Ŭ':
+      case 'Ü':
+        return 'U';
+      case 'Ȳ':
+      case 'Ÿ':
+        return 'Y';
     }
+  }).replace(/(a|o)e/g,'$1ë');
+}
+handleDiacritics = function(string) {
+  return string.replace(/([āēīōūȳ])\^|([ăĕĭŏŭ])_/ig, function(match,longVowel,shortVowel){
+    return longVowel || ({
+      'ă': 'ā',
+      'ĕ': 'ē',
+      'ĭ': 'ī',
+      'ŏ': 'ō',
+      'ŭ': 'ū',
+      'Ă': 'Ā',
+      'Ĕ': 'Ē',
+      'Ĭ': 'Ī',
+      'Ŏ': 'Ō',
+      'Ŭ': 'Ū'
+    })[shortVowel];
   });
 }
 var require = require || null,
@@ -428,11 +498,11 @@ findThirdDeclensionRoot = exports.findThirdDeclensionRoot = function findThirdDe
   //   
   //
   for(var x=1; x<3; x++) {
-    var match = nom.match('^(.+)([aeiouyœæāēīōūȳ][^aeiouyœæāēīōūȳ]*){'+x+'}$');
+    var match = nom.match('^(.+)([aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ][^aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ]*){'+x+'}$');
     if(!match) break;
     var nomRoot = match[1];
     var y = 1;
-    while(match = gen.match('(?:[aeiouyœæāēīōūȳ][^aeiouyœæāēīōūȳ]*){'+y+'}$')) {
+    while(match = gen.match('(?:[aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ][^aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ]*){'+y+'}$')) {
       var candidate = nomRoot + match[0];
       if(candidate.match(gen+'$')) {
         candidate = candidate.slice(0,-2);
@@ -445,7 +515,7 @@ findThirdDeclensionRoot = exports.findThirdDeclensionRoot = function findThirdDe
   if(gen.match(/^tis$/)) firstPart = 's';
   else if(gen.match(/^cis$/)) firstPart = 'x';
   else {
-    firstPart = gen.match(/^(.*?)[aeiouyœæāēīōūȳ]/)[1].slice(0,1);
+    firstPart = gen.match(/^(.*?)[aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ]/)[1].slice(0,1);
   }
   var index = nom.lastIndexOf(firstPart);
   gen = gen.slice(0,-2);
@@ -455,6 +525,70 @@ findThirdDeclensionRoot = exports.findThirdDeclensionRoot = function findThirdDe
   }
   return gen;
 }
+declineAdjective = exports.declineAdjective = (function(){
+  var comparative = ['ior','iōris','ius'];
+  var block = {
+    'ī': ['a','ae','am','ā','ārum','īs','ās',
+           'ī','ō','um','e','ōrum','ōs','ē'],
+    'is': ['is','ī','em','e','ēs','um','ium','ibus',
+           'a','ia','iter'],
+    'ōrum': ['a','ae','ārum','īs','ās',
+           'ōrum','ōs']
+  }
+  return function(nom,itype,skipComparative) {
+    var endings,root,result=[nom];
+    var match = itype.match(/(?:^|\s)([a-zāăäēĕëīĭïōŏöūŭüȳÿ-]+is)(?:[,;.\s]|$)/i);
+    if(match || nom.match(/is$/)) {
+      endings = block['is'];
+      root = match?
+        findThirdDeclensionRoot(nom,handleDiacritics(match[1])) :
+        nom.slice(0,-2);
+      if(root.match(/t$/i)) {
+        endings = endings.slice();
+        endings.push('er');
+      }
+      //console.info(nom + ', ' + root + 'is');
+    } else if(nom.match(/[uü]s$/)) {
+      endings = block['ī'];
+      root = nom.slice(0,-2);
+    } else if(nom.match(/er$/)) {
+      var fem = itype.match(/\s*(\S*)a[,;.]*(?:\s|$)/i);
+      var neu = itype.match(/\s*(\S*)um[,;.]*(?:\s|$)/i);
+      var gen = itype.match(/\s*(\S*)ī[,;.]*(?:\s|$)/i);
+      if(neu) {
+        neu = neu[1] + 'um';
+      } else if(fem) {
+        neu = fem[1] + 'um';
+      } else if(gen) {
+        neu = gen[1] + 'um';
+      } else {
+        console.info('What is this?  %s: %s', nom, itype);
+        return;
+      }
+      neu = handleDiacritics(neu);
+      if(neu[0]=='(') console.info('Warning (%s): genitive = ' + neu, nom);
+      root = findThirdDeclensionRoot(nom,neu);
+      endings = block['ī'];
+    } else if(nom.match(/ī$/)) {
+      //plurale tantum
+      endings = block['ōrum'];
+    } else if(nom.match(/ēs$/)) {
+      var gen = itype.match(/\s*(\S+)a[,;.]*(?:\s|$)/i);
+      if(gen) {
+        endings = block['is'];
+        root = findThirdDeclensionRoot(nom,gen[1]);
+      } else return;
+    } else {
+      console.info('ERROR determinining declension of adjective: %s: (%s)', nom, itype);
+      return;
+    } 
+    for(var i=0; i < endings.length; ++i) {
+      var newWord = root + endings[i];
+      if(result.indexOf(newWord)<0) result.push(newWord);
+    }
+    return result;
+  }
+})();
 declineNoun = exports.declineNoun = (function(){
   var declensions = {
     '1': [['a','ae','am','ā'],['ae','ārum','īs','ās','ābus']],
@@ -477,7 +611,7 @@ declineNoun = exports.declineNoun = (function(){
         if(!endings.hasOwnProperty(i)) continue;
         var curEndings = endings[i];
         var j = 0;
-        if(found || (nom.endsWith(curEndings[0]) && gen.endsWith(curEndings[1]))) {
+        if(found || (nom.endsWith(curEndings[0]) && (gen.endsWith(curEndings[1]) || gen.endsWith(curEndings[1].removeDiacritics())))) {
           found = true;
           if(!root) {
             j = 1;
