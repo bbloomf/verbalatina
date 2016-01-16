@@ -75,7 +75,7 @@ var fs = require('fs'),
     regexOrth = /<orth[^>]*?>[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*([a-zāăäēĕëīĭïōŏöūŭüȳÿ_^ -]+)([^<]*)<\/orth>/i,
     regexGramGen = /<gen>([mfn]|comm?)\.<\/gen>/i,
     regexAdjType = /<\/(?:orth|gen)>(?:[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*(?:<[^>]+>)?(?:\([^)]+\))?)*([a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*(?:is|ae|[iī]|[aā]rum|[oō]rum|ūs|um|ius)|a, um|indecl\.)[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]/i,
-    regexVerb = / v(?:erb)?\. (?:[n|a]|inch|dep|impers|act|neutral|de(fect|sid))[\.,\s]/,
+    regexVerb = / v(?:erb)?\. (?:[n|a]|freq|inch|dep|impers|act|neutral|de(fect|sid))[\.,\s]/,
     regexVerbType = /(?:([1-4])|(d?[āaăäeëēĕīiï]r[eiīï])|([a-zāăäēĕëīĭïōŏöūŭüȳÿ]*(?:i|[rstxu][uūŭü][ms]|ferre|(?:ss|ll)e))(?:\s+(?:sum|est))?|(?:or|no perf|freq|orig))(?:\s?[,;\.]*\s+)+/gi,
     //P. a. == participial adjective
     regexGramPos = /<pos>(P\. a|(?:(?:num|pron)\. )?ad[jv](?:\. num)?|prep|interj|v\. (?:freq|inch\. )?((?:dep|impers|[an])(?:\. )?)+)\.<\/pos>/i,
@@ -174,6 +174,7 @@ console.info('\north: ' + orth);
   var fullText = fullEntry[1].replace(/<(bibl|foreign|cit|quote|etym)[^>]*>.*?<\/\1>;?|<[^>]+>/g,'');
   var fullTextSansParentheses = fullText.replace(regexParentheses,' ').replace(regexParentheses,' ').replace(/\s*\[[^\]]+\]\s*/g,' ');
   var verbMatch = fullTextSansParentheses.match(regexVerb);
+  // TODO: fix consulto
   var verbParts;
   if(verbMatch) {
     var useBackupParts = (verbMatch[1] == 'fect');
