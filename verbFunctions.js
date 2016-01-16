@@ -496,7 +496,10 @@ findThirdDeclensionRoot = exports.findThirdDeclensionRoot = function findThirdDe
   //         ordis? no.  rdinis? yes. return.
   // 
   //   
-  //
+  // special case for iens, euntis
+  if(gen.match(/[eēĕë][uūŭü]ntis$/) && nom.match(/[iīĭï][eēĕë]ns$/)) {
+    return nom.slice(0,-4) + 'eunt';
+  }
   for(var x=1; x<3; x++) {
     var match = nom.match('^(.+)([aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ][^aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ]*){'+x+'}$');
     if(!match) break;
