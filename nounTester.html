@@ -45,6 +45,7 @@ $(function($){
       try {
         if(noun.type.match(/is$/)) {
           root = findThirdDeclensionRoot(noun.orthography,noun.type);
+          if(!root) console.info('error finding root:', noun);
         }
       } catch(e) {
         root = '[EXCEPTION]';

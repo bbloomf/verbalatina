@@ -508,7 +508,7 @@ findThirdDeclensionRoot = exports.findThirdDeclensionRoot = function findThirdDe
     while(match = gen.match('(?:[aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ][^aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ]*){'+y+'}$')) {
       var candidate = nomRoot + match[0];
       if(candidate.match(gen+'$')) {
-        candidate = candidate.slice(0,-2);
+        candidate = candidate.replace(/[aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ][^aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ]?$/,'');
         return candidate;
       }
       y++;
@@ -521,11 +521,12 @@ findThirdDeclensionRoot = exports.findThirdDeclensionRoot = function findThirdDe
     firstPart = gen.match(/^(.*?)[aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ]/)[1].slice(0,1);
   }
   var index = nom.lastIndexOf(firstPart);
-  gen = gen.slice(0,-2);
+  gen = gen.replace(/[aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ][^aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ]?$/,'');
   if(index>=0 && index<nom.length) {
     var candidate = nom.slice(0,index) + gen;
     return candidate
   }
+  console.info('WARNING: using pure genitive (%s) for nominative "%s:"', gen, nom);
   return gen;
 }
 declineAdjective = exports.declineAdjective = (function(){
@@ -564,6 +565,8 @@ declineAdjective = exports.declineAdjective = (function(){
         neu = fem[1] + 'um';
       } else if(gen) {
         neu = gen[1] + 'um';
+      } else if(itype.match(/\s*\S*i/)) {
+        return declineNoun(nom,itype);
       } else {
         console.info('What is this?  %s: %s', nom, itype);
         return;
@@ -582,7 +585,7 @@ declineAdjective = exports.declineAdjective = (function(){
         root = findThirdDeclensionRoot(nom,gen[1]);
       } else return;
     } else {
-      console.info('ERROR determinining declension of adjective: %s: (%s)', nom, itype);
+      //console.info('ERROR determinining declension of adjective: %s: (%s)', nom, itype);
       return;
     } 
     for(var i=0; i < endings.length; ++i) {
@@ -596,6 +599,7 @@ declineNoun = exports.declineNoun = (function(){
   var declensions = {
     '1': [['a','ae','am','ā'],['ae','ārum','īs','ās','ābus']],
     '2': [['us','ī','ō','um','e'],['ī','ōrum','īs','ōs','ōbus']],
+    '2r': [['r','ī','ō','um','e'],['ī','ōrum','īs','ōs','ōbus']],
     '2n':[['um','ī','ō'],['a','ōrum','īs']],
     '3': [['','is','ī','em','e'],['ēs','um','ium','ibus']],
     '3n1':[['','is','ī','e'],['ia','ium','ibus','a','um']],
@@ -606,7 +610,7 @@ declineNoun = exports.declineNoun = (function(){
     '5a':[['es','eī','em','ē','ēs','ērum','ēbus']]
   }
   return function(nom,gen) {
-    if(gen == 'i') gen = 'ī';
+    gen = gen.replace(/i$/,'ī');
     var decl, i, found = false, result = [nom], root;
     for(decl in declensions) {
       var endings = declensions[decl];
@@ -614,11 +618,15 @@ declineNoun = exports.declineNoun = (function(){
         if(!endings.hasOwnProperty(i)) continue;
         var curEndings = endings[i];
         var j = 0;
-        if(found || (nom.endsWith(curEndings[0]) && (gen.endsWith(curEndings[1]) || gen.endsWith(curEndings[1].removeDiacritics())))) {
+        if(found || ((nom.endsWith(curEndings[0]) || nom.endsWith(curEndings[0].removeDiacritics())) && (gen.endsWith(curEndings[1]) || gen.endsWith(curEndings[1].removeDiacritics())))) {
           found = true;
           if(!root) {
             j = 1;
-            root = nom.slice(0,-curEndings[0].length);
+            if(!curEndings[0].match(/[aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ]/)) {
+              root = findThirdDeclensionRoot(nom,gen);
+            } else {
+              root = nom.slice(0,-curEndings[0].length);
+            }
             if(!root) {
               if(gen[0]=='(') console.info('Warning (%s): genitive = ' + gen, nom);
               root = findThirdDeclensionRoot(nom,gen);

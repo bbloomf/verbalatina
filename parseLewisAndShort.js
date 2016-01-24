@@ -29,8 +29,32 @@ var debug = {
 var verbEndings = {
 
 }
+var ambiguousForm = function(string) {
+  var longVowels = {
+    'a': 'ā',
+    'e': 'ē',
+    'i': 'ī',
+    'o': 'ō',
+    'u': 'ū',
+    'y': 'ȳ'
+  };
+  var regex = /[āēīōūȳäëïöüÿ]\^|[ăĕĭŏŭ]_/i;
+  var match = string.match(regex);
+  if(match) {
+    var short = match[0][0].removeDiacritics();
+    var long = longVowels[short.toLowerCase()];
+    var start = string.slice(0,match.index);
+    var end = ambiguousForm(string.slice(match.index+2,string.length));
+    var result = [];
+    end.forEach(function(end){
+      result.push(start + short + end, start + long + end);
+    });
+    return result;
+  }
+  return [string];
+}
 var removeBreves = function(string) {
-  return string.replace(/[ăĕĭŏŭ]/ig, function(shortVowel){
+  return string.replace(/[ăĕĭŏŭ](?!_)/ig, function(shortVowel){
     return ({
       'ă': 'a',
       'ĕ': 'e',
@@ -53,9 +77,10 @@ IndexVerborum.prototype._add = function(array, root) {
     root = array;
     array = [root];
   }
-  array.map(function(word){
-    return removeBreves(word.replace(/-/g,''));
-  }).forEach(function(word) {
+  array.reduce(function(a,word){
+    [].push.apply(a,ambiguousForm(removeBreves(word.replace(/-/g,''))));
+    return a;
+  },[]).forEach(function(word) {
     var tmp = verba[word] = verba[word] || [];
     tmp.addIfNotIn(root);
   });
@@ -74,7 +99,7 @@ var fs = require('fs'),
     regexEntry = /<entryFree[^>]*?>(([^`]*?<orth[^>]*?>[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*([a-zāăäēĕëīĭïōŏöūŭüȳÿ_^ -]+)([^<]*)<\/orth>)+?[^`]*?)<\/entryFree>/gi,
     regexOrth = /<orth[^>]*?>[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*([a-zāăäēĕëīĭïōŏöūŭüȳÿ_^ -]+)([^<]*)<\/orth>/i,
     regexGramGen = /<gen>([mfn]|comm?)\.<\/gen>/i,
-    regexAdjType = /<\/(?:orth|gen)>(?:[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*(?:<[^>]+>)?(?:\([^)]+\))?)*([a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*(?:is|ae|[iī]|[aā]rum|[oō]rum|ūs|um|ius)|a, um|indecl\.)[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]/i,
+    regexAdjType = /<\/(?:orth|gen)>(?:[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^<-]*(?:<[^>]+>)?(?:\([^)]+\))?)*([a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*(?:is|ae|[iī]|[aā]rum|[oō]rum|ūs|um|ius)|a, um|indecl\.)[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]/i,
     regexVerb = / v(?:erb)?\. (?:[n|a]|freq|inch|dep|impers|act|neutral|de(fect|sid))[\.,\s]/,
     regexVerbType = /(?:([1-4])|(d?[āaăäeëēĕīiï]r[eiīï])|([a-zāăäēĕëīĭïōŏöūŭüȳÿ]*(?:i|[rstxu][uūŭü][ms]|ferre|(?:ss|ll)e))(?:\s+(?:sum|est))?|(?:or|no perf|freq|orig))(?:\s?[,;\.]*\s+)+/gi,
     //P. a. == participial adjective
@@ -244,7 +269,13 @@ console.info('\north: ' + orth);
 }
 fs.writeFileSync(fileVerbs,JSON.stringify(verbs, null, '\t'));
 fs.writeFileSync(fileNouns,JSON.stringify(nouns, null, '\t'));
-fs.writeFileSync(fileOmniaVerba, JSON.stringify(omniaVerba, null, '\t'));
+fs.writeFileSync(fileOmniaVerba, JSON.stringify(omniaVerba));
+fs.writeFileSync('erratapossibilia.json', JSON.stringify(Object.keys(omniaVerba).reduce(function(a,key){
+  if(omniaVerba[key].length>3) {
+    a[key] = omniaVerba[key];
+  }
+  return a;
+},{})))
 console.info('Total: ' + count);
 console.info('Ignored: ' + ignore);
 console.info('No GramGrp: ' + noGram);
