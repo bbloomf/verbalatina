@@ -507,7 +507,7 @@ findThirdDeclensionRoot = exports.findThirdDeclensionRoot = function findThirdDe
     var y = 1;
     while(match = gen.match('(?:[aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ][^aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ]*){'+y+'}$')) {
       var candidate = nomRoot + match[0];
-      if(candidate.match(gen+'$')) {
+      if(candidate.match(gen.replace(/\^/g,'\\^')+'$')) {
         candidate = candidate.replace(/[aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ][^aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ]?$/,'');
         return candidate;
       }
@@ -521,12 +521,13 @@ findThirdDeclensionRoot = exports.findThirdDeclensionRoot = function findThirdDe
     firstPart = gen.match(/^(.*?)[aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ]/)[1].slice(0,1);
   }
   var index = nom.lastIndexOf(firstPart);
+  var test = findRootForEnding(nom,gen);
   gen = gen.replace(/[aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ][^aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ]?$/,'');
   if(index>=0 && index<nom.length) {
     var candidate = nom.slice(0,index) + gen;
     return candidate
   }
-  console.info('WARNING: using pure genitive (%s) for nominative "%s:"', gen, nom);
+  if(test) console.info('WARNING: using pure genitive (%s) for nominative "%s"...would "%s" be better?', gen, nom, test);
   return gen;
 }
 declineAdjective = exports.declineAdjective = (function(){
