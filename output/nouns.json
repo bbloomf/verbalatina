@@ -876,7 +876,7 @@
 	},
 	{
 		"orthography": "ac-censĕo",
-		"type": "ŭi",
+		"type": "nsum",
 		"pos": "noun"
 	},
 	{
@@ -3891,7 +3891,7 @@
 	},
 	{
 		"orthography": "Aethĭŏps",
-		"type": "i",
+		"type": "ŏpis",
 		"pos": "noun"
 	},
 	{
@@ -5041,7 +5041,7 @@
 	},
 	{
 		"orthography": "Ălĕmanni",
-		"type": "Ălămanni",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -5386,7 +5386,7 @@
 	},
 	{
 		"orthography": "Allīfae",
-		"type": "Alīphae",
+		"type": "ārum",
 		"pos": "noun"
 	},
 	{
@@ -6311,7 +6311,7 @@
 	},
 	{
 		"orthography": "ammi",
-		"type": "ami",
+		"type": "ii",
 		"pos": "noun"
 	},
 	{
@@ -7121,7 +7121,7 @@
 	},
 	{
 		"orthography": "Ancus",
-		"type": "Marcius",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -7836,7 +7836,7 @@
 	},
 	{
 		"orthography": "Antēlĭi",
-		"type": "Anthēlĭi",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -8266,7 +8266,7 @@
 	},
 	{
 		"orthography": "antirrhīnon",
-		"type": "-um",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -9351,17 +9351,17 @@
 	},
 	{
 		"orthography": "ăquaeductĭo",
-		"type": "ăquae",
+		"type": "ōnis",
 		"pos": "noun"
 	},
 	{
 		"orthography": "ăquaeductus",
-		"type": "ăquae",
+		"type": "ūs",
 		"pos": "noun"
 	},
 	{
 		"orthography": "ăquaelīcĭum",
-		"type": "ăquīlīcĭum",
+		"type": "ii",
 		"pos": "noun"
 	},
 	{
@@ -9511,7 +9511,7 @@
 	},
 	{
 		"orthography": "ărăbarches",
-		"type": "this",
+		"type": "ae",
 		"pos": "noun"
 	},
 	{
@@ -9776,7 +9776,7 @@
 	},
 	{
 		"orthography": "arbŭtum",
-		"type": "arbĭtum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -10061,7 +10061,7 @@
 	},
 	{
 		"orthography": "arcirma",
-		"type": "this",
+		"type": "ae",
 		"pos": "noun"
 	},
 	{
@@ -10216,7 +10216,7 @@
 	},
 	{
 		"orthography": "Ărĕnācum",
-		"type": "Ărĕnātium",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -11521,7 +11521,7 @@
 	},
 	{
 		"orthography": "Ascŭlum",
-		"type": "Asclum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -13161,7 +13161,7 @@
 	},
 	{
 		"orthography": "aug",
-		"type": "augŭrĭālis",
+		"type": "is",
 		"pos": "noun"
 	},
 	{
@@ -13671,7 +13671,7 @@
 	},
 	{
 		"orthography": "auxĭlĭāris",
-		"type": "AVXSILIARIS",
+		"type": "ium",
 		"pos": "noun"
 	},
 	{
@@ -14140,11 +14140,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Bacchĭlĭdĭum",
-		"type": "metrum",
-		"pos": "adj"
-	},
-	{
 		"orthography": "Bacchis",
 		"type": "ĭdis",
 		"pos": "noun"
@@ -14186,7 +14181,7 @@
 	},
 	{
 		"orthography": "bacciballum",
-		"type": "basioballum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -14206,7 +14201,7 @@
 	},
 	{
 		"orthography": "Bacis",
-		"type": "Bacchis",
+		"type": "Pacis",
 		"pos": "adj"
 	},
 	{
@@ -14256,7 +14251,7 @@
 	},
 	{
 		"orthography": "Baetis",
-		"type": "Bĕtis",
+		"type": "is",
 		"pos": "noun"
 	},
 	{
@@ -14541,7 +14536,7 @@
 	},
 	{
 		"orthography": "băphīum",
-		"type": "băphēum",
+		"type": "ii",
 		"pos": "noun"
 	},
 	{
@@ -14881,7 +14876,7 @@
 	},
 	{
 		"orthography": "Băsĭlĭădae",
-		"type": "-lidae",
+		"type": "ārum",
 		"pos": "noun"
 	},
 	{
@@ -16701,7 +16696,7 @@
 	},
 	{
 		"orthography": "Bŏvillae",
-		"type": "Bŏbellae",
+		"type": "ārum",
 		"pos": "noun"
 	},
 	{
@@ -16771,7 +16766,7 @@
 	},
 	{
 		"orthography": "brăchycătălēctum",
-		"type": "brăchy-cătălēctĭcum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -17026,7 +17021,7 @@
 	},
 	{
 		"orthography": "Brixellum",
-		"type": "Brixillum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -18086,7 +18081,7 @@
 	},
 	{
 		"orthography": "Cădūsii",
-		"type": "Cădūsi",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -18200,11 +18195,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "caelĭbāris",
-		"type": "caelĭbālis",
-		"pos": "adj"
-	},
-	{
 		"orthography": "caelĭbātus",
 		"type": "ūs",
 		"pos": "noun"
@@ -18241,12 +18231,12 @@
 	},
 	{
 		"orthography": "caelum",
-		"type": "cēlum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
 		"orthography": "caelum",
-		"type": "coelum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -18281,7 +18271,7 @@
 	},
 	{
 		"orthography": "Caenophrūrĭum",
-		"type": "-frūrĭum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -18951,7 +18941,7 @@
 	},
 	{
 		"orthography": "călĭendrum",
-		"type": "călĭandrĭum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -19011,7 +19001,7 @@
 	},
 	{
 		"orthography": "callĭblĕphărum",
-		"type": "callĭblĕphărĭ-um",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -19536,7 +19526,7 @@
 	},
 	{
 		"orthography": "campester",
-		"type": "campestris",
+		"type": "tris",
 		"pos": "noun"
 	},
 	{
@@ -20906,7 +20896,7 @@
 	},
 	{
 		"orthography": "carfĭāthum",
-		"type": "carphĕōthum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -21291,7 +21281,7 @@
 	},
 	{
 		"orthography": "cartĭbŭlum",
-		"type": "-blum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -21686,7 +21676,7 @@
 	},
 	{
 		"orthography": "cāsus",
-		"type": "Ciceronis",
+		"type": "ūs",
 		"pos": "noun"
 	},
 	{
@@ -22131,7 +22121,7 @@
 	},
 	{
 		"orthography": "cătorchītes",
-		"type": "vīnum",
+		"type": "katorxi",
 		"pos": "adj"
 	},
 	{
@@ -22261,7 +22251,7 @@
 	},
 	{
 		"orthography": "caulis",
-		"type": "cōlis",
+		"type": "is",
 		"pos": "noun"
 	},
 	{
@@ -22621,7 +22611,7 @@
 	},
 	{
 		"orthography": "Cĕlendĕris",
-		"type": "-dris",
+		"type": "is",
 		"pos": "noun"
 	},
 	{
@@ -23451,7 +23441,7 @@
 	},
 	{
 		"orthography": "Cĕrĕālis",
-		"type": "Cĕrĭālis",
+		"type": "ium",
 		"pos": "noun"
 	},
 	{
@@ -24236,7 +24226,7 @@
 	},
 	{
 		"orthography": "Chatti",
-		"type": "Catti",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -24501,7 +24491,7 @@
 	},
 	{
 		"orthography": "Chŏaspes",
-		"type": "Chŏaspis",
+		"type": "is",
 		"pos": "noun"
 	},
 	{
@@ -25021,7 +25011,7 @@
 	},
 	{
 		"orthography": "cĭchŏrĭum",
-		"type": "cĭchŏrēum",
+		"type": "ii",
 		"pos": "noun"
 	},
 	{
@@ -25381,7 +25371,7 @@
 	},
 	{
 		"orthography": "Cinium",
-		"type": "Civium",
+		"type": "ii",
 		"pos": "noun"
 	},
 	{
@@ -26511,7 +26501,7 @@
 	},
 	{
 		"orthography": "claudo",
-		"type": "clūsum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -27546,7 +27536,7 @@
 	},
 	{
 		"orthography": "Coela",
-		"type": "ōrum",
+		"type": "Euboeae",
 		"pos": "noun"
 	},
 	{
@@ -28566,7 +28556,7 @@
 	},
 	{
 		"orthography": "cŏlus",
-		"type": "i",
+		"type": "ūs",
 		"pos": "noun"
 	},
 	{
@@ -29266,7 +29256,7 @@
 	},
 	{
 		"orthography": "com-mūnis",
-		"type": "comoinis",
+		"type": "is",
 		"pos": "noun"
 	},
 	{
@@ -29566,7 +29556,7 @@
 	},
 	{
 		"orthography": "compĭtum",
-		"type": "compĕtum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -32251,7 +32241,7 @@
 	},
 	{
 		"orthography": "conspĭcillum",
-		"type": "-ĭlĭum",
+		"type": "ii",
 		"pos": "noun"
 	},
 	{
@@ -33851,7 +33841,7 @@
 	},
 	{
 		"orthography": "cōrālĭum",
-		"type": "cŏral-lum",
+		"type": "ii",
 		"pos": "noun"
 	},
 	{
@@ -34985,11 +34975,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Crabra",
-		"type": "ae",
-		"pos": "adj"
-	},
-	{
 		"orthography": "crābro",
 		"type": "ōnis",
 		"pos": "noun"
@@ -36081,7 +36066,7 @@
 	},
 	{
 		"orthography": "cŭbĭcŭlum",
-		"type": "cŭbīclum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -36806,7 +36791,7 @@
 	},
 	{
 		"orthography": "Cūrĭātĭi",
-		"type": "Cŭrĭi",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -36981,7 +36966,7 @@
 	},
 	{
 		"orthography": "cuscŏlĭum",
-		"type": "-cŭlĭum",
+		"type": "ii",
 		"pos": "noun"
 	},
 	{
@@ -37981,7 +37966,7 @@
 	},
 	{
 		"orthography": "Dandări",
-		"type": "Tindări",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -38071,7 +38056,7 @@
 	},
 	{
 		"orthography": "Dārēus",
-		"type": "Dărĭī",
+		"type": "ii",
 		"pos": "noun"
 	},
 	{
@@ -42326,7 +42311,7 @@
 	},
 	{
 		"orthography": "dĭgĭtillum",
-		"type": "-tellum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -44106,7 +44091,7 @@
 	},
 	{
 		"orthography": "dīvortĭum",
-		"type": "divertium",
+		"type": "ii",
 		"pos": "noun"
 	},
 	{
@@ -45526,7 +45511,7 @@
 	},
 	{
 		"orthography": "Ebŭrŏbrittĭum",
-		"type": "-britĭum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -46481,7 +46466,7 @@
 	},
 	{
 		"orthography": "ĕlĕphantĭăsis",
-		"type": "-tĭōsis",
+		"type": "is",
 		"pos": "noun"
 	},
 	{
@@ -47291,7 +47276,7 @@
 	},
 	{
 		"orthography": "Encheliae",
-		"type": "Encheleae",
+		"type": "ārum",
 		"pos": "noun"
 	},
 	{
@@ -49866,7 +49851,7 @@
 	},
 	{
 		"orthography": "exăcon",
-		"type": "-cum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -55241,7 +55226,7 @@
 	},
 	{
 		"orthography": "frēni",
-		"type": "fraeni",
+		"type": "ōrum",
 		"pos": "adj"
 	},
 	{
@@ -56016,7 +56001,7 @@
 	},
 	{
 		"orthography": "fundĭbălum",
-		"type": "-bŭlum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -56196,7 +56181,7 @@
 	},
 	{
 		"orthography": "Fūrĭus",
-		"type": "Fūsius",
+		"type": "a, um",
 		"pos": "noun"
 	},
 	{
@@ -56461,7 +56446,7 @@
 	},
 	{
 		"orthography": "Gaetūli",
-		"type": "Gētūli",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -56751,7 +56736,7 @@
 	},
 	{
 		"orthography": "gallīnācĕus",
-		"type": "-acius",
+		"type": "a, um",
 		"pos": "noun"
 	},
 	{
@@ -56921,7 +56906,7 @@
 	},
 	{
 		"orthography": "gargărisma",
-		"type": "-ismum",
+		"type": "ătis",
 		"pos": "noun"
 	},
 	{
@@ -58026,7 +58011,7 @@
 	},
 	{
 		"orthography": "glaesum",
-		"type": "glēsum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -60245,11 +60230,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Hĕcăergē",
-		"type": "ekae",
-		"pos": "noun"
-	},
-	{
 		"orthography": "Hĕcătaeus",
 		"type": "i",
 		"pos": "noun"
@@ -60536,7 +60516,7 @@
 	},
 	{
 		"orthography": "Helvĭi",
-		"type": "Helvi",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -60916,7 +60896,7 @@
 	},
 	{
 		"orthography": "Hercŭlānĕum",
-		"type": "Hercŭlānĭum",
+		"type": "ĕi",
 		"pos": "noun"
 	},
 	{
@@ -61060,11 +61040,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Hermes Trĭmaxĭmus",
-		"type": "tris",
-		"pos": "adj"
-	},
-	{
 		"orthography": "hermēsĭas",
 		"type": "ădis",
 		"pos": "noun"
@@ -61170,11 +61145,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Hērŏphĭlē",
-		"type": "hrofi",
-		"pos": "noun"
-	},
-	{
 		"orthography": "hēros",
 		"type": "ōis",
 		"pos": "noun"
@@ -61211,7 +61181,7 @@
 	},
 	{
 		"orthography": "Hĕrŭli",
-		"type": "Ĕrŭli",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -61237,11 +61207,6 @@
 	{
 		"orthography": "Hespĕrĭdes",
 		"type": "um",
-		"pos": "noun"
-	},
-	{
-		"orthography": "Hespĕrĭē",
-		"type": "esperi",
 		"pos": "noun"
 	},
 	{
@@ -61916,7 +61881,7 @@
 	},
 	{
 		"orthography": "Hirpīni",
-		"type": "Irpīni",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -62196,7 +62161,7 @@
 	},
 	{
 		"orthography": "Hŏmŏlē",
-		"type": "omolwi",
+		"type": "um",
 		"pos": "noun"
 	},
 	{
@@ -62661,7 +62626,7 @@
 	},
 	{
 		"orthography": "Hunni",
-		"type": "Chunni",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -63056,7 +63021,7 @@
 	},
 	{
 		"orthography": "hypĕrīcon",
-		"type": "-īcum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -63307,11 +63272,6 @@
 	{
 		"orthography": "Hyrcāni",
 		"type": "ōrum",
-		"pos": "noun"
-	},
-	{
-		"orthography": "Hyrĭē",
-		"type": "uri",
 		"pos": "noun"
 	},
 	{
@@ -66811,7 +66771,7 @@
 	},
 	{
 		"orthography": "infĭtĭae",
-		"type": "infĭcĭae",
+		"type": "ārum",
 		"pos": "noun"
 	},
 	{
@@ -69036,7 +68996,7 @@
 	},
 	{
 		"orthography": "inter-pondĭum",
-		"type": "interpendĭ-um",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -70441,7 +70401,7 @@
 	},
 	{
 		"orthography": "Istri",
-		"type": "Histri",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -70518,11 +70478,6 @@
 		"orthography": "itis",
 		"type": "is",
 		"pos": "noun"
-	},
-	{
-		"orthography": "Itius",
-		"type": "Iccius",
-		"pos": "adj"
 	},
 	{
 		"orthography": "ĭto",
@@ -71096,7 +71051,7 @@
 	},
 	{
 		"orthography": "jūlis",
-		"type": "iūlis",
+		"type": "ĭdis",
 		"pos": "noun"
 	},
 	{
@@ -71551,7 +71506,7 @@
 	},
 	{
 		"orthography": "Lăbīci",
-		"type": "Lăvīci",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -71600,11 +71555,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Labrandĭus",
-		"type": "Labradius",
-		"pos": "noun"
-	},
-	{
 		"orthography": "Labro",
 		"type": "ōnis",
 		"pos": "noun"
@@ -71626,7 +71576,7 @@
 	},
 	{
 		"orthography": "lābrusca",
-		"type": "ae",
+		"type": "vītis",
 		"pos": "noun"
 	},
 	{
@@ -72046,7 +71996,7 @@
 	},
 	{
 		"orthography": "Laevi",
-		"type": "Lēvi",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -72636,7 +72586,7 @@
 	},
 	{
 		"orthography": "lăpĭcīdīnae",
-		"type": "LAPICAEDINAE",
+		"type": "ārum",
 		"pos": "noun"
 	},
 	{
@@ -72991,7 +72941,7 @@
 	},
 	{
 		"orthography": "lāserpīcĭum",
-		"type": "lāsarpīcĭum",
+		"type": "ĭi",
 		"pos": "noun"
 	},
 	{
@@ -73401,7 +73351,7 @@
 	},
 	{
 		"orthography": "Laurētum",
-		"type": "Lōrētum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -73466,12 +73416,12 @@
 	},
 	{
 		"orthography": "Lautŭlae",
-		"type": "Lautŏlae",
+		"type": "ārum",
 		"pos": "noun"
 	},
 	{
 		"orthography": "lautŭmĭae",
-		"type": "lātŏmĭae",
+		"type": "ārum",
 		"pos": "noun"
 	},
 	{
@@ -73486,7 +73436,7 @@
 	},
 	{
 		"orthography": "lăvācrum",
-		"type": "lăvăcrum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -73656,7 +73606,7 @@
 	},
 	{
 		"orthography": "Lecton",
-		"type": "Lectum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -74671,7 +74621,7 @@
 	},
 	{
 		"orthography": "Lexobĭi",
-		"type": "Lexovĭi",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -75216,7 +75166,7 @@
 	},
 	{
 		"orthography": "Ligii",
-		"type": "Lygii",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -75421,7 +75371,7 @@
 	},
 	{
 		"orthography": "limnestis",
-		"type": "limnētis",
+		"type": "ĭdis",
 		"pos": "noun"
 	},
 	{
@@ -76191,7 +76141,7 @@
 	},
 	{
 		"orthography": "lŏgărĭon",
-		"type": "-um",
+		"type": "ĭi",
 		"pos": "noun"
 	},
 	{
@@ -76911,7 +76861,7 @@
 	},
 	{
 		"orthography": "lūgūbris",
-		"type": "lūgūbris",
+		"type": "ĭum",
 		"pos": "noun"
 	},
 	{
@@ -77901,7 +77851,7 @@
 	},
 	{
 		"orthography": "Măcĕtae",
-		"type": "Măcĕdae",
+		"type": "ārum",
 		"pos": "noun"
 	},
 	{
@@ -78216,7 +78166,7 @@
 	},
 	{
 		"orthography": "Maedi",
-		"type": "Mēdi",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -78331,7 +78281,7 @@
 	},
 	{
 		"orthography": "magganum",
-		"type": "maganum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -78841,7 +78791,7 @@
 	},
 	{
 		"orthography": "mālŏbăthron",
-		"type": "mālŏbăthrum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -79056,7 +79006,7 @@
 	},
 	{
 		"orthography": "mancĭpĭum",
-		"type": "mancŭpĭum",
+		"type": "ii",
 		"pos": "noun"
 	},
 	{
@@ -79276,7 +79226,7 @@
 	},
 	{
 		"orthography": "mănĭpŭlāris",
-		"type": "-plaris",
+		"type": "is",
 		"pos": "noun"
 	},
 	{
@@ -79466,7 +79416,7 @@
 	},
 	{
 		"orthography": "mănūbrĭum",
-		"type": "mănĭbrĭum",
+		"type": "ii",
 		"pos": "noun"
 	},
 	{
@@ -79941,7 +79891,7 @@
 	},
 	{
 		"orthography": "Marrūcīni",
-		"type": "Marūcīni",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -79971,7 +79921,7 @@
 	},
 	{
 		"orthography": "marsūpĭum",
-		"type": "-suppium",
+		"type": "ii",
 		"pos": "noun"
 	},
 	{
@@ -80225,11 +80175,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "mastĭchum",
-		"type": "mastĭcum",
-		"pos": "adj"
-	},
-	{
 		"orthography": "mastīgĭa",
 		"type": "ae",
 		"pos": "noun"
@@ -80326,7 +80271,7 @@
 	},
 	{
 		"orthography": "matĕris",
-		"type": "madăris",
+		"type": "is",
 		"pos": "noun"
 	},
 	{
@@ -81001,7 +80946,7 @@
 	},
 	{
 		"orthography": "Mĕgălē",
-		"type": "Mĕgălēsis",
+		"type": "ĭum",
 		"pos": "noun"
 	},
 	{
@@ -81021,7 +80966,7 @@
 	},
 	{
 		"orthography": "mĕgălīum",
-		"type": "mĕgallīum",
+		"type": "ii",
 		"pos": "noun"
 	},
 	{
@@ -81276,7 +81221,7 @@
 	},
 	{
 		"orthography": "mēles",
-		"type": "mae-lis",
+		"type": "is",
 		"pos": "noun"
 	},
 	{
@@ -81617,11 +81562,6 @@
 	{
 		"orthography": "mēlŏfŏlĭa",
 		"type": "ōrum",
-		"pos": "noun"
-	},
-	{
-		"orthography": "mēlŏmĕli",
-		"type": "mēlĭmĕli",
 		"pos": "noun"
 	},
 	{
@@ -83306,7 +83246,7 @@
 	},
 	{
 		"orthography": "Mileum",
-		"type": "Milevum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -83531,7 +83471,7 @@
 	},
 	{
 		"orthography": "Minaei",
-		"type": "Minnaei",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -83966,7 +83906,7 @@
 	},
 	{
 		"orthography": "mĭsĕrĭmōnĭum",
-		"type": "-mūnĭum",
+		"type": "ii",
 		"pos": "noun"
 	},
 	{
@@ -86506,7 +86446,7 @@
 	},
 	{
 		"orthography": "Musulāmii",
-		"type": "Musulāmi",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -86956,7 +86896,7 @@
 	},
 	{
 		"orthography": "myrtētum",
-		"type": "murtētum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -86991,7 +86931,7 @@
 	},
 	{
 		"orthography": "myrtum",
-		"type": "murtum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -88036,7 +87976,7 @@
 	},
 	{
 		"orthography": "Nebiodūnum",
-		"type": "Noviodūnum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -88276,7 +88216,7 @@
 	},
 	{
 		"orthography": "nĕgōtĭum",
-		"type": "nĕgōcĭum",
+		"type": "ii",
 		"pos": "noun"
 	},
 	{
@@ -88575,11 +88515,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "nĕquĕdum",
-		"type": "necdum",
-		"pos": "adj"
-	},
-	{
 		"orthography": "Nequīnum",
 		"type": "i",
 		"pos": "noun"
@@ -88631,7 +88566,7 @@
 	},
 	{
 		"orthography": "nērĭon",
-		"type": "nērĭum",
+		"type": "ii",
 		"pos": "noun"
 	},
 	{
@@ -89716,7 +89651,7 @@
 	},
 	{
 		"orthography": "nongenti",
-		"type": "nōningenti",
+		"type": "ae",
 		"pos": "noun"
 	},
 	{
@@ -90611,7 +90546,7 @@
 	},
 	{
 		"orthography": "nuscitiōsum",
-		"type": "nusciciōsum",
+		"type": "Ateius",
 		"pos": "adj"
 	},
 	{
@@ -93451,7 +93386,7 @@
 	},
 	{
 		"orthography": "Ŏlȳbrius",
-		"type": "Ōlybrius",
+		"type": "ĭi",
 		"pos": "noun"
 	},
 	{
@@ -93796,7 +93731,7 @@
 	},
 	{
 		"orthography": "ŏnōnis",
-		"type": "ănōnis",
+		"type": "ĭdis",
 		"pos": "noun"
 	},
 	{
@@ -94806,7 +94741,7 @@
 	},
 	{
 		"orthography": "ŏrĕŏsĕlīnon",
-		"type": "-um",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -95391,7 +95326,7 @@
 	},
 	{
 		"orthography": "oscŭlum",
-		"type": "auscŭlum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -96871,7 +96806,7 @@
 	},
 	{
 		"orthography": "pammachum",
-		"type": "-chium",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -100550,11 +100485,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "pĕrĕger",
-		"type": "-gris",
-		"pos": "noun"
-	},
-	{
 		"orthography": "pĕrĕgrīnātĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -102471,7 +102401,7 @@
 	},
 	{
 		"orthography": "petrŏsĕlīnon",
-		"type": "-īnum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -102686,7 +102616,7 @@
 	},
 	{
 		"orthography": "phălăris",
-		"type": "phălēris",
+		"type": "ĭdis",
 		"pos": "noun"
 	},
 	{
@@ -103156,7 +103086,7 @@
 	},
 	{
 		"orthography": "Phĭlistīni",
-		"type": "-thīni",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -104766,7 +104696,7 @@
 	},
 	{
 		"orthography": "pistrīnum",
-		"type": "pristrīnum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -105316,7 +105246,7 @@
 	},
 	{
 		"orthography": "plaustrum",
-		"type": "plostrum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -105911,7 +105841,7 @@
 	},
 	{
 		"orthography": "pŏēsis",
-		"type": "pŏĕsis",
+		"type": "is",
 		"pos": "noun"
 	},
 	{
@@ -109986,7 +109916,7 @@
 	},
 	{
 		"orthography": "prīmĭtĭae",
-		"type": "prīmĭcĭae",
+		"type": "ārum",
 		"pos": "noun"
 	},
 	{
@@ -110251,7 +110181,7 @@
 	},
 	{
 		"orthography": "prŏboscis",
-		"type": "-moscis",
+		"type": "ĭdis",
 		"pos": "noun"
 	},
 	{
@@ -111681,7 +111611,7 @@
 	},
 	{
 		"orthography": "Prŏpontis",
-		"type": "Prōpontis",
+		"type": "proponti",
 		"pos": "noun"
 	},
 	{
@@ -112931,7 +112861,7 @@
 	},
 	{
 		"orthography": "psīlōthrum",
-		"type": "-trum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -114241,7 +114171,7 @@
 	},
 	{
 		"orthography": "pyrălis",
-		"type": "-allis",
+		"type": "ĭdis",
 		"pos": "noun"
 	},
 	{
@@ -114546,7 +114476,7 @@
 	},
 	{
 		"orthography": "pyxis",
-		"type": "puxis",
+		"type": "ĭdis",
 		"pos": "noun"
 	},
 	{
@@ -115001,7 +114931,7 @@
 	},
 	{
 		"orthography": "quercētum",
-		"type": "querquētum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -115166,7 +115096,7 @@
 	},
 	{
 		"orthography": "quīnī-vīcēni",
-		"type": "quīnī",
+		"type": "ae",
 		"pos": "adj"
 	},
 	{
@@ -115385,11 +115315,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "quōquō-versus",
-		"type": "-um",
-		"pos": "adj"
-	},
-	{
 		"orthography": "quŏtēni",
 		"type": "ae",
 		"pos": "adj"
@@ -115506,7 +115431,7 @@
 	},
 	{
 		"orthography": "Raeti",
-		"type": "Rhaeti",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -115896,7 +115821,7 @@
 	},
 	{
 		"orthography": "Raurăci",
-		"type": "Raurĭci",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -116821,7 +116746,7 @@
 	},
 	{
 		"orthography": "Rēgium ",
-		"type": "Lĕpĭdi",
+		"type": "ĭi",
 		"pos": "noun"
 	},
 	{
@@ -117111,7 +117036,7 @@
 	},
 	{
 		"orthography": "Rēmi",
-		"type": "Rhēmi",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -117201,7 +117126,7 @@
 	},
 	{
 		"orthography": "rĕmulcum",
-		"type": "rymulcum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -117496,7 +117421,7 @@
 	},
 	{
 		"orthography": "rĕpŏsĭtōrĭum",
-		"type": "rĕpostōrium",
+		"type": "ii",
 		"pos": "noun"
 	},
 	{
@@ -119786,7 +119711,7 @@
 	},
 	{
 		"orthography": "ruscum",
-		"type": "rustum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -120071,7 +119996,7 @@
 	},
 	{
 		"orthography": "Săcae",
-		"type": "Săgae",
+		"type": "ārum",
 		"pos": "noun"
 	},
 	{
@@ -120232,11 +120157,6 @@
 	{
 		"orthography": "Sacravĭenses",
 		"type": "ĭum",
-		"pos": "adj"
-	},
-	{
-		"orthography": "sacres",
-		"type": "porci",
 		"pos": "adj"
 	},
 	{
@@ -122236,7 +122156,7 @@
 	},
 	{
 		"orthography": "scăbellum",
-		"type": "scăbillum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -122501,7 +122421,7 @@
 	},
 	{
 		"orthography": "scăphĭum",
-		"type": "scăpĭum",
+		"type": "ii",
 		"pos": "noun"
 	},
 	{
@@ -123211,7 +123131,7 @@
 	},
 	{
 		"orthography": "Scōti",
-		"type": "Scotti",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -123376,7 +123296,7 @@
 	},
 	{
 		"orthography": "scrīpŭlum",
-		"type": "scriplum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -123436,7 +123356,7 @@
 	},
 	{
 		"orthography": "scrūpŭlus",
-		"type": "scrīŭplum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -123621,7 +123541,7 @@
 	},
 	{
 		"orthography": "Scylăcēum",
-		"type": "Scylăcīum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -123741,7 +123661,7 @@
 	},
 	{
 		"orthography": "sēbum",
-		"type": "sēvum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -124151,7 +124071,7 @@
 	},
 	{
 		"orthography": "segutilum",
-		"type": "segullum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -124591,7 +124511,7 @@
 	},
 	{
 		"orthography": "Sĕmīrămis",
-		"type": "Sămērămis",
+		"type": "is",
 		"pos": "noun"
 	},
 	{
@@ -125106,7 +125026,7 @@
 	},
 	{
 		"orthography": "Septizōnĭum",
-		"type": "Septemzōdĭum",
+		"type": "ii",
 		"pos": "noun"
 	},
 	{
@@ -125441,7 +125361,7 @@
 	},
 	{
 		"orthography": "sĕro",
-		"type": "ui",
+		"type": "tum",
 		"pos": "noun"
 	},
 	{
@@ -125536,7 +125456,7 @@
 	},
 	{
 		"orthography": "Serrhēum",
-		"type": "-rhīum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -127396,7 +127316,7 @@
 	},
 	{
 		"orthography": "smăris",
-		"type": "zmăris",
+		"type": "ĭdis",
 		"pos": "noun"
 	},
 	{
@@ -127556,7 +127476,7 @@
 	},
 	{
 		"orthography": "sŏdālĭcĭum",
-		"type": "-tĭum",
+		"type": "ii",
 		"pos": "adj"
 	},
 	{
@@ -127678,11 +127598,6 @@
 		"orthography": "sŏlĕārĭus",
 		"type": "ii",
 		"pos": "noun"
-	},
-	{
-		"orthography": "sōlemnis",
-		"type": "sōlennis",
-		"pos": "adj"
 	},
 	{
 		"orthography": "sōlēn",
@@ -128026,7 +127941,7 @@
 	},
 	{
 		"orthography": "sŏphĭa",
-		"type": "i",
+		"type": "ae",
 		"pos": "noun"
 	},
 	{
@@ -128746,7 +128661,7 @@
 	},
 	{
 		"orthography": "spēlaeum",
-		"type": "spēlēum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -129706,7 +129621,7 @@
 	},
 	{
 		"orthography": "Statielli",
-		"type": "Statelli",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -130501,7 +130416,7 @@
 	},
 	{
 		"orthography": "strătēgēum",
-		"type": "-īum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -131101,7 +131016,7 @@
 	},
 	{
 		"orthography": "stypsis",
-		"type": "stipsis",
+		"type": "is",
 		"pos": "noun"
 	},
 	{
@@ -131261,7 +131176,7 @@
 	},
 	{
 		"orthography": "suāvĭum",
-		"type": "sāvĭum",
+		"type": "ii",
 		"pos": "noun"
 	},
 	{
@@ -131351,7 +131266,7 @@
 	},
 	{
 		"orthography": "sub-dĭālis",
-		"type": "subdīvālis",
+		"type": "ĭum",
 		"pos": "noun"
 	},
 	{
@@ -133791,7 +133706,7 @@
 	},
 	{
 		"orthography": "suppărum",
-		"type": "sĭpărium",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -134496,7 +134411,7 @@
 	},
 	{
 		"orthography": "Sylēum",
-		"type": "Syllēum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -135776,7 +135691,7 @@
 	},
 	{
 		"orthography": "Taurŏmĕnĭum",
-		"type": "Taurŏmĭnĭum",
+		"type": "ii",
 		"pos": "noun"
 	},
 	{
@@ -136196,7 +136111,7 @@
 	},
 	{
 		"orthography": "tĕlōnĭum",
-		"type": "-nĕum",
+		"type": "ii",
 		"pos": "noun"
 	},
 	{
@@ -136391,7 +136306,7 @@
 	},
 	{
 		"orthography": "Tenchthēri",
-		"type": "Tenctēri",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -136636,7 +136551,7 @@
 	},
 	{
 		"orthography": "tĕrămōn",
-		"type": "tĕrămum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -137196,7 +137111,7 @@
 	},
 	{
 		"orthography": "tētrăchordos",
-		"type": "-dum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -137536,7 +137451,7 @@
 	},
 	{
 		"orthography": "thannum",
-		"type": "thamnum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -137756,7 +137671,7 @@
 	},
 	{
 		"orthography": "Thĕrapnae",
-		"type": "Thĕramnae",
+		"type": "ārum",
 		"pos": "noun"
 	},
 	{
@@ -139216,7 +139131,7 @@
 	},
 	{
 		"orthography": "tonstrīnum",
-		"type": "-einum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -140366,7 +140281,7 @@
 	},
 	{
 		"orthography": "trĕcēni",
-		"type": "tercēni",
+		"type": "ae",
 		"pos": "adj"
 	},
 	{
@@ -140416,7 +140331,7 @@
 	},
 	{
 		"orthography": "Trēvĕri",
-		"type": "Trēvĭri",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -140461,7 +140376,7 @@
 	},
 	{
 		"orthography": "Tribocci",
-		"type": "Triboci",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -141531,7 +141446,7 @@
 	},
 	{
 		"orthography": "trullĕum",
-		"type": "trullĭum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -142146,7 +142061,7 @@
 	},
 	{
 		"orthography": "tūs",
-		"type": "thūs",
+		"type": "tūris",
 		"pos": "noun"
 	},
 	{
@@ -143181,7 +143096,7 @@
 	},
 	{
 		"orthography": "ūrĭon",
-		"type": "ūrĭum",
+		"type": "ii",
 		"pos": "noun"
 	},
 	{
@@ -143241,7 +143156,7 @@
 	},
 	{
 		"orthography": "urvum",
-		"type": "urbum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -143651,7 +143566,7 @@
 	},
 	{
 		"orthography": "Vagienni",
-		"type": "-genni",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -144121,7 +144036,7 @@
 	},
 	{
 		"orthography": "vātes",
-		"type": "vātis",
+		"type": "is",
 		"pos": "noun"
 	},
 	{
@@ -144706,7 +144621,7 @@
 	},
 	{
 		"orthography": "Vĕnĕti",
-		"type": "Hĕnĕti",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -144856,7 +144771,7 @@
 	},
 	{
 		"orthography": "vēpres",
-		"type": "vē^pris",
+		"type": "is",
 		"pos": "noun"
 	},
 	{
@@ -145201,7 +145116,7 @@
 	},
 	{
 		"orthography": "Verrucius",
-		"type": "-tius",
+		"type": "ii",
 		"pos": "noun"
 	},
 	{
@@ -145401,7 +145316,7 @@
 	},
 	{
 		"orthography": "vĕrūtum",
-		"type": "verrūtum",
+		"type": "i",
 		"pos": "noun"
 	},
 	{
@@ -146726,7 +146641,7 @@
 	},
 	{
 		"orthography": "vĭrĭdārĭum",
-		"type": "vĭrĭdĭārĭum",
+		"type": "ii",
 		"pos": "noun"
 	},
 	{
@@ -147461,7 +147376,7 @@
 	},
 	{
 		"orthography": "Volsĭnĭi",
-		"type": "Vulsĭnĭi",
+		"type": "ōrum",
 		"pos": "noun"
 	},
 	{
@@ -148047,11 +147962,6 @@
 	{
 		"orthography": "Xūthus",
 		"type": "i",
-		"pos": "noun"
-	},
-	{
-		"orthography": "Xylĭnē",
-		"type": "culi",
 		"pos": "noun"
 	},
 	{
