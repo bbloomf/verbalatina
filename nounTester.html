@@ -38,7 +38,7 @@ $(function($){
       var accentedParts = parts.map(function(orth){return orth.getAccentedForm(); });
       var tr = $('<tr/>');
       tr.append($('<td/>').text(noun.orthography));
-      tr.append($('<td/>').html(accentedParts.slice(0,2).join('<br>')).attr('title',accentedParts.join(', ')));
+      tr.append($('<td/>').html(accentedParts.slice(0,2).join('<br>')).attr('title',accentedParts.join('\n')));
       tr.append($('<td/>').text(noun.type));
       tr.append($('<td/>').text(noun.pos));
       var root = '';
@@ -51,7 +51,7 @@ $(function($){
         root = '[EXCEPTION]';
       }
       tr.append($('<td/>').text(root));
-      tr.append($('<td/>').html(parts.slice(0,2).join('<br>')).attr('title',parts.join(', ')));
+      tr.append($('<td/>').html(parts.slice(0,2).join('<br>')).attr('title',parts.join('\n')));
       $tbody.append(tr);
     });
     $rows = $('tbody>tr');

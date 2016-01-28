@@ -40,9 +40,11 @@ $(function($){
         }
       }
       verb.parts = parts;
+      var conjugation = conjugateVerb(parts);
+      var accentedParts = conjugation.map(function(orth){return orth.getAccentedForm(); });
       var tr = $('<tr/>');
-      tr.append($('<td/>').text(verb.orthography));
-      tr.append($('<td/>').text(verb.orthography.getAccentedForm()));
+      tr.append($('<td/>').text(verb.orthography).attr('title',conjugation.join(', ')));
+      tr.append($('<td/>').html(accentedParts.slice(0,2).join('<br>')).attr('title',accentedParts.join(', ')));
       tr.append($('<td/>').text(verb.verbMatch[1] && verb.verbMatch[1].join(', ') || ''));
       tr.append($('<td/>').text((parts.root || ['UNDETERMINED']).join(', ')));
       tr.append($('<td/>').text((parts.infinitive || ['UNDETERMINED']).join(', ')));
