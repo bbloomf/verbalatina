@@ -368,9 +368,15 @@ conjugateVerb = exports.conjugateVerb = function(parts) {
   var result = [];
   (parts.root || []).forEach(function(root) {
     (parts.conjugation || []).forEach(function(conj) {
-      Array.prototype.push.apply(result, conjugation[conj].map(function(ending){
-        return root + ending;
-      }));
+      conjugation[conj].forEach(function(ending){
+        if(ending.match(/ns$/)) {
+          [].push.apply(result, declineAdjective(root+ending,'ntis'));
+        } else if(ending.match(/ndus$/)) {
+          [].push.apply(result, declineAdjective(root+ending,''));
+        } else {
+          result.push(root+ending);
+        }
+      });
     });
   });
   // TODO: deal with the supine properly
@@ -379,9 +385,12 @@ conjugateVerb = exports.conjugateVerb = function(parts) {
   });
   (parts.perfect || []).forEach(function(perfect) {
     var root = perfect.slice(0, -1);
-    Array.prototype.push.apply(result, conjugation.perfect.map(function(ending){
-      return root + ending;
-    }));
+    conjugation.perfect.forEach(function(ending){
+      result.push(root + ending);
+      if(root.match(/[āēīōūȳ]v$/) && ending.match(/^[eiĕĭ][rs]/)) {
+        result.push(root.slice(0,-1) + ending.slice(1));
+      }
+    });
   });
   return result;
 }
