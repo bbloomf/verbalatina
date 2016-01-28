@@ -3145,11 +3145,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Aeglē",
-		"type": "ai",
-		"pos": "noun"
-	},
-	{
 		"orthography": "aegŏcĕphălos",
 		"type": "i",
 		"pos": "noun"
@@ -3410,11 +3405,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Aepy",
-		"type": "ai",
-		"pos": "noun"
-	},
-	{
 		"orthography": "aequābĭlĭtas",
 		"type": "ātis",
 		"pos": "noun"
@@ -3580,11 +3570,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "aerĭfĭcĭum",
-		"type": "dictum",
-		"pos": "adj"
-	},
-	{
 		"orthography": "aerĭfŏdīna",
 		"type": "ae",
 		"pos": "adj"
@@ -3677,11 +3662,6 @@
 	{
 		"orthography": "Aeschylus",
 		"type": "i",
-		"pos": "noun"
-	},
-	{
-		"orthography": "aeschȳnŏmĕnē",
-		"type": "ai",
 		"pos": "noun"
 	},
 	{
@@ -3915,11 +3895,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Aex",
-		"type": "ai",
-		"pos": "adj"
-	},
-	{
 		"orthography": "Āfer",
 		"type": "ōrum",
 		"pos": "noun"
@@ -4092,11 +4067,6 @@
 	{
 		"orthography": "Ăgămemnon",
 		"type": "ŏnis",
-		"pos": "noun"
-	},
-	{
-		"orthography": "Ăgănippē",
-		"type": "agani",
 		"pos": "noun"
 	},
 	{
@@ -4612,11 +4582,6 @@
 	{
 		"orthography": "Ălăbis",
 		"type": "is",
-		"pos": "noun"
-	},
-	{
-		"orthography": "ălăcer",
-		"type": "cris",
 		"pos": "noun"
 	},
 	{
@@ -6502,11 +6467,6 @@
 	{
 		"orthography": "amphĭthĕātrum",
 		"type": "i",
-		"pos": "noun"
-	},
-	{
-		"orthography": "Amphītrītē",
-		"type": "amfitri",
 		"pos": "noun"
 	},
 	{
@@ -9490,11 +9450,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Ărachnē",
-		"type": "ae",
-		"pos": "noun"
-	},
-	{
 		"orthography": "Ărăchōsĭa",
 		"type": "ae",
 		"pos": "noun"
@@ -11075,11 +11030,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Artăcĭē",
-		"type": "artaki",
-		"pos": "noun"
-	},
-	{
 		"orthography": "Artaxăta",
 		"type": "ōrum",
 		"pos": "noun"
@@ -11532,11 +11482,6 @@
 	{
 		"orthography": "ăsĭnārĭus",
 		"type": "a, um",
-		"pos": "noun"
-	},
-	{
-		"orthography": "Ăsĭnē",
-		"type": "asi",
 		"pos": "noun"
 	},
 	{
@@ -14125,11 +14070,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Bacis",
-		"type": "Pacis",
-		"pos": "adj"
-	},
-	{
 		"orthography": "bacrio",
 		"type": "ōnis",
 		"pos": "noun"
@@ -15195,11 +15135,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Belĭal",
-		"type": "indecl.",
-		"pos": "noun"
-	},
-	{
 		"orthography": "Belides",
 		"type": "Belis",
 		"pos": "adj"
@@ -15437,11 +15372,6 @@
 	{
 		"orthography": "Bĕrĕlĭdes",
 		"type": "um",
-		"pos": "noun"
-	},
-	{
-		"orthography": "Bĕrĕnīcē",
-		"type": "bereni",
 		"pos": "noun"
 	},
 	{
@@ -15805,11 +15735,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "bigrădum",
-		"type": "di",
-		"pos": "adj"
-	},
-	{
 		"orthography": "bĭjŭgus",
 		"type": "a, um",
 		"pos": "noun"
@@ -15823,11 +15748,6 @@
 		"orthography": "bĭlībra",
 		"type": "ae",
 		"pos": "noun"
-	},
-	{
-		"orthography": "bĭlībrālis",
-		"type": "dilitriai",
-		"pos": "adj"
 	},
 	{
 		"orthography": "bīlĭōsus",
@@ -15853,11 +15773,6 @@
 		"orthography": "bĭmembris",
 		"type": "ium",
 		"pos": "noun"
-	},
-	{
-		"orthography": "bĭmenstruus",
-		"type": "bis-mensis",
-		"pos": "adj"
 	},
 	{
 		"orthography": "Bingĭum",
@@ -16280,11 +16195,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Boebē",
-		"type": "boi",
-		"pos": "noun"
-	},
-	{
 		"orthography": "Boeōtarches",
 		"type": "ae",
 		"pos": "noun"
@@ -16398,11 +16308,6 @@
 		"orthography": "bombus",
 		"type": "i",
 		"pos": "noun"
-	},
-	{
-		"orthography": "bombȳcĭae hărundĭnes",
-		"type": "bombuki",
-		"pos": "adj"
 	},
 	{
 		"orthography": "bombȳcĭnus",
@@ -16615,11 +16520,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "bŏvilla",
-		"type": "boustasi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "Bŏvillae",
 		"type": "ārum",
 		"pos": "noun"
@@ -16810,11 +16710,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "brĕphŏtrŏphēum",
-		"type": "brefotrofei",
-		"pos": "noun"
-	},
-	{
 		"orthography": "brĕphŏtrŏphus",
 		"type": "i",
 		"pos": "noun"
@@ -16927,11 +16822,6 @@
 	{
 		"orthography": "Brīsaeus",
 		"type": "i",
-		"pos": "noun"
-	},
-	{
-		"orthography": "Brīsēïs",
-		"type": "brishi",
 		"pos": "noun"
 	},
 	{
@@ -17397,11 +17287,6 @@
 	{
 		"orthography": "bulbātĭo",
 		"type": "ōnis",
-		"pos": "noun"
-	},
-	{
-		"orthography": "bulbīnē",
-		"type": "bolbi",
 		"pos": "noun"
 	},
 	{
@@ -18500,11 +18385,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "călăminthē",
-		"type": "kalami",
-		"pos": "noun"
-	},
-	{
 		"orthography": "Călămis",
 		"type": "ĭdis",
 		"pos": "noun"
@@ -19010,11 +18890,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Callĭŏpē",
-		"type": "ae",
-		"pos": "noun"
-	},
-	{
 		"orthography": "callĭpĕtălon",
 		"type": "i",
 		"pos": "noun"
@@ -19067,11 +18942,6 @@
 	{
 		"orthography": "callistrūthĭa",
 		"type": "ae",
-		"pos": "noun"
-	},
-	{
-		"orthography": "callithrix",
-		"type": "kalli",
 		"pos": "noun"
 	},
 	{
@@ -19685,11 +19555,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Cănēphŏrŏs",
-		"type": "ae",
-		"pos": "noun"
-	},
-	{
 		"orthography": "cănes",
 		"type": "is",
 		"pos": "adj"
@@ -19908,11 +19773,6 @@
 		"orthography": "canthăris",
 		"type": "ĭdis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "canthărītes vīnum",
-		"type": "kanqari",
-		"pos": "adj"
 	},
 	{
 		"orthography": "Canthărŏlĕthros",
@@ -21300,11 +21160,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "casnar",
-		"type": "casamum",
-		"pos": "adj"
-	},
-	{
 		"orthography": "Caspĕrĭa",
 		"type": "ae",
 		"pos": "noun"
@@ -21372,11 +21227,6 @@
 	{
 		"orthography": "Cassĭŏdōrus",
 		"type": "i",
-		"pos": "noun"
-	},
-	{
-		"orthography": "Cassĭŏpē",
-		"type": "ae",
 		"pos": "noun"
 	},
 	{
@@ -22023,11 +21873,6 @@
 		"orthography": "cătoptrītis",
 		"type": "ĭdis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "cătorchītes",
-		"type": "katorxi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "catta",
@@ -22860,16 +22705,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "centĭfŏlĭa",
-		"type": "centum-folium",
-		"pos": "adj"
-	},
-	{
-		"orthography": "centĭgrānĭum",
-		"type": "centum-granum",
-		"pos": "adj"
-	},
-	{
 		"orthography": "centĭmĕter",
 		"type": "tri",
 		"pos": "noun"
@@ -23520,6 +23355,11 @@
 		"pos": "noun"
 	},
 	{
+		"orthography": "certus",
+		"type": "a, um",
+		"pos": "adj"
+	},
+	{
 		"orthography": "cĕrūchi",
 		"type": "ōrum",
 		"pos": "noun"
@@ -23870,11 +23710,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "chămaedrys",
-		"type": "xamai",
-		"pos": "noun"
-	},
-	{
 		"orthography": "chămaelĕon",
 		"type": "ōnis",
 		"pos": "noun"
@@ -23887,16 +23722,6 @@
 	{
 		"orthography": "chămaemēlon",
 		"type": "i",
-		"pos": "noun"
-	},
-	{
-		"orthography": "chămaemyrsīnē",
-		"type": "xamaimursi",
-		"pos": "noun"
-	},
-	{
-		"orthography": "chămaepĭtys",
-		"type": "xamai",
 		"pos": "noun"
 	},
 	{
@@ -24497,11 +24322,6 @@
 	{
 		"orthography": "Chordus",
 		"type": "i",
-		"pos": "noun"
-	},
-	{
-		"orthography": "chŏrēa",
-		"type": "xorei",
 		"pos": "noun"
 	},
 	{
@@ -25370,11 +25190,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Circē",
-		"type": "ki",
-		"pos": "noun"
-	},
-	{
 		"orthography": "Circēii",
 		"type": "ōrum",
 		"pos": "noun"
@@ -25613,11 +25428,6 @@
 		"orthography": "circumgressus",
 		"type": "ūs",
 		"pos": "noun"
-	},
-	{
-		"orthography": "circumhăbĭtātor",
-		"type": "peri",
-		"pos": "adj"
 	},
 	{
 		"orthography": "circum-hŭmātus",
@@ -26138,6 +25948,11 @@
 		"orthography": "cītrārĭus",
 		"type": "ĭi",
 		"pos": "noun"
+	},
+	{
+		"orthography": "cītrātus",
+		"type": "a, um",
+		"pos": "adj"
 	},
 	{
 		"orthography": "cītrētum",
@@ -26670,11 +26485,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Clīmax Mĕgălē",
-		"type": "kli",
-		"pos": "adj"
-	},
-	{
 		"orthography": "clīnāmen",
 		"type": "ĭnis",
 		"pos": "noun"
@@ -26698,11 +26508,6 @@
 		"orthography": "clīnĭcus",
 		"type": "i",
 		"pos": "noun"
-	},
-	{
-		"orthography": "clīno",
-		"type": "kli",
-		"pos": "adj"
 	},
 	{
 		"orthography": "clīnŏpălē",
@@ -27005,11 +26810,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Clytĭē",
-		"type": "kluti",
-		"pos": "noun"
-	},
-	{
 		"orthography": "Clytĭus",
 		"type": "ĭi",
 		"pos": "noun"
@@ -27032,11 +26832,6 @@
 	{
 		"orthography": "cnĕōron",
 		"type": "i",
-		"pos": "noun"
-	},
-	{
-		"orthography": "cnīdē",
-		"type": "kni",
 		"pos": "noun"
 	},
 	{
@@ -30772,11 +30567,6 @@
 	{
 		"orthography": "confĭgūrātĭo",
 		"type": "ōnis",
-		"pos": "noun"
-	},
-	{
-		"orthography": "con-fīnis",
-		"type": "a, um",
 		"pos": "noun"
 	},
 	{
@@ -36690,11 +36480,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Cȳdippē",
-		"type": "kudi",
-		"pos": "noun"
-	},
-	{
 		"orthography": "Cydnŏs",
 		"type": "i",
 		"pos": "noun"
@@ -37015,11 +36800,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "cypēris",
-		"type": "kupeiri",
-		"pos": "noun"
-	},
-	{
 		"orthography": "cypērŏs",
 		"type": "i",
 		"pos": "noun"
@@ -37232,11 +37012,6 @@
 	{
 		"orthography": "Cȳzĭcum",
 		"type": "i",
-		"pos": "noun"
-	},
-	{
-		"orthography": "D",
-		"type": "indecl.",
 		"pos": "noun"
 	},
 	{
@@ -41345,11 +41120,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Dĭdymē",
-		"type": "di",
-		"pos": "noun"
-	},
-	{
 		"orthography": "dĭĕchīdnōn",
 		"type": "di",
 		"pos": "adj"
@@ -42113,11 +41883,6 @@
 		"orthography": "Dirca",
 		"type": "ae",
 		"pos": "adj"
-	},
-	{
-		"orthography": "Dircē",
-		"type": "di",
-		"pos": "noun"
 	},
 	{
 		"orthography": "Dircenna",
@@ -43320,11 +43085,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "dŏcŭmentātĭo",
-		"type": "nouqesi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "dŏcŭmentum",
 		"type": "i",
 		"pos": "noun"
@@ -43707,7 +43467,7 @@
 	{
 		"orthography": "dorcas",
 		"type": "ădis",
-		"pos": "noun"
+		"pos": "adj"
 	},
 	{
 		"orthography": "Dorceus",
@@ -45590,11 +45350,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "Ĕlĕphantīne",
-		"type": "elefanti",
-		"pos": "noun"
-	},
-	{
 		"orthography": "Ĕlĕphantis",
 		"type": "ĭdis",
 		"pos": "noun"
@@ -45688,11 +45443,6 @@
 		"orthography": "Ĕlĭmēa",
 		"type": "ae",
 		"pos": "noun"
-	},
-	{
-		"orthography": "ēlinguātĭo",
-		"type": "glwssotomi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "ēlĭquātĭo",
@@ -46191,11 +45941,6 @@
 	},
 	{
 		"orthography": "emphyteuta",
-		"type": "ae",
-		"pos": "noun"
-	},
-	{
-		"orthography": "empīrĭce",
 		"type": "ae",
 		"pos": "noun"
 	},
@@ -47777,11 +47522,6 @@
 	{
 		"orthography": "Ĕrĭphȳla",
 		"type": "ae",
-		"pos": "noun"
-	},
-	{
-		"orthography": "Ĕris",
-		"type": "eris",
 		"pos": "noun"
 	},
 	{
@@ -51500,11 +51240,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "fāmĭgĕro",
-		"type": "diafhmi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "fămĭlĭa",
 		"type": "ae",
 		"pos": "noun"
@@ -53160,11 +52895,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "flăgellātīcĭus",
-		"type": "mastigi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "flăgellātĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -54482,11 +54212,6 @@
 	{
 		"orthography": "Frīsĭi",
 		"type": "ōrum",
-		"pos": "noun"
-	},
-	{
-		"orthography": "frit",
-		"type": "indecl.",
 		"pos": "noun"
 	},
 	{
@@ -55960,11 +55685,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Gargăphĭe",
-		"type": "ae",
-		"pos": "noun"
-	},
-	{
 		"orthography": "Gargăra",
 		"type": "ōrum",
 		"pos": "noun"
@@ -57375,11 +57095,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "glycysīde",
-		"type": "glukusi",
-		"pos": "noun"
-	},
-	{
 		"orthography": "gnaphălĭon",
 		"type": "ii",
 		"pos": "noun"
@@ -57388,11 +57103,6 @@
 		"orthography": "gnārĭtas",
 		"type": "ātis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "gnarurat",
-		"type": "gnwri",
-		"pos": "adj"
 	},
 	{
 		"orthography": "Gnătho",
@@ -57815,11 +57525,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "grandĭo",
-		"type": "grandis",
-		"pos": "noun"
-	},
-	{
 		"orthography": "grandĭtas",
 		"type": "ātis",
 		"pos": "noun"
@@ -58107,11 +57812,6 @@
 	{
 		"orthography": "gruis",
 		"type": "is",
-		"pos": "adj"
-	},
-	{
-		"orthography": "grullus",
-		"type": "ei",
 		"pos": "adj"
 	},
 	{
@@ -60125,11 +59825,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Hermu ",
-		"type": "doi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "hermŭla",
 		"type": "ae",
 		"pos": "noun"
@@ -60617,11 +60312,6 @@
 	{
 		"orthography": "hinna",
 		"type": "ae",
-		"pos": "adj"
-	},
-	{
-		"orthography": "hinnītat",
-		"type": "xremetizei",
 		"pos": "adj"
 	},
 	{
@@ -62780,11 +62470,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "īdos",
-		"type": "ei",
-		"pos": "noun"
-	},
-	{
 		"orthography": "Ĭdūmaea",
 		"type": "ae",
 		"pos": "noun"
@@ -63092,11 +62777,6 @@
 	{
 		"orthography": "illībĕrālĭtas",
 		"type": "ātis",
-		"pos": "noun"
-	},
-	{
-		"orthography": "Illiberi",
-		"type": "-erri",
 		"pos": "noun"
 	},
 	{
@@ -63880,11 +63560,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "impinguo",
-		"type": "in-pinguis",
-		"pos": "noun"
-	},
-	{
 		"orthography": "impĭus",
 		"type": "a, um",
 		"pos": "noun"
@@ -64267,11 +63942,6 @@
 	{
 		"orthography": "ĭn-ăquōsus",
 		"type": "a, um",
-		"pos": "noun"
-	},
-	{
-		"orthography": "Īnărĭmē",
-		"type": "ei",
 		"pos": "noun"
 	},
 	{
@@ -67420,11 +67090,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "intĕr-ăpĕrĭo",
-		"type": "dianoi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "inter-aptus",
 		"type": "a, um",
 		"pos": "adj"
@@ -69185,11 +68850,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "is",
-		"type": "eis",
-		"pos": "noun"
-	},
-	{
 		"orthography": "Isaac",
 		"type": "indecl.",
 		"pos": "noun"
@@ -69388,11 +69048,6 @@
 		"orthography": "Isthmus",
 		"type": "i",
 		"pos": "noun"
-	},
-	{
-		"orthography": "istīus-mŏdi",
-		"type": "istīmŏdi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "Istri",
@@ -71230,11 +70885,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Lampĕtĭē",
-		"type": "lampeti",
-		"pos": "noun"
-	},
-	{
 		"orthography": "Lampīa",
 		"type": "ae",
 		"pos": "noun"
@@ -71385,11 +71035,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "lănĭātōrĭum",
-		"type": "makellei",
-		"pos": "adj"
-	},
-	{
 		"orthography": "lănĭātus",
 		"type": "ūs",
 		"pos": "noun"
@@ -71470,11 +71115,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "lannae",
-		"type": "loboi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "lānŏcŭlus",
 		"type": "qui",
 		"pos": "adj"
@@ -71522,11 +71162,6 @@
 	{
 		"orthography": "Lāŏdămīa",
 		"type": "ae",
-		"pos": "noun"
-	},
-	{
-		"orthography": "Lāŏdĭcē",
-		"type": "laodi",
 		"pos": "noun"
 	},
 	{
@@ -71638,11 +71273,6 @@
 		"orthography": "lapsăna",
 		"type": "ae",
 		"pos": "noun"
-	},
-	{
-		"orthography": "lapsĭlis",
-		"type": "gli",
-		"pos": "adj"
 	},
 	{
 		"orthography": "lapsĭo",
@@ -72660,11 +72290,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "lēgĭcrĕpa",
-		"type": "nomodi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "lēgĭfer",
 		"type": "ĕri",
 		"pos": "noun"
@@ -72828,11 +72453,6 @@
 		"orthography": "Lemovĭi",
 		"type": "ōrum",
 		"pos": "noun"
-	},
-	{
-		"orthography": "lemuncŭlus",
-		"type": "pi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "Lĕmŭres",
@@ -73327,11 +72947,6 @@
 	{
 		"orthography": "Leuci",
 		"type": "ōrum",
-		"pos": "noun"
-	},
-	{
-		"orthography": "Leucippē",
-		"type": "leuki",
 		"pos": "noun"
 	},
 	{
@@ -74330,11 +73945,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "limnē",
-		"type": "li",
-		"pos": "noun"
-	},
-	{
 		"orthography": "limnestis",
 		"type": "ĭdis",
 		"pos": "noun"
@@ -74435,11 +74045,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "linctor",
-		"type": "li",
-		"pos": "adj"
-	},
-	{
 		"orthography": "linctus",
 		"type": "a, um",
 		"pos": "adj"
@@ -74503,11 +74108,6 @@
 		"orthography": "linguōsĭtas",
 		"type": "ātis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "lĭnĭātūra",
-		"type": "xri",
-		"pos": "adj"
 	},
 	{
 		"orthography": "līnĭfer",
@@ -75410,11 +75010,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Loxĭas",
-		"type": "loci",
-		"pos": "adj"
-	},
-	{
 		"orthography": "Lŭa",
 		"type": "ae",
 		"pos": "noun"
@@ -75760,19 +75355,9 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "lūdĭmentum",
-		"type": "pai",
-		"pos": "adj"
-	},
-	{
 		"orthography": "lūdĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "lūdĭtor",
-		"type": "diapai",
-		"pos": "adj"
 	},
 	{
 		"orthography": "lūdĭus",
@@ -76780,11 +76365,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "mācĕrĭātĭo",
-		"type": "qrigkwsis",
-		"pos": "adj"
-	},
-	{
 		"orthography": "măcĕrĭes",
 		"type": "ēi",
 		"pos": "adj"
@@ -76938,11 +76518,6 @@
 		"orthography": "Mācra",
 		"type": "ae",
 		"pos": "noun"
-	},
-	{
-		"orthography": "Macri Campi",
-		"type": "makroi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "Mācrīnus",
@@ -79990,11 +79565,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Mĕgistē",
-		"type": "megi",
-		"pos": "noun"
-	},
-	{
 		"orthography": "Mĕgistō",
 		"type": "ūs",
 		"pos": "noun"
@@ -80077,11 +79647,6 @@
 	{
 		"orthography": "mĕlănĭa",
 		"type": "ae",
-		"pos": "noun"
-	},
-	{
-		"orthography": "Mĕlănippē",
-		"type": "melani",
 		"pos": "noun"
 	},
 	{
@@ -80227,11 +79792,6 @@
 	{
 		"orthography": "mĕlichlōros",
 		"type": "i",
-		"pos": "noun"
-	},
-	{
-		"orthography": "mĕlichros",
-		"type": "meli",
 		"pos": "noun"
 	},
 	{
@@ -80727,11 +80287,6 @@
 	{
 		"orthography": "Mĕnalcas",
 		"type": "ae",
-		"pos": "noun"
-	},
-	{
-		"orthography": "Mĕnălippē",
-		"type": "menali",
 		"pos": "noun"
 	},
 	{
@@ -82010,11 +81565,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Mĭa Chărĭtōn",
-		"type": "xari",
-		"pos": "adj"
-	},
-	{
 		"orthography": "mīca",
 		"type": "ae",
 		"pos": "noun"
@@ -82288,11 +81838,6 @@
 		"orthography": "Miltiădes",
 		"type": "is",
 		"pos": "noun"
-	},
-	{
-		"orthography": "miltītes lăpis",
-		"type": "milti",
-		"pos": "adj"
 	},
 	{
 		"orthography": "miltos",
@@ -82680,11 +82225,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Mĭnyēĭdĕs",
-		"type": "minuhi",
-		"pos": "noun"
-	},
-	{
 		"orthography": "Mĭnyēus",
 		"type": "ei",
 		"pos": "noun"
@@ -82998,11 +82538,6 @@
 		"orthography": "mitto",
 		"type": "mīsi",
 		"pos": "noun"
-	},
-	{
-		"orthography": "mīūrus versus",
-		"type": "mi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "mna",
@@ -87280,11 +86815,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "Nĕontīchos",
-		"type": "neontei",
-		"pos": "noun"
-	},
-	{
 		"orthography": "nĕŏphytus",
 		"type": "a, um",
 		"pos": "noun"
@@ -87570,11 +87100,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Nēsaeē",
-		"type": "nhsai",
-		"pos": "noun"
-	},
-	{
 		"orthography": "nescĭentĭa",
 		"type": "ae",
 		"pos": "adj"
@@ -87738,11 +87263,6 @@
 		"orthography": "nexus",
 		"type": "ūs",
 		"pos": "noun"
-	},
-	{
-		"orthography": "nīcā",
-		"type": "ni",
-		"pos": "adj"
 	},
 	{
 		"orthography": "Nīcaea",
@@ -88985,11 +88505,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "nūbĭlo",
-		"type": "nubilum",
-		"pos": "noun"
-	},
-	{
 		"orthography": "nūbĭlus",
 		"type": "a, um",
 		"pos": "noun"
@@ -89807,11 +89322,6 @@
 	{
 		"orthography": "ŏbĭens",
 		"type": "euntis",
-		"pos": "adj"
-	},
-	{
-		"orthography": "ŏbinductus",
-		"type": "parei",
 		"pos": "adj"
 	},
 	{
@@ -91455,11 +90965,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "oenŏbrĕches",
-		"type": "oi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "oenŏgărum",
 		"type": "i",
 		"pos": "noun"
@@ -91467,11 +90972,6 @@
 	{
 		"orthography": "Oenŏmăus",
 		"type": "i",
-		"pos": "noun"
-	},
-	{
-		"orthography": "oenŏ-mĕli",
-		"type": "oi",
 		"pos": "noun"
 	},
 	{
@@ -91537,11 +91037,6 @@
 	{
 		"orthography": "Oeōnae",
 		"type": "ārum",
-		"pos": "noun"
-	},
-	{
-		"orthography": "oeōnistĭcē",
-		"type": "oi",
 		"pos": "noun"
 	},
 	{
@@ -98025,11 +97520,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "pĕdīcŭlātĭo",
-		"type": "fqeiri",
-		"pos": "adj"
-	},
-	{
 		"orthography": "pĕdīcŭlus",
 		"type": "i",
 		"pos": "noun"
@@ -98088,11 +97578,6 @@
 		"orthography": "Pĕdūcaeus",
 		"type": "i",
 		"pos": "noun"
-	},
-	{
-		"orthography": "pĕdūcŭlātĭo",
-		"type": "fqeiri",
-		"pos": "adj"
 	},
 	{
 		"orthography": "pĕdūcŭlus",
@@ -99592,11 +99077,6 @@
 	{
 		"orthography": "pĕrīclĭtātĭo",
 		"type": "ōnis",
-		"pos": "noun"
-	},
-	{
-		"orthography": "pĕrīclĭtor",
-		"type": "periculum",
 		"pos": "noun"
 	},
 	{
@@ -101155,11 +100635,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "phaecăsĭāni dii",
-		"type": "phaecasium",
-		"pos": "adj"
-	},
-	{
 		"orthography": "phaecăsĭum",
 		"type": "ii",
 		"pos": "noun"
@@ -102130,11 +101605,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "Phoēbē",
-		"type": "foi",
-		"pos": "noun"
-	},
-	{
 		"orthography": "Phoebēĭus",
 		"type": "a, um",
 		"pos": "adj"
@@ -102157,16 +101627,6 @@
 	{
 		"orthography": "Phoebus",
 		"type": "i",
-		"pos": "noun"
-	},
-	{
-		"orthography": "Phoenīcē",
-		"type": "foini",
-		"pos": "noun"
-	},
-	{
-		"orthography": "phoenīcē",
-		"type": "ae",
 		"pos": "noun"
 	},
 	{
@@ -102262,7 +101722,7 @@
 	{
 		"orthography": "Phorcis",
 		"type": "ĭdis",
-		"pos": "noun"
+		"pos": "adj"
 	},
 	{
 		"orthography": "Phorcus",
@@ -102402,11 +101862,6 @@
 	{
 		"orthography": "Phthīa",
 		"type": "ae",
-		"pos": "noun"
-	},
-	{
-		"orthography": "phthīr",
-		"type": "fqei",
 		"pos": "noun"
 	},
 	{
@@ -103475,11 +102930,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "pĭtyis",
-		"type": "pitui",
-		"pos": "noun"
-	},
-	{
 		"orthography": "pĭtyŏcampa",
 		"type": "ae",
 		"pos": "noun"
@@ -104020,11 +103470,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Plēĭŏnē",
-		"type": "plhi",
-		"pos": "noun"
-	},
-	{
 		"orthography": "Plemmyrĭum",
 		"type": "ii",
 		"pos": "noun"
@@ -104447,11 +103892,6 @@
 	{
 		"orthography": "Poeas",
 		"type": "antis",
-		"pos": "noun"
-	},
-	{
-		"orthography": "Poecĭle",
-		"type": "poiki",
 		"pos": "noun"
 	},
 	{
@@ -109010,11 +108450,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "prōclīvis",
-		"type": "a, um",
-		"pos": "noun"
-	},
-	{
 		"orthography": "prōclīvĭtas",
 		"type": "ātis",
 		"pos": "noun"
@@ -110267,11 +109702,6 @@
 	{
 		"orthography": "prō-pōno",
 		"type": "pŏsŭi",
-		"pos": "noun"
-	},
-	{
-		"orthography": "Prŏpontis",
-		"type": "proponti",
 		"pos": "noun"
 	},
 	{
@@ -120045,11 +119475,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Sapphar",
-		"type": "indecl.",
-		"pos": "noun"
-	},
-	{
 		"orthography": "Sapphĭcus",
 		"type": "a, um",
 		"pos": "adj"
@@ -121443,11 +120868,6 @@
 		"orthography": "scissūra",
 		"type": "ae",
 		"pos": "noun"
-	},
-	{
-		"orthography": "scissus",
-		"type": "sxi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "scītāmenta",
@@ -122962,7 +122382,7 @@
 	{
 		"orthography": "sēmĭ-lăter",
 		"type": "ĕris",
-		"pos": "noun"
+		"pos": "adj"
 	},
 	{
 		"orthography": "sēmĭ-lībra",
@@ -124660,11 +124080,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "sīcĕra",
-		"type": "si",
-		"pos": "noun"
-	},
-	{
 		"orthography": "Sĭcĭlĭa",
 		"type": "ae",
 		"pos": "adj"
@@ -124733,11 +124148,6 @@
 		"orthography": "Sĭcyon",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "sĭcyos agrĭos",
-		"type": "si",
-		"pos": "adj"
 	},
 	{
 		"orthography": "Sīda",
@@ -124860,11 +124270,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "sĭgillo",
-		"type": "sfragi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "sĭgillum",
 		"type": "i",
 		"pos": "noun"
@@ -124938,11 +124343,6 @@
 		"orthography": "signĭfĭcātĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "signĭfĭcātum",
-		"type": "shmasi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "signĭfĭcātus",
@@ -125495,11 +124895,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Sĭnōpē",
-		"type": "ae",
-		"pos": "noun"
-	},
-	{
 		"orthography": "Sinti",
 		"type": "ōrum",
 		"pos": "noun"
@@ -126037,7 +125432,7 @@
 	{
 		"orthography": "socrus",
 		"type": "ūs",
-		"pos": "noun"
+		"pos": "adj"
 	},
 	{
 		"orthography": "sŏdālĭcĭārĭus",
@@ -126272,11 +125667,6 @@
 	{
 		"orthography": "sŏlĭum",
 		"type": "ii",
-		"pos": "noun"
-	},
-	{
-		"orthography": "sollemnis",
-		"type": "sollempnis",
 		"pos": "noun"
 	},
 	{
@@ -136425,11 +135815,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "Thisbē",
-		"type": "qi",
-		"pos": "noun"
-	},
-	{
 		"orthography": "thlasĭas",
 		"type": "ae",
 		"pos": "noun"
@@ -137157,11 +136542,6 @@
 	{
 		"orthography": "tiphyon",
 		"type": "i",
-		"pos": "noun"
-	},
-	{
-		"orthography": "Tīphys",
-		"type": "ti",
 		"pos": "noun"
 	},
 	{
@@ -139297,11 +138677,6 @@
 	{
 		"orthography": "trĭmestris",
 		"type": "ĭum",
-		"pos": "noun"
-	},
-	{
-		"orthography": "trĭmĕtrŏs",
-		"type": "a, um",
 		"pos": "noun"
 	},
 	{
@@ -146303,11 +145678,6 @@
 		"orthography": "vulvŭla",
 		"type": "ae",
 		"pos": "adj"
-	},
-	{
-		"orthography": "Xanthippē",
-		"type": "canqi",
-		"pos": "noun"
 	},
 	{
 		"orthography": "Xanthippus",

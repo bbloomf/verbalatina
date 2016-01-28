@@ -215,12 +215,14 @@ console.info('\north: ' + orth);
   if(!pos) pos = regexGramPosFallback.exec(entry[1]);
   if(gen || pos || adjType || verbMatch) {
     if(gen) {
-      ++numGen;
       gen = gen[1];
+      if(fullTextSansParentheses.indexOf(gen) < 0) gen = ''; else
+      ++numGen;
       //console.info('gen: ' + gen);
     }
     if(adjType) {
       adjType = adjType[1];
+      if(fullTextSansParentheses.indexOf(adjType) < 0) adjType = ''; else
       ++numAdjType;
       //console.info('adjType: ' + adjType);
     }
@@ -233,6 +235,7 @@ console.info('\north: ' + orth);
     }
     if(pos) {
       pos = pos[1];
+      if(fullTextSansParentheses.indexOf(pos) < 0) pos = ''; else
       ++(numPos[pos]);
       //console.info('pos: ' + pos);
     }
@@ -252,6 +255,8 @@ console.info('\north: ' + orth);
       numAdjType++;
       nouns.push({orthography: orth, type: adjType, pos: 'adj'});
       omniaVerba._add(declineNoun(orth, adjType), orth);
+    } else {
+      omniaVerba._add(orth);
     }
     if(verbMatch && orth.reverse().match(/^([oōŏörmtiīïĭ]|[eēĕë]r)/)) {
       //console.info('verb:', orth);
