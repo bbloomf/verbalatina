@@ -160,11 +160,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "ab-dūco",
-		"type": "xi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "abductĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -330,11 +325,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "ab-lūdo",
-		"type": "si",
-		"pos": "adj"
-	},
-	{
 		"orthography": "ablūtĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -403,11 +393,6 @@
 		"orthography": "abnūtīvus",
 		"type": "a, um",
 		"pos": "noun"
-	},
-	{
-		"orthography": "ab-nūto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "ăbŏlĭtĭo",
@@ -920,11 +905,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "accepto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "acceptor",
 		"type": "ōris",
 		"pos": "noun"
@@ -1183,11 +1163,6 @@
 		"orthography": "ăcervus",
 		"type": "i",
 		"pos": "noun"
-	},
-	{
-		"orthography": "ăcesco",
-		"type": "acui",
-		"pos": "adj"
 	},
 	{
 		"orthography": "Ăcĕsĭnēs",
@@ -1990,11 +1965,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "ăd-āresco",
-		"type": "rui",
-		"pos": "adj"
-	},
-	{
 		"orthography": "adasia",
 		"type": "ovis",
 		"pos": "adj"
@@ -2110,11 +2080,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "ăd-haeresco",
-		"type": "haesi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "ădhaesĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -2225,11 +2190,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "ădĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "ădĭtus",
 		"type": "a, um",
 		"pos": "adj"
@@ -2302,11 +2262,6 @@
 	{
 		"orthography": "adjūro",
 		"type": "i",
-		"pos": "adj"
-	},
-	{
-		"orthography": "adjūto",
-		"type": "āvi",
 		"pos": "adj"
 	},
 	{
@@ -4325,11 +4280,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "ăgĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "Āglāiă",
 		"type": "ae",
 		"pos": "noun"
@@ -5298,11 +5248,6 @@
 		"orthography": "allectĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "allecto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "allector",
@@ -10170,11 +10115,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "ardesco",
-		"type": "arsi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "ardor",
 		"type": "ōris",
 		"pos": "noun"
@@ -11715,11 +11655,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "aspecto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "aspectus",
 		"type": "a, um",
 		"pos": "adj"
@@ -12093,11 +12028,6 @@
 		"orthography": "assŭla",
 		"type": "ae",
 		"pos": "noun"
-	},
-	{
-		"orthography": "assulto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "assultus",
@@ -13518,11 +13448,6 @@
 		"orthography": "auscultātus",
 		"type": "ūs",
 		"pos": "noun"
-	},
-	{
-		"orthography": "ausculto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "Auser",
@@ -20045,11 +19970,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "cantĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "Cantĭum",
 		"type": "ii",
 		"pos": "noun"
@@ -20545,11 +20465,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "captĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "captiuncŭla",
 		"type": "ae",
 		"pos": "noun"
@@ -20578,11 +20493,6 @@
 		"orthography": "captīvus",
 		"type": "a, um",
 		"pos": "noun"
-	},
-	{
-		"orthography": "capto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "captor",
@@ -21388,11 +21298,6 @@
 		"orthography": "Căsīnum",
 		"type": "i",
 		"pos": "noun"
-	},
-	{
-		"orthography": "cāsĭto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "casnar",
@@ -23615,11 +23520,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "certo",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "cĕrūchi",
 		"type": "ōrum",
 		"pos": "noun"
@@ -23713,11 +23613,6 @@
 		"orthography": "cessio",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "cesso",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "cestĭcillus",
@@ -25900,11 +25795,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "circum-specto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "circumspector",
 		"type": "ōris",
 		"pos": "noun"
@@ -26348,11 +26238,6 @@
 		"orthography": "clāmĭtātĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "clāmĭto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "clāmor",
@@ -29600,16 +29485,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "complexo",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
-		"orthography": "complexor",
-		"type": "āri",
-		"pos": "adj"
-	},
-	{
 		"orthography": "complexus",
 		"type": "a, um",
 		"pos": "adj"
@@ -29860,11 +29735,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "com-pungo",
-		"type": "nxi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "compurgātĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -29878,11 +29748,6 @@
 		"orthography": "compŭtātor",
 		"type": "ōris",
 		"pos": "noun"
-	},
-	{
-		"orthography": "com-pūtresco",
-		"type": "trŭi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "compŭtus",
@@ -29950,24 +29815,9 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "con-călĕo",
-		"type": "ŭi",
-		"pos": "adj"
-	},
-	{
-		"orthography": "con-callesco",
-		"type": "callui",
-		"pos": "adj"
-	},
-	{
 		"orthography": "concămĕrātĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "con-candesco",
-		"type": "candui",
-		"pos": "adj"
 	},
 	{
 		"orthography": "Concăni",
@@ -30008,11 +29858,6 @@
 		"orthography": "con-cellīta",
 		"type": "ae",
 		"pos": "noun"
-	},
-	{
-		"orthography": "con-cēlo",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "con-cēnātĭo",
@@ -30070,11 +29915,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "concertor",
-		"type": "āri",
-		"pos": "adj"
-	},
-	{
 		"orthography": "concessātĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -30083,11 +29923,6 @@
 		"orthography": "concessĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "con-cesso",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "concessus",
@@ -30375,18 +30210,8 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "con-corpŏro",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "con-crĕātus",
 		"type": "a, um",
-		"pos": "adj"
-	},
-	{
-		"orthography": "con-crēbresco",
-		"type": "brŭi",
 		"pos": "adj"
 	},
 	{
@@ -30398,11 +30223,6 @@
 		"orthography": "concrēmentum",
 		"type": "i",
 		"pos": "noun"
-	},
-	{
-		"orthography": "con-crĕmo",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "concrĕpātĭo",
@@ -30545,11 +30365,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "con-curvo",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "concussĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -30585,11 +30400,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "con-dĕcŏro",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "con-dĕcŭriālis",
 		"type": "is",
 		"pos": "noun"
@@ -30622,11 +30432,6 @@
 	{
 		"orthography": "con-densus",
 		"type": "a, um",
-		"pos": "adj"
-	},
-	{
-		"orthography": "con-depso",
-		"type": "depsŭi",
 		"pos": "adj"
 	},
 	{
@@ -30760,11 +30565,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "con-dormisco",
-		"type": "dormīvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "Condrūsi",
 		"type": "ōrum",
 		"pos": "noun"
@@ -30813,11 +30613,6 @@
 		"orthography": "condūplĭcātĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "con-dūplĭco",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "condurdum",
@@ -31095,11 +30890,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "conflicto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "conflictus",
 		"type": "a, um",
 		"pos": "adj"
@@ -31175,11 +30965,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "con-formo",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "confornĭcātĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -31203,11 +30988,6 @@
 		"orthography": "confrăgus",
 		"type": "a, um",
 		"pos": "noun"
-	},
-	{
-		"orthography": "con-frĕmo",
-		"type": "ŭi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "confrĭcāmentum",
@@ -31273,11 +31053,6 @@
 		"orthography": "congĕmĭnātĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "con-gĕmĭno",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "con-gĕner",
@@ -31380,11 +31155,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "con-glūtĭno",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "con-grădus",
 		"type": "a, um",
 		"pos": "adj"
@@ -31438,11 +31208,6 @@
 		"orthography": "congrŭentĭa",
 		"type": "ae",
 		"pos": "noun"
-	},
-	{
-		"orthography": "con-gȳro",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "cŏnīla",
@@ -31503,11 +31268,6 @@
 		"orthography": "conjectĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "conjecto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "conjector",
@@ -31710,11 +31470,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "con-sānesco",
-		"type": "nŭi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "con-sanguĭnĕus",
 		"type": "a, um",
 		"pos": "noun"
@@ -31765,11 +31520,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "con-scindo",
-		"type": "ĭdi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "conscissĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -31788,11 +31538,6 @@
 		"orthography": "con-scĭus",
 		"type": "a, um",
 		"pos": "noun"
-	},
-	{
-		"orthography": "conscrĕor",
-		"type": "āri",
-		"pos": "adj"
 	},
 	{
 		"orthography": "conscrībillo",
@@ -31875,11 +31620,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "con-sĕnesco",
-		"type": "nŭi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "con-sĕnĭor",
 		"type": "ōris",
 		"pos": "noun"
@@ -31923,11 +31663,6 @@
 		"orthography": "con-sĕquor",
 		"type": "entis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "con-sermōnor",
-		"type": "āri",
-		"pos": "adj"
 	},
 	{
 		"orthography": "consertĭo",
@@ -32003,11 +31738,6 @@
 		"orthography": "consignātīo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "con-sĭlesco",
-		"type": "sĭlŭi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "consĭlĭārĭus",
@@ -32162,11 +31892,6 @@
 	{
 		"orthography": "con-sŏlūtus",
 		"type": "a, um",
-		"pos": "adj"
-	},
-	{
-		"orthography": "con-somnĭo",
-		"type": "āvi",
 		"pos": "adj"
 	},
 	{
@@ -32325,11 +32050,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "con-stăbĭlĭo",
-		"type": "īvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "Constans",
 		"type": "antis",
 		"pos": "noun"
@@ -32393,11 +32113,6 @@
 		"orthography": "constīpātĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "con-stīpo",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "constĭtĭo",
@@ -32470,19 +32185,9 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "con-stŭpĕo",
-		"type": "ŭi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "constūprātor",
 		"type": "ōris",
 		"pos": "noun"
-	},
-	{
-		"orthography": "con-stūpro",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "Consŭālĭa",
@@ -32498,11 +32203,6 @@
 		"orthography": "consubstantĭālĭtas",
 		"type": "ātis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "con-sūdo",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "consŭesco",
@@ -32650,19 +32350,9 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "con-tābesco",
-		"type": "tābŭi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "contăbŭlātĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "con-tăbŭlo",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "contābundus",
@@ -32735,19 +32425,9 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "con-tĕmĕro",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "contempĕrātĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "con-tempĕro",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "contemplātĭo",
@@ -32808,11 +32488,6 @@
 		"orthography": "con-tendo",
 		"type": "di",
 		"pos": "noun"
-	},
-	{
-		"orthography": "con-tĕnēbrasco",
-		"type": "brāvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "contentĭo",
@@ -32898,11 +32573,6 @@
 		"orthography": "con-thērŏlĕta",
 		"type": "ae",
 		"pos": "noun"
-	},
-	{
-		"orthography": "contĭcesco",
-		"type": "tĭcŭi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "contĭcĭnĭum",
@@ -32995,11 +32665,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "con-torrĕo",
-		"type": "ŭi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "contortĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -33055,11 +32720,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "con-trādo",
-		"type": "dĭdi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "contrā-factĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -33085,11 +32745,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "contra-scrībo",
-		"type": "psi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "contrascriptor",
 		"type": "ōris",
 		"pos": "noun"
@@ -33108,11 +32763,6 @@
 		"orthography": "contrectātor",
 		"type": "ōris",
 		"pos": "noun"
-	},
-	{
-		"orthography": "con-trĕmo",
-		"type": "ŭi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "con-trĕmŭlus",
@@ -33163,16 +32813,6 @@
 		"orthography": "contrō-versus",
 		"type": "a, um",
 		"pos": "noun"
-	},
-	{
-		"orthography": "con-trŭcīdo",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
-		"orthography": "con-trunco",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "contrūsus",
@@ -33315,11 +32955,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "con-vallo",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "convectĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -33333,11 +32968,6 @@
 		"orthography": "con-vector",
 		"type": "ōris",
 		"pos": "noun"
-	},
-	{
-		"orthography": "con-vēlo",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "convĕna",
@@ -33375,11 +33005,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "convento",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "conventum",
 		"type": "i",
 		"pos": "noun"
@@ -33395,19 +33020,9 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "con-verbĕro",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "converrĭtor",
 		"type": "ōris",
 		"pos": "noun"
-	},
-	{
-		"orthography": "con-verro",
-		"type": "verri",
-		"pos": "adj"
 	},
 	{
 		"orthography": "conversātĭo",
@@ -33423,11 +33038,6 @@
 		"orthography": "conversĭuncŭla",
 		"type": "ae",
 		"pos": "noun"
-	},
-	{
-		"orthography": "con-verso",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "conversus",
@@ -33455,16 +33065,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "con-vescor",
-		"type": "vesci",
-		"pos": "adj"
-	},
-	{
-		"orthography": "con-vestĭo",
-		"type": "īvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "con-vĕtĕrānus",
 		"type": "i",
 		"pos": "noun"
@@ -33478,11 +33078,6 @@
 		"orthography": "convexĭtas",
 		"type": "ātis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "con-vexo",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "convexus",
@@ -33545,11 +33140,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "con-vĭŏlo",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "con-vīva",
 		"type": "ae",
 		"pos": "noun"
@@ -33558,11 +33148,6 @@
 		"orthography": "convīvātor",
 		"type": "ōris",
 		"pos": "noun"
-	},
-	{
-		"orthography": "convīvĭfĭco",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "con-vīvĭum",
@@ -33575,16 +33160,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "con-vŏco",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
-		"orthography": "con-vŏlo",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "convŏlūtus",
 		"type": "a, um",
 		"pos": "adj"
@@ -33593,11 +33168,6 @@
 		"orthography": "convolvŭlus",
 		"type": "i",
 		"pos": "noun"
-	},
-	{
-		"orthography": "con-vŏvĕo",
-		"type": "vōvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "con-vulsĭo",
@@ -33643,11 +33213,6 @@
 		"orthography": "cŏoptātĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "cŏ-opto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "cŏortus",
@@ -34325,11 +33890,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "cor-rādo",
-		"type": "si",
-		"pos": "adj"
-	},
-	{
 		"orthography": "corrāsus",
 		"type": "a, um",
 		"pos": "adj"
@@ -34365,11 +33925,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "cor-rēpo",
-		"type": "psi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "correptĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -34387,11 +33942,6 @@
 	{
 		"orthography": "cor-rĕsŭpīnātus",
 		"type": "a, um",
-		"pos": "adj"
-	},
-	{
-		"orthography": "cor-rĕsuscĭto",
-		"type": "āvi",
 		"pos": "adj"
 	},
 	{
@@ -34430,19 +33980,9 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "cor-rīvo",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "corrōbŏrāmentum",
 		"type": "i",
 		"pos": "noun"
-	},
-	{
-		"orthography": "cor-rōbŏro",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "corrŏco",
@@ -34450,28 +33990,13 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "cor-rōdo",
-		"type": "si",
-		"pos": "adj"
-	},
-	{
 		"orthography": "corrŏgātĭo",
 		"type": "ōnis",
 		"pos": "noun"
 	},
 	{
-		"orthography": "cor-rŏgo",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "corrōsus",
 		"type": "a, um",
-		"pos": "adj"
-	},
-	{
-		"orthography": "cor-rŏtundo",
-		"type": "āvi",
 		"pos": "adj"
 	},
 	{
@@ -34513,11 +34038,6 @@
 		"orthography": "corruptrix",
 		"type": "īcis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "cor-ruspor",
-		"type": "āri",
-		"pos": "adj"
 	},
 	{
 		"orthography": "cors",
@@ -35200,11 +34720,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "crēbresco",
-		"type": "brŭi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "crēbrĭtas",
 		"type": "ātis",
 		"pos": "noun"
@@ -35563,11 +35078,6 @@
 		"orthography": "crĭsis",
 		"type": "is",
 		"pos": "noun"
-	},
-	{
-		"orthography": "crīso",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "crispans",
@@ -36083,11 +35593,6 @@
 		"orthography": "cŭbĭtĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "cŭbĭto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "cŭbĭtor",
@@ -38165,19 +37670,9 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "dĕ-ămo",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "Dĕāna",
 		"type": "ae",
 		"pos": "noun"
-	},
-	{
-		"orthography": "dĕ-argūmentor",
-		"type": "āri",
-		"pos": "adj"
 	},
 	{
 		"orthography": "dĕaurātor",
@@ -38630,11 +38125,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "dē-contor",
-		"type": "āri",
-		"pos": "adj"
-	},
-	{
 		"orthography": "dē-cŏquo",
 		"type": "xi",
 		"pos": "noun"
@@ -38688,11 +38178,6 @@
 		"orthography": "dēcrētum",
 		"type": "i",
 		"pos": "noun"
-	},
-	{
-		"orthography": "dē-crusto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "dĕcŭma",
@@ -38815,11 +38300,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "dē-dĕcŏro",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "dē-dĕcōrus",
 		"type": "a, um",
 		"pos": "adj"
@@ -38858,16 +38338,6 @@
 		"orthography": "dēdŏlentĭa",
 		"type": "ae",
 		"pos": "noun"
-	},
-	{
-		"orthography": "dē-dŏlĕo",
-		"type": "ui",
-		"pos": "adj"
-	},
-	{
-		"orthography": "dē-dŏlo",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "dē-dŏmo",
@@ -38965,11 +38435,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "dē-fervĕfăcĭo",
-		"type": "fēci",
-		"pos": "adj"
-	},
-	{
 		"orthography": "dēfessus",
 		"type": "a, um",
 		"pos": "adj"
@@ -38988,11 +38453,6 @@
 		"orthography": "dē-fĭcĭo",
 		"type": "fēci",
 		"pos": "noun"
-	},
-	{
-		"orthography": "dē-fingo",
-		"type": "nxi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "dēfīnītĭo",
@@ -39075,11 +38535,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "dē-foedo",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "dēformātĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -39093,11 +38548,6 @@
 		"orthography": "dēformĭtas",
 		"type": "ātis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "dē-formo",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "dēformus",
@@ -39140,26 +38590,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "dē-frīgesco",
-		"type": "frixi",
-		"pos": "adj"
-	},
-	{
-		"orthography": "dē-fringo",
-		"type": "frēgi",
-		"pos": "adj"
-	},
-	{
-		"orthography": "dē-frŭor",
-		"type": "frui",
-		"pos": "adj"
-	},
-	{
-		"orthography": "dē-frusto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "dēfrŭtum",
 		"type": "i",
 		"pos": "adj"
@@ -39190,11 +38620,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "dē-fundo",
-		"type": "fūdi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "dēfūsĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -39203,11 +38628,6 @@
 		"orthography": "dēgŭlātor",
 		"type": "ōris",
 		"pos": "noun"
-	},
-	{
-		"orthography": "dē-gŭlo",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "dēgustātĭo",
@@ -39230,11 +38650,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "dĕ-hŏnōro",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "dĕhortātĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -39253,11 +38668,6 @@
 		"orthography": "Dēïdămīa",
 		"type": "ae",
 		"pos": "noun"
-	},
-	{
-		"orthography": "dĕ-intēgro",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "Dēīŏnĭdes",
@@ -39333,11 +38743,6 @@
 		"orthography": "dēlācrĭmātĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "dē-lāmentor",
-		"type": "āri",
-		"pos": "adj"
 	},
 	{
 		"orthography": "dēlapsus",
@@ -39535,11 +38940,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "dē-līmĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "dēlīnĕātĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -39558,11 +38958,6 @@
 		"orthography": "dēlĭquātĭtūdo",
 		"type": "ĭnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "dē-lĭquesco",
-		"type": "lĭcŭi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "dēlĭquĭa",
@@ -39680,21 +39075,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "dē-lucto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
-		"orthography": "dē-luctor",
-		"type": "āri",
-		"pos": "adj"
-	},
-	{
-		"orthography": "dē-lūdĭfĭco",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "dēlūsĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -39710,19 +39090,9 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "dē-mădesco",
-		"type": "dŭi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "dēmandātĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "dē-mando",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "Dēmărāta",
@@ -39955,11 +39325,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "dē-mūneror",
-		"type": "āri",
-		"pos": "adj"
-	},
-	{
 		"orthography": "dē-mussātus",
 		"type": "a, um",
 		"pos": "adj"
@@ -39988,11 +39353,6 @@
 		"orthography": "dēnārĭus",
 		"type": "a, um",
 		"pos": "noun"
-	},
-	{
-		"orthography": "dē-nascor",
-		"type": "nasci",
-		"pos": "adj"
 	},
 	{
 		"orthography": "dendrăchātes",
@@ -40028,11 +39388,6 @@
 		"orthography": "dēnōmĭnātĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "dē-nōmĭno",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "dēnŏtātĭo",
@@ -40130,19 +39485,9 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "dē-nūbo",
-		"type": "psi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "dē-nūdātĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "dē-nūdo",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "dēnuntĭātĭo",
@@ -40165,16 +39510,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "dĕ-ŏnĕro",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
-		"orthography": "dĕ-ŏpĕrio",
-		"type": "ui",
-		"pos": "adj"
-	},
-	{
 		"orthography": "dēpālātĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -40183,11 +39518,6 @@
 		"orthography": "dēpālātor",
 		"type": "ōris",
 		"pos": "noun"
-	},
-	{
-		"orthography": "dē-pālo",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "dē-parcus",
@@ -40265,21 +39595,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "dē-plāco",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
-		"orthography": "dē-plango",
-		"type": "nxi",
-		"pos": "adj"
-	},
-	{
-		"orthography": "dē-plāno",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "dēplētūra",
 		"type": "ae",
 		"pos": "noun"
@@ -40288,11 +39603,6 @@
 		"orthography": "dē-plōrātĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "dē-plŭo",
-		"type": "ŭi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "dēpŏlītĭo",
@@ -40442,11 +39752,6 @@
 	{
 		"orthography": "dē-questus",
 		"type": "a, um",
-		"pos": "adj"
-	},
-	{
-		"orthography": "dē-rādo",
-		"type": "si",
 		"pos": "adj"
 	},
 	{
@@ -40635,11 +39940,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "dē-sĕnesco",
-		"type": "nŭi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "dē-sĕro",
 		"type": "rŭi",
 		"pos": "noun"
@@ -40755,11 +40055,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "dē-solvo",
-		"type": "vi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "dēspectātĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -40870,16 +40165,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "dē-sterno",
-		"type": "strāvi",
-		"pos": "adj"
-	},
-	{
-		"orthography": "dē-sterto",
-		"type": "tŭi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "dēstillātĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -40955,11 +40240,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "dē-strŭo",
-		"type": "xi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "dē-suctus",
 		"type": "a, um",
 		"pos": "adj"
@@ -41023,11 +40303,6 @@
 		"orthography": "dētector",
 		"type": "ōris",
 		"pos": "noun"
-	},
-	{
-		"orthography": "dē-tĕgo",
-		"type": "xi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "dētensus",
@@ -41098,11 +40373,6 @@
 		"orthography": "dētestātor",
 		"type": "ōris",
 		"pos": "noun"
-	},
-	{
-		"orthography": "dē-texo",
-		"type": "xŭi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "dētextus",
@@ -41180,19 +40450,9 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "dē-trĭumpho",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "dētruncātĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "dē-trunco",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "dētrūsĭo",
@@ -41210,11 +40470,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "dē-tŭmesco",
-		"type": "mŭi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "Deucălĭon",
 		"type": "ōnis",
 		"pos": "noun"
@@ -41223,11 +40478,6 @@
 		"orthography": "dĕ-unx",
 		"type": "uncis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "dĕ-ūro",
-		"type": "ussi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "dĕus",
@@ -41245,29 +40495,9 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "dĕ-ūtor",
-		"type": "ūti",
-		"pos": "adj"
-	},
-	{
-		"orthography": "dē-văgor",
-		"type": "āri",
-		"pos": "adj"
-	},
-	{
 		"orthography": "dēvastātor",
 		"type": "ōris",
 		"pos": "noun"
-	},
-	{
-		"orthography": "dē-vĕnusto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
-		"orthography": "dē-verbĕro",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "dēvergentĭa",
@@ -41315,11 +40545,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "dē-vescor",
-		"type": "vesci",
-		"pos": "adj"
-	},
-	{
 		"orthography": "dēvestīvus",
 		"type": "a, um",
 		"pos": "adj"
@@ -41358,11 +40583,6 @@
 		"orthography": "dēvītātĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "dē-vīto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "dē-vĭus",
@@ -42255,11 +41475,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "dif-fŭgo",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "diffūsĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -42405,11 +41620,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "dī-lănĭo",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "dīlăpĭdātĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -42533,11 +41743,6 @@
 		"orthography": "dĭmăchae",
 		"type": "ārum",
 		"pos": "noun"
-	},
-	{
-		"orthography": "dī-mădesco",
-		"type": "dui",
-		"pos": "adj"
 	},
 	{
 		"orthography": "dīmensĭo",
@@ -42900,11 +42105,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "dī-rādo",
-		"type": "rāsi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "Dīrae",
 		"type": "ārum",
 		"pos": "noun"
@@ -43185,19 +42385,9 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "dis-cŏŏpĕrĭo",
-		"type": "pĕrui",
-		"pos": "adj"
-	},
-	{
 		"orthography": "discŏphŏrus",
 		"type": "i",
 		"pos": "noun"
-	},
-	{
-		"orthography": "dis-cŏquo",
-		"type": "xi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "discordĭa",
@@ -43225,11 +42415,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "dis-crēdo",
-		"type": "dĭdi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "discrĕpantĭa",
 		"type": "ae",
 		"pos": "noun"
@@ -43238,11 +42423,6 @@
 		"orthography": "discrĕpātĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "dis-cresco",
-		"type": "crēvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "discrētĭo",
@@ -43263,11 +42443,6 @@
 		"orthography": "discrētōrĭum",
 		"type": "ii",
 		"pos": "noun"
-	},
-	{
-		"orthography": "dī-scrībo",
-		"type": "scripsi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "discrīmen",
@@ -43445,11 +42620,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "dis-pello",
-		"type": "pŭli",
-		"pos": "adj"
-	},
-	{
 		"orthography": "dispendĭum",
 		"type": "ii",
 		"pos": "noun"
@@ -43470,18 +42640,8 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "dis-penso",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "dispensus",
 		"type": "a, um",
-		"pos": "adj"
-	},
-	{
-		"orthography": "dis-pĕrĕo",
-		"type": "ii",
 		"pos": "adj"
 	},
 	{
@@ -43520,18 +42680,8 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "dis-plĭco",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "displōsus",
 		"type": "a, um",
-		"pos": "adj"
-	},
-	{
-		"orthography": "di-spŏlĭo",
-		"type": "āvi",
 		"pos": "adj"
 	},
 	{
@@ -43673,11 +42823,6 @@
 		"orthography": "dissertĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "disserto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "dissertus",
@@ -44610,11 +43755,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "dormīto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "dormītor",
 		"type": "ōris",
 		"pos": "noun"
@@ -44963,16 +44103,6 @@
 		"orthography": "ductĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "ductĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
-		"orthography": "ducto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "ductor",
@@ -45750,11 +44880,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "ēdicto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "ēdictum",
 		"type": "i",
 		"pos": "noun"
@@ -46190,11 +45315,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "ējecto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "ējectus",
 		"type": "a, um",
 		"pos": "adj"
@@ -46213,11 +45333,6 @@
 		"orthography": "ējŭlātus",
 		"type": "ūs",
 		"pos": "noun"
-	},
-	{
-		"orthography": "ējŭlĭto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "ējūrātĭo",
@@ -47133,11 +46248,6 @@
 		"orthography": "emptĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "emptĭto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "emptivom militem",
@@ -49010,11 +48120,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "ēsĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "ēsor",
 		"type": "ōris",
 		"pos": "noun"
@@ -49920,11 +49025,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "ex-ăgĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "exăgĭum",
 		"type": "ii",
 		"pos": "noun"
@@ -50118,11 +49218,6 @@
 		"orthography": "exceptĭuncŭla",
 		"type": "ae",
 		"pos": "noun"
-	},
-	{
-		"orthography": "excepto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "exceptor",
@@ -50985,11 +50080,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "expenso",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "expensum",
 		"type": "i",
 		"pos": "noun"
@@ -51268,11 +50358,6 @@
 		"orthography": "expulsĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "expulso",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "expulsor",
@@ -52072,11 +51157,6 @@
 	{
 		"orthography": "factītĭus",
 		"type": "a, um",
-		"pos": "adj"
-	},
-	{
-		"orthography": "factĭto",
-		"type": "āvi",
 		"pos": "adj"
 	},
 	{
@@ -54115,11 +53195,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "flāgĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "flāgrantĭa",
 		"type": "ae",
 		"pos": "noun"
@@ -54433,11 +53508,6 @@
 		"orthography": "flŭentum",
 		"type": "i",
 		"pos": "noun"
-	},
-	{
-		"orthography": "flŭĭto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "flūmen",
@@ -55438,11 +54508,6 @@
 		"orthography": "frīvŏlus",
 		"type": "a, um",
 		"pos": "noun"
-	},
-	{
-		"orthography": "frixo",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "frixōrĭum",
@@ -57750,11 +56815,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "gestĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "gesto",
 		"type": "āvi",
 		"pos": "noun"
@@ -59653,11 +58713,6 @@
 		"orthography": "haesĭtātor",
 		"type": "ōris",
 		"pos": "noun"
-	},
-	{
-		"orthography": "haesĭto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "hāgētēr",
@@ -64025,11 +63080,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "illecto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "illectus",
 		"type": "a, um",
 		"pos": "adj"
@@ -64368,11 +63418,6 @@
 		"orthography": "ĭmĭtātus",
 		"type": "ūs",
 		"pos": "noun"
-	},
-	{
-		"orthography": "ĭmĭtor",
-		"type": "a, um",
-		"pos": "adj"
 	},
 	{
 		"orthography": "immānis",
@@ -64735,11 +63780,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "impĕrĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "impĕrĭum",
 		"type": "ĭi",
 		"pos": "noun"
@@ -65020,11 +64060,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "imprŏbĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "imprōlus",
 		"type": "qui",
 		"pos": "adj"
@@ -65233,11 +64268,6 @@
 		"orthography": "ĭn-ăquōsus",
 		"type": "a, um",
 		"pos": "noun"
-	},
-	{
-		"orthography": "ĭn-ardesco",
-		"type": "arsi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "Īnărĭmē",
@@ -65855,11 +64885,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "incrĕpĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "incrĕpĭtus",
 		"type": "a, um",
 		"pos": "adj"
@@ -65968,11 +64993,6 @@
 		"orthography": "incursĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "incurso",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "incursus",
@@ -66223,11 +65243,6 @@
 		"orthography": "Indĭgĕtĕs",
 		"type": "um",
 		"pos": "noun"
-	},
-	{
-		"orthography": "indĭgĕto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "indĭgĭtāmenta",
@@ -67270,11 +66285,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "injecto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "injectus",
 		"type": "a, um",
 		"pos": "adj"
@@ -67885,11 +66895,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "inspecto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "inspector",
 		"type": "ōris",
 		"pos": "noun"
@@ -68133,11 +67138,6 @@
 		"orthography": "insŭbŭlum",
 		"type": "i",
 		"pos": "noun"
-	},
-	{
-		"orthography": "insūco",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "insuētūdo",
@@ -69258,11 +68258,6 @@
 		"orthography": "interversĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "interversor",
-		"type": "āri",
-		"pos": "adj"
 	},
 	{
 		"orthography": "interversor",
@@ -70480,11 +69475,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "ĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "Ĭtōnē",
 		"type": "i",
 		"pos": "noun"
@@ -71455,11 +70445,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "lăbĕfacto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "lăbĕfactus",
 		"type": "a, um",
 		"pos": "adj"
@@ -71800,11 +70785,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "lacto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "lactūca",
 		"type": "ae",
 		"pos": "noun"
@@ -72123,11 +71103,6 @@
 		"orthography": "lālīsĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "lallo",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "lallum",
@@ -73135,11 +72110,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "lătĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "lātĭtūdo",
 		"type": "ĭnis",
 		"pos": "noun"
@@ -73593,11 +72563,6 @@
 		"orthography": "lectisternĭum",
 		"type": "ĭi",
 		"pos": "noun"
-	},
-	{
-		"orthography": "lectĭto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "lectĭuncŭla",
@@ -75750,11 +74715,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "lĭquo",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "lĭquor",
 		"type": "ōris",
 		"pos": "noun"
@@ -77220,11 +76180,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "lūto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "lūtor",
 		"type": "ōris",
 		"pos": "noun"
@@ -78058,11 +77013,6 @@
 		"orthography": "mactātus",
 		"type": "ūs",
 		"pos": "noun"
-	},
-	{
-		"orthography": "macto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "măcŭla",
@@ -82390,11 +81340,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "mĕrĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "mĕrĭtōrĭus",
 		"type": "a, um",
 		"pos": "noun"
@@ -82443,11 +81388,6 @@
 		"orthography": "mersĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "merso",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "Mersūra",
@@ -83750,11 +82690,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "mĭo",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "mīrābĭlĭārĭus",
 		"type": "ii",
 		"pos": "noun"
@@ -83952,11 +82887,6 @@
 	{
 		"orthography": "missītĭus",
 		"type": "a, um",
-		"pos": "adj"
-	},
-	{
-		"orthography": "missĭto",
-		"type": "āvi",
 		"pos": "adj"
 	},
 	{
@@ -85440,11 +84370,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "mōto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "mōtor",
 		"type": "ōris",
 		"pos": "noun"
@@ -85533,11 +84458,6 @@
 		"orthography": "Mugillānus",
 		"type": "i",
 		"pos": "noun"
-	},
-	{
-		"orthography": "mūgĭnor",
-		"type": "āri",
-		"pos": "adj"
 	},
 	{
 		"orthography": "Mugĭo",
@@ -87545,11 +86465,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "nătĭnor",
-		"type": "āri",
-		"pos": "adj"
-	},
-	{
 		"orthography": "nātĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -87573,11 +86488,6 @@
 		"orthography": "nātīvĭtas",
 		"type": "ātis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "năto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "nātrix",
@@ -88815,11 +87725,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "nexo",
-		"type": "xŭi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "nexum",
 		"type": "i",
 		"pos": "adj"
@@ -89565,11 +88470,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "nōmĭnĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "Nŏmĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -89757,11 +88657,6 @@
 	{
 		"orthography": "noscĭtābundus",
 		"type": "a, um",
-		"pos": "adj"
-	},
-	{
-		"orthography": "noscĭto",
-		"type": "āvi",
 		"pos": "adj"
 	},
 	{
@@ -90515,11 +89410,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "nuptŭrĭo",
-		"type": "īvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "nuptus",
 		"type": "ūs",
 		"pos": "noun"
@@ -90558,11 +89448,6 @@
 		"orthography": "nūtātĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "nūto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "nūtrībĭlis",
@@ -90840,16 +89725,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "ŏb-ardesco",
-		"type": "arsi",
-		"pos": "adj"
-	},
-	{
-		"orthography": "ŏb-ăro",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "ŏb-audĭentĭa",
 		"type": "ae",
 		"pos": "noun"
@@ -90875,11 +89750,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "ob-brūtesco",
-		"type": "tŭi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "ob-densātĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -90887,16 +89757,6 @@
 	{
 		"orthography": "obdĭtus",
 		"type": "a, um",
-		"pos": "adj"
-	},
-	{
-		"orthography": "ob-do",
-		"type": "dĭdi",
-		"pos": "adj"
-	},
-	{
-		"orthography": "ob-dūco",
-		"type": "xi",
 		"pos": "adj"
 	},
 	{
@@ -90910,19 +89770,9 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "ob-dulcesco",
-		"type": "dulcui",
-		"pos": "adj"
-	},
-	{
 		"orthography": "obdūrātĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "ob-dūresco",
-		"type": "rui",
-		"pos": "adj"
 	},
 	{
 		"orthography": "ob-dūro",
@@ -90940,11 +89790,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "ŏb-erro",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "ŏbēsĭtas",
 		"type": "ātis",
 		"pos": "noun"
@@ -90953,11 +89798,6 @@
 		"orthography": "ōbex",
 		"type": "obĭcis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "ŏb-haeresco",
-		"type": "haesi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "ōbĭcĭo",
@@ -90975,11 +89815,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "ŏb-īrascor",
-		"type": "a, um",
-		"pos": "adj"
-	},
-	{
 		"orthography": "ŏbīrātĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -90993,11 +89828,6 @@
 		"orthography": "ŏbĭtus",
 		"type": "ūs",
 		"pos": "noun"
-	},
-	{
-		"orthography": "ob-jăcĕo",
-		"type": "ŭi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "objectācŭlum",
@@ -91025,11 +89855,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "objecto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "objector",
 		"type": "ōris",
 		"pos": "noun"
@@ -91048,11 +89873,6 @@
 		"orthography": "objurgātor",
 		"type": "ōris",
 		"pos": "noun"
-	},
-	{
-		"orthography": "ob-languesco",
-		"type": "gŭi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "oblăquĕātĭo",
@@ -91132,11 +89952,6 @@
 	{
 		"orthography": "oblĭnītus",
 		"type": "a, um",
-		"pos": "adj"
-	},
-	{
-		"orthography": "ob-lĭno",
-		"type": "lēvi",
 		"pos": "adj"
 	},
 	{
@@ -91235,11 +90050,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "ob-mūtesco",
-		"type": "tŭi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "ob-nātus",
 		"type": "a, um",
 		"pos": "adj"
@@ -91255,18 +90065,8 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "ob-nūbĭlo",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "ob-nūbĭlus",
 		"type": "a, um",
-		"pos": "adj"
-	},
-	{
-		"orthography": "ob-nūbo",
-		"type": "psi",
 		"pos": "adj"
 	},
 	{
@@ -91288,11 +90088,6 @@
 		"orthography": "ŏboedītĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "ŏb-ŏlĕo",
-		"type": "ŭi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "ŏbŏlus",
@@ -91333,11 +90128,6 @@
 		"orthography": "obreptĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "obrepto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "obreptus",
@@ -91383,11 +90173,6 @@
 		"orthography": "obrȳza",
 		"type": "ae",
 		"pos": "noun"
-	},
-	{
-		"orthography": "ob-saepĭo",
-		"type": "psi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "obscēnĭtas",
@@ -91438,11 +90223,6 @@
 		"orthography": "obsĕcundātor",
 		"type": "ōris",
 		"pos": "noun"
-	},
-	{
-		"orthography": "ob-sĕcundo",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "obsĕcūtĭo",
@@ -91510,11 +90290,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "observĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "obses",
 		"type": "ĭdis",
 		"pos": "noun"
@@ -91575,11 +90350,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "ob-signo",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "obsĭtus",
 		"type": "a, um",
 		"pos": "adj"
@@ -91610,28 +90380,13 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "obsōnĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "obsōnĭum",
 		"type": "ii",
 		"pos": "noun"
 	},
 	{
-		"orthography": "ob-sŏpĭo",
-		"type": "īvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "obsŏpītus",
 		"type": "a, um",
-		"pos": "adj"
-	},
-	{
-		"orthography": "ob-sordesco",
-		"type": "dŭi",
 		"pos": "adj"
 	},
 	{
@@ -91653,11 +90408,6 @@
 		"orthography": "obstantĭa",
 		"type": "ae",
 		"pos": "noun"
-	},
-	{
-		"orthography": "ob-sterno",
-		"type": "strāvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "obstētrīcĭus",
@@ -91737,11 +90487,6 @@
 	{
 		"orthography": "obstrūdulentus",
 		"type": "a, um",
-		"pos": "adj"
-	},
-	{
-		"orthography": "ob-strŭo",
-		"type": "xi",
 		"pos": "adj"
 	},
 	{
@@ -92080,11 +90825,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "occepto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "occhi",
 		"type": "ōrum",
 		"pos": "noun"
@@ -92193,11 +90933,6 @@
 		"orthography": "occursĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "occurso",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "occursor",
@@ -92925,11 +91660,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "offenso",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "offensor",
 		"type": "ōris",
 		"pos": "noun"
@@ -93233,11 +91963,6 @@
 		"orthography": "olfactātrix",
 		"type": "īcis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "olfacto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "olfactōrĭa",
@@ -95480,11 +94205,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "ostento",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "ostentum",
 		"type": "i",
 		"pos": "noun"
@@ -96708,11 +95428,6 @@
 		"orthography": "palpĭtātus",
 		"type": "ūs",
 		"pos": "noun"
-	},
-	{
-		"orthography": "palpĭto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "palpo",
@@ -99945,19 +98660,9 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "pensĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "pensĭuncŭla",
 		"type": "ae",
 		"pos": "noun"
-	},
-	{
-		"orthography": "penso",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "pensor",
@@ -101510,11 +100215,6 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "perrepto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "Perrhaebi",
 		"type": "ōrum",
 		"pos": "noun"
@@ -101608,11 +100308,6 @@
 		"orthography": "persĕa",
 		"type": "ae",
 		"pos": "noun"
-	},
-	{
-		"orthography": "persector",
-		"type": "āri",
-		"pos": "adj"
 	},
 	{
 		"orthography": "persĕcūtĭo",
@@ -101758,11 +100453,6 @@
 		"orthography": "perspectĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "perspecto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "perspector",
@@ -104660,11 +103350,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "pisto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "pistor",
 		"type": "ōris",
 		"pos": "noun"
@@ -107073,11 +105758,6 @@
 		"orthography": "portĭuncŭla",
 		"type": "ae",
 		"pos": "noun"
-	},
-	{
-		"orthography": "porto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "portōrĭum",
@@ -109555,11 +108235,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "pransĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "pransor",
 		"type": "ōris",
 		"pos": "noun"
@@ -109693,11 +108368,6 @@
 		"orthography": "prĕhensĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "prĕhenso",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "prĕhensus",
@@ -110975,11 +109645,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "prōlāto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "prōlātus",
 		"type": "a, um",
 		"pos": "adj"
@@ -110988,11 +109653,6 @@
 		"orthography": "prōlātus",
 		"type": "ūs",
 		"pos": "noun"
-	},
-	{
-		"orthography": "prōlecto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "prō-lēgātus",
@@ -111710,11 +110370,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "prōpulso",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "prōpulsor",
 		"type": "ōris",
 		"pos": "noun"
@@ -112043,11 +110698,6 @@
 		"orthography": "prŏsōpŏpoeĭa",
 		"type": "ae",
 		"pos": "noun"
-	},
-	{
-		"orthography": "prospecto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "prospector",
@@ -113530,11 +112180,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "pulso",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "pulsus",
 		"type": "a, um",
 		"pos": "adj"
@@ -114735,11 +113380,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "quaerĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "quaero",
 		"type": "sīvi",
 		"pos": "noun"
@@ -114953,11 +113593,6 @@
 		"orthography": "quĕrĭmōnĭa",
 		"type": "ae",
 		"pos": "noun"
-	},
-	{
-		"orthography": "quĕrĭtor",
-		"type": "āri",
-		"pos": "adj"
 	},
 	{
 		"orthography": "querquedŭla",
@@ -115610,11 +114245,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "rapto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "raptor",
 		"type": "ōris",
 		"pos": "noun"
@@ -115678,11 +114308,6 @@
 		"orthography": "rāsis",
 		"type": "is",
 		"pos": "noun"
-	},
-	{
-		"orthography": "rāsĭto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "rasta",
@@ -115968,11 +114593,6 @@
 		"orthography": "rĕceptĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "rĕcepto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "rĕceptor",
@@ -116303,11 +114923,6 @@
 		"orthography": "rĕdemptĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "rĕdemptĭto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "rĕdemptor",
@@ -116820,11 +115435,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "rējecto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "rējectus",
 		"type": "a, um",
 		"pos": "adj"
@@ -117295,11 +115905,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "rĕpenso",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "rĕpensus",
 		"type": "a, um",
 		"pos": "adj"
@@ -117508,11 +116113,6 @@
 		"orthography": "reptātus",
 		"type": "ūs",
 		"pos": "noun"
-	},
-	{
-		"orthography": "repto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "rĕpŭdĭātĭo",
@@ -117855,11 +116455,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "rēsponsĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "rēsponsor",
 		"type": "ōris",
 		"pos": "noun"
@@ -118063,11 +116658,6 @@
 		"orthography": "rĕtentĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "rĕtento",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "rĕtentor",
@@ -119048,11 +117638,6 @@
 		"orthography": "rŏgĭtātĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "rŏgĭto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "rŏgus",
@@ -120928,11 +119513,6 @@
 		"orthography": "saltātus",
 		"type": "ūs",
 		"pos": "noun"
-	},
-	{
-		"orthography": "salto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "saltŭārĭus",
@@ -123238,11 +121818,6 @@
 		"orthography": "scriptĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "scriptĭto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "scriptĭuncŭla",
@@ -125770,11 +124345,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "sessĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "sessĭuncŭla",
 		"type": "ae",
 		"pos": "noun"
@@ -127693,11 +126263,6 @@
 		"orthography": "sōlĭtas",
 		"type": "ātis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "sŏlĭto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "sōlĭtūdo",
@@ -129985,11 +128550,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "sternūto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "Stĕrŏpes",
 		"type": "is",
 		"pos": "noun"
@@ -131405,11 +129965,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "sŭb-infĕro",
-		"type": "tŭli",
-		"pos": "adj"
-	},
-	{
 		"orthography": "sŭb-injectus",
 		"type": "a, um",
 		"pos": "adj"
@@ -132048,11 +130603,6 @@
 		"orthography": "subvectĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "subvecto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "subvector",
@@ -133120,11 +131670,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "sumptĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "sumptŭātus",
 		"type": "a, um",
 		"pos": "adj"
@@ -133720,11 +132265,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "suppĕdĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "sup-pĕtĭae",
 		"type": "ārum",
 		"pos": "noun"
@@ -133965,11 +132505,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "surrectĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "surrectus",
 		"type": "a, um",
 		"pos": "adj"
@@ -134015,11 +132550,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "sur-rŏgo",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "sur-rostrāni",
 		"type": "ōrum",
 		"pos": "noun"
@@ -134058,11 +132588,6 @@
 		"orthography": "susceptĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "suscepto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "susceptor",
@@ -134218,11 +132743,6 @@
 		"orthography": "sustentātus",
 		"type": "ūs",
 		"pos": "noun"
-	},
-	{
-		"orthography": "sustento",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "sustĭnentĭa",
@@ -135780,11 +134300,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "taxo",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "taxus",
 		"type": "i",
 		"pos": "noun"
@@ -136473,11 +134988,6 @@
 		"orthography": "tentĭpellĭum",
 		"type": "ii",
 		"pos": "noun"
-	},
-	{
-		"orthography": "tento",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "tentor",
@@ -139517,11 +138027,6 @@
 	{
 		"orthography": "Tractītĭus",
 		"type": "a, um",
-		"pos": "adj"
-	},
-	{
-		"orthography": "tracto",
-		"type": "āvi",
 		"pos": "adj"
 	},
 	{
@@ -143255,11 +141760,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "ūsū-rĕcĭpĭo",
-		"type": "cēpi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "ūsurpātĭo",
 		"type": "ōnis",
 		"pos": "noun"
@@ -144165,11 +142665,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "vecto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "Vectōnes",
 		"type": "um",
 		"pos": "noun"
@@ -144533,11 +143028,6 @@
 		"orthography": "vendĭtĭo",
 		"type": "ōnis",
 		"pos": "noun"
-	},
-	{
-		"orthography": "vendĭto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "vendĭtor",
@@ -145178,11 +143668,6 @@
 		"orthography": "versĭpellis",
 		"type": "is",
 		"pos": "noun"
-	},
-	{
-		"orthography": "verso",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "versor",
@@ -146785,11 +145270,6 @@
 		"pos": "noun"
 	},
 	{
-		"orthography": "vīsĭto",
-		"type": "āvi",
-		"pos": "adj"
-	},
-	{
 		"orthography": "visĭum",
 		"type": "ii",
 		"pos": "noun"
@@ -147323,11 +145803,6 @@
 		"orthography": "vŏlĭtātus",
 		"type": "ūs",
 		"pos": "noun"
-	},
-	{
-		"orthography": "vŏlĭto",
-		"type": "āvi",
-		"pos": "adj"
 	},
 	{
 		"orthography": "vŏlo",

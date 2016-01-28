@@ -247,7 +247,7 @@ console.info('\north: ' + orth);
       else {
         console.info('no adjType....why?')
       }
-    } else if(adjType && adjType != 'indecl.' && (!pos || pos.match(/adj\./))) {
+    } else if(!verbMatch && adjType && adjType != 'indecl.' && (!pos || pos.match(/adj\./))) {
       //console.info('adj declension:', declineAdjective(orth,adjType));
       numAdjType++;
       nouns.push({orthography: orth, type: adjType, pos: 'adj'});
