@@ -513,14 +513,14 @@ findThirdDeclensionRoot = exports.findThirdDeclensionRoot = function findThirdDe
     return nom.slice(0,-4) + 'eunt';
   }
   for(var x=1; x<3; x++) {
-    var match = nom.match('^(.+)([aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ][^aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ]*){'+x+'}$');
+    var match = nom.match(new RegExp('^(.+)([aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ][^aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ]*){'+x+'}$','i'));
     if(!match) break;
     var nomRoot = match[1];
     var y = 1;
-    while(match = gen.match('(?:[aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ][^aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ]*){'+y+'}$')) {
+    while(match = gen.match(new RegExp('(?:[aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ][^aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ]*){'+y+'}$','i'))) {
       var candidate = nomRoot + match[0];
-      if(candidate.match(gen.replace(/\^/g,'\\^')+'$')) {
-        candidate = candidate.replace(/[aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ][^aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ]?$/,'');
+      if(candidate.match(new RegExp(gen.replace(/\^/g,'\\^')+'$','i'))) {
+        candidate = candidate.replace(/[aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ][^aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ]?$/i,'');
         return candidate;
       }
       y++;
@@ -530,18 +530,20 @@ findThirdDeclensionRoot = exports.findThirdDeclensionRoot = function findThirdDe
   if(gen.match(/^tis$/)) firstPart = 's';
   else if(gen.match(/^cis$/)) firstPart = 'x';
   else {
-    firstPart = gen.match(/^(.*?)[aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ]/)[1].slice(0,1);
+    firstPart = gen.match(/^(.*?)[aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ]/i)[1].slice(0,1);
   }
   var index = nom.lastIndexOf(firstPart);
   var test = findRootForEnding(nom,gen);
-  gen = gen.replace(/[aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ][^aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ]?$/,'');
+  gen = gen.replace(/[aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ][^aeiouyœæāēīōūȳăĕĭŏŭäëïöüÿ]?$/i,'');
   if(index>=0 && index<nom.length) {
     var candidate = nom.slice(0,index) + gen;
     return candidate
   }
-  if(test) {
-    test += gen;
-    console.info('WARNING: using pure genitive (%s) for nominative "%s"...would "%s" be better?', gen, nom, test);
+  if(test && !nom.match(new RegExp('^' + gen, 'i'))) {
+    test = (test + gen).replace(/-/g,'');
+    // TODO: if using a pure genitive for a word that ends in a, just treat it as a first declension noun, and likewise for words ending in -us.
+    console.info('WARNING: using "%s" for nominative "%s"...would pure genitive "%s" be better?', test, nom, gen);
+    return test;
   }
   return gen;
 }
