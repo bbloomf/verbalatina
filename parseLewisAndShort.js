@@ -239,31 +239,30 @@ console.info('\north: ' + orth);
       ++(numPos[pos]);
       //console.info('pos: ' + pos);
     }
-    if(gen) {
-      // noun
-      if(adjType) {
-        //console.info('noun declension:', declineNoun(orth,adjType));
-        numGen++;
-        nouns.push({orthography: orth, type: adjType, pos: 'noun'});
-        omniaVerba._add(declineNoun(orth, adjType), orth);
-      }
-      else {
-        console.info('no adjType....why?')
-      }
-    } else if(!verbMatch && adjType && adjType != 'indecl.' && (!pos || pos.match(/adj\./))) {
-      //console.info('adj declension:', declineAdjective(orth,adjType));
-      numAdjType++;
-      nouns.push({orthography: orth, type: adjType, pos: 'adj'});
-      omniaVerba._add(declineNoun(orth, adjType), orth);
-    } else {
-      omniaVerba._add(orth);
-    }
     if(verbMatch && orth.reverse().match(/^([oōŏörmtiīïĭ]|[eēĕë]r)/)) {
       //console.info('verb:', orth);
       numVerb++;
       var verb = {orthography: orth, verbParts: verbParts, parts: verbFunctions.getVerbParts(orth, verbMatch), verbMatch: verbMatch, fullText: fullTextSansParentheses};
       verbs.push(verb);
       omniaVerba._add(conjugateVerb(verb.parts), orth);
+    } else if(gen) {
+      // noun
+      if(adjType) {
+        //console.info('noun declension:', declineNoun(orth,adjType));
+        numGen++;
+        nouns.push({orthography: orth, type: adjType, pos: gen});
+        omniaVerba._add(declineNoun(orth, adjType), orth);
+      }
+      else {
+        console.info('no adjType....why?')
+      }
+    } else if(adjType && adjType != 'indecl.' && (!pos || pos.match(/adj\./))) {
+      //console.info('adj declension:', declineAdjective(orth,adjType));
+      numAdjType++;
+      nouns.push({orthography: orth, type: adjType, pos: 'adj'});
+      omniaVerba._add(declineNoun(orth, adjType), orth);
+    } else {
+      omniaVerba._add(orth);
     }
     continue;
   } else {
