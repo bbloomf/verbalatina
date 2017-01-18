@@ -1,7 +1,12 @@
 $(function() {
   var indexWords, searchWord, words = {};
+  function setLoading(loading) {
+    $('#dictionary .content').text(loading? 'Loading...' : '');
+  }
+  setLoading(true);
   $.getJSON('../lewis-short/_.json', function(data) {
     indexWords = data;
+    setLoading(false);
     if(searchWord) search(searchWord);
   });
   $('#search').keyup(function(e){
@@ -43,6 +48,7 @@ $(function() {
       $('#dictionary .next').text(next);
       $('#dictionary .content').html(entry.join('<hr/>'));
     } else {
+      setLoading(true);
       $.getJSON('../lewis-short/' + indexWord + '.json', function(data) {
         words[indexWord] = data;
         if(word == searchWord) displayWord(word, index);
