@@ -97,7 +97,7 @@ var fs = require('fs'),
     omniaVerba = new IndexVerborum(),
     fileAdjectives = 'output/adjectives.txt',
     regexParentheses = /\s*[(（][^)）(（]+(?:[)）])\s*/g,
-    regexEntry = /<entryFree[^>]*?>(([^`]*?<orth[^>]*?>[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*([a-zāăäēĕëīĭïōŏöūŭüȳÿ_^ -]+)([^<]*)<\/orth>)+?[^`]*?)<\/entryFree>/gi,
+    regexEntry = /<entryFree([^>]*?)>(([^`]*?<orth[^>]*?>[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*([a-zāăäēĕëīĭïōŏöūŭüȳÿ_^ -]+)([^<]*)<\/orth>)+?[^`]*?)<\/entryFree>/gi,
     regexOrth = /<orth[^>]*?>[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*([a-zāăäēĕëīĭïōŏöūŭüȳÿ_^ -]+)([^<]*)<\/orth>/i,
     regexGramGen = /<gen>([mfn]|comm?)\.<\/gen>/i,
     regexAdjType = /<\/(?:orth|gen)>(?:[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^<(-]*(?:<[^>]+>)?(?:\([^)]+\))?)*([a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]*(?:is|ae|[iī]|[aā]rum|[oō]rum|ūs|um|ius)|a, um|indecl\.)[^a-zāăäēĕëīĭïōŏöūŭüȳÿ_^-]/i,
@@ -193,35 +193,58 @@ function getVerbMatch(orth, verbParts) {
   return verbMatch;
 }
 var entriesToSave = {};
+var entryMap = [];
+var minLength = 500000;
+var lastKeyFile = null;
 while( (entry = regexEntry.exec(xml)) ) {
   ++count;
-  var orth = handleDiacritics(entry[3]);
+  var orth = handleDiacritics(entry[4]);
   if(outputDictionaryDir) {
-    var key = orth.removeDiacritics().replace(/-/g,'').toLowerCase().replace(/æ/g,'ae').replace(/œ/g,'oe').replace(/ë/g,'e');
-    var keysToSave = Object.keys(entriesToSave);
-    var keyFileName = keysToSave[0] && keysToSave[0].slice(0,2);
-    if(keysToSave.length && keyFileName != key.slice(0,2).toLowerCase()) {
-      fs.writeFileSync(outputDictionaryDir + keyFileName + '.json',JSON.stringify(entriesToSave));
-      entriesToSave = {};
-    } else {
-      if(key in entriesToSave) {
-        entriesToSave[key].push(entry[0]);
-      } else {
-        entriesToSave[key] = [entry[0]];
+    var key = entry[1].match(/\s+key="([^"]+)"/);
+    if(key) {
+      if(lastKeyFile) {
+        if(lastKeyFile == key) {
+          console.error('Last key of file would be first of this one:', key);
+          return;
+        }
+        lastKeyFile = null;
       }
+      key = key[1].toLowerCase().replace(/[^a-z]+/g,'');
+      var altkey = orth.removeDiacritics().replace(/-/g,'').toLowerCase().replace(/æ/g,'ae').replace(/œ/g,'oe').replace(/ë/g,'e');
+      if(altkey != key) {
+        console.warn("Keys differ:", key, " - ", altkey);
+      }
+      var jsonEntries = JSON.stringify(entriesToSave);
+      var keys = Object.keys(entriesToSave)
+      var keyFileName = keys[0];
+      if(jsonEntries.length >= minLength) {
+        entryMap.push(keyFileName);
+        fs.writeFileSync(outputDictionaryDir + keyFileName + '.json', jsonEntries);
+        entriesToSave = {};
+        lastKeyFile = keys.slice(-1)[0];
+      } else {
+        if(key in entriesToSave) {
+          entriesToSave[key].push(entry[0]);
+        } else {
+          entriesToSave[key] = [entry[0]];
+        }
+      }
+    } else {
+      console.error('No key found in entry:', entry[0]);
+      return;
     }
   }
-  if(entry[3].match(/-\s*$|^\s*-/)) {
+  if(entry[4].match(/-\s*$|^\s*-/)) {
     ++ignore;
 console.info('prefix/suffix: ' + orth);
     continue;
   } else {
 console.info('\north: ' + orth);
   }
-  var gen = regexGramGen.exec(entry[1]);
-  var adjType = regexAdjType.exec(entry[1]);
-  var pos = regexGramPos.exec(entry[1]);
-  var fullEntry = entry[1].match(/<\/orth>([^`]*?)(?:$|<\/entryFree>)/);
+  var gen = regexGramGen.exec(entry[2]);
+  var adjType = regexAdjType.exec(entry[2]);
+  var pos = regexGramPos.exec(entry[2]);
+  var fullEntry = entry[2].match(/<\/orth>([^`]*?)(?:$|<\/entryFree>)/);
   var fullText = fullEntry[1].replace(/<(bibl|foreign|cit|quote|etym)[^>]*>.*?<\/\1>;?|<[^>]+>/g,'');
   var fullTextSansParentheses = fullText.replace(regexParentheses,' ').replace(regexParentheses,' ').replace(/\s*\[[^\]]+\]\s*/g,' ');
   var verbMatch = fullTextSansParentheses.match(regexVerb);
@@ -237,8 +260,8 @@ console.info('\north: ' + orth);
       verbMatch = true;
     }
   }
-  //TODO: use other orths, besides the first one; var orths = regexOrth.exec(entry[1]);
-  if(!pos) pos = regexGramPosFallback.exec(entry[1]);
+  //TODO: use other orths, besides the first one; var orths = regexOrth.exec(entry[2]);
+  if(!pos) pos = regexGramPosFallback.exec(entry[2]);
   if(gen || pos || adjType || verbMatch) {
     if(gen) {
       gen = gen[1];
@@ -297,6 +320,16 @@ console.info('\north: ' + orth);
   }
   //console.info(orth + ': ' + (gramGrp && gramGrp[0]));
 }
+if(outputDictionaryDir) {
+  var keys = Object.keys(entriesToSave);
+  if(keys.length) {
+    var jsonEntries = JSON.stringify(entriesToSave);
+    var keyFileName = keys[0];
+    entryMap.push(keyFileName);
+    fs.writeFileSync(outputDictionaryDir + keyFileName + '.json', jsonEntries);
+  }
+}
+fs.writeFileSync(outputDictionaryDir + '_.json', JSON.stringify(entryMap));
 fs.writeFileSync(fileVerbs,JSON.stringify(verbs, null, '\t'));
 fs.writeFileSync(fileNouns,JSON.stringify(nouns, null, '\t'));
 fs.writeFileSync(fileOmniaVerba, JSON.stringify(omniaVerba));
@@ -306,6 +339,7 @@ fs.writeFileSync('erratapossibilia.json', JSON.stringify(Object.keys(omniaVerba)
   }
   return a;
 },{})))
+console.info('Dictionary Map Length: ' + entryMap.length);
 console.info('Total: ' + count);
 console.info('Ignored: ' + ignore);
 console.info('No GramGrp: ' + noGram);
