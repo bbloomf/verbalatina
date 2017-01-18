@@ -87,6 +87,7 @@ IndexVerborum.prototype._add = function(array, root) {
 }
 var fs = require('fs'),
     xml = fs.readFileSync('lewisAndShort.xml',{encoding:'utf8'}),
+    outputDictionaryDir = 'lewis-short/',
     fileIndeclinables = 'output/indeclinables.txt',
     fileNouns = 'output/nouns.json',
     fileVerbs = 'output/verbs.json',
@@ -131,6 +132,15 @@ var fs = require('fs'),
       dep:  0,
       prep: 0
     };
+
+// make sure we have an output directory for the dictionary
+if(!fs.existsSync(outputDictionaryDir)) {
+  fs.mkdirSync(outputDictionaryDir);
+} else if(!fs.statSync(outputDictionaryDir).isDirectory()) {
+  console.info(outputDictionaryDir + ' is not a directory, so the dictionary files cannot be placed there.');
+  outputDictionaryDir = null;
+}
+
 function getVerbMatch(orth, verbParts) {
   //console.info(orth, verbParts)
   regexVerbType.exec('');
@@ -182,9 +192,25 @@ function getVerbMatch(orth, verbParts) {
   }
   return verbMatch;
 }
+var entriesToSave = {};
 while( (entry = regexEntry.exec(xml)) ) {
   ++count;
   var orth = handleDiacritics(entry[3]);
+  if(outputDictionaryDir) {
+    var key = orth.removeDiacritics().replace(/-/g,'').toLowerCase().replace(/æ/g,'ae').replace(/œ/g,'oe').replace(/ë/g,'e');
+    var keysToSave = Object.keys(entriesToSave);
+    var keyFileName = keysToSave[0] && keysToSave[0].slice(0,2);
+    if(keysToSave.length && keyFileName != key.slice(0,2).toLowerCase()) {
+      fs.writeFileSync(outputDictionaryDir + keyFileName + '.json',JSON.stringify(entriesToSave));
+      entriesToSave = {};
+    } else {
+      if(key in entriesToSave) {
+        entriesToSave[key].push(entry[0]);
+      } else {
+        entriesToSave[key] = [entry[0]];
+      }
+    }
+  }
   if(entry[3].match(/-\s*$|^\s*-/)) {
     ++ignore;
 console.info('prefix/suffix: ' + orth);
