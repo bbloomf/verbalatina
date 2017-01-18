@@ -1,0 +1,25 @@
+orth {
+  font-weight: bold;
+}
+hi[rend=sup] {
+  vertical-align: super;
+  font-size: smaller;
+}
+hi[rend=ital] {
+  font-style: italic;
+}
+itype,
+gen,
+pos {
+  font-style: italic;
+}
+sense {
+  display: block;
+}
+sense[n]::before {
+  content: attr(n) ". ";
+  font-weight: bold;
+}
+foreign {
+  color: red;
+}
