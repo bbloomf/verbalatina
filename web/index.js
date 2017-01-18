@@ -1,9 +1,9 @@
 $(function() {
   var indexWords, searchWord, words = {};
   function setLoading(loading) {
-    $('#dictionary .content').text(loading? 'Loading...' : '');
+    $('#dictionary .content').text(loading? 'Loading '+loading+'...' : '');
   }
-  setLoading(true);
+  setLoading('word index');
   $.getJSON('../lewis-short/_.json', function(data) {
     indexWords = data;
     setLoading(false);
@@ -11,7 +11,7 @@ $(function() {
   });
   $('#search').keyup(function(e){
     var word = $(this).val().toLowerCase();
-    if(searchWord === word) return;
+    if(!word || searchWord === word) return;
     search(searchWord = word);
   });
   if(location.hash) $('#search').val(location.hash.slice(1)).keyup();
@@ -48,7 +48,7 @@ $(function() {
       $('#dictionary .next').text(next);
       $('#dictionary .content').html(entry.join('<hr/>'));
     } else {
-      setLoading(true);
+      setLoading(indexWord+'-'+(indexWords[index+1]||''));
       $.getJSON('../lewis-short/' + indexWord + '.json', function(data) {
         words[indexWord] = data;
         if(word == searchWord) displayWord(word, index);
