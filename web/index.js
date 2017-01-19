@@ -91,6 +91,10 @@ $(function() {
       $('#dictionary .next').text(next);
       $('#dictionary .content').html(entry.join('<hr/>').replace(/v\.\s+(?!irreg\.)([a-z]{2,})\./g, function(match, word){
         return 'v. <a href="" show-word>' + word + '</a>.';
+      }).replace(/([āēīōūȳ])\^/gi, function(match, vowel) {
+        return vowel + '\u0306'; // combining breve (˘)
+      }).replace(/([ăĕĭŏŭ])_/gi, function(match, vowel) {
+        return vowel + '\u0304'; // combining macron (¯)
       }));
       $('#dictionary .content foreign[lang=greek]').each(function() {
         var $this = $(this);
