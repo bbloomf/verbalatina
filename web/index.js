@@ -87,6 +87,10 @@ $(function() {
       $('#dictionary .previous').text(prev);
       $('#dictionary .next').text(next);
       $('#dictionary .content').html(entry.join('<hr/>'));
+      $('#dictionary .content foreign[lang=greek]').each(function() {
+        var $this = $(this);
+        $this.text(betaCodeToGreek($this.text()));
+      })
     } else {
       setLoading(indexWord+'-'+(indexWords[index+1]||''));
       getWordIndex(indexWord, word, function() {

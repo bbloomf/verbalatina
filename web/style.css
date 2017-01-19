@@ -20,6 +20,30 @@ sense[n]::before {
   content: attr(n) ". ";
   font-weight: bold;
 }
+sense[level="1"] {
+  margin-left: 1em;
+}
+sense[level="2"] {
+  margin-left: 2em;
+}
+sense[level="3"] {
+  margin-left: 3em;
+}
+sense[level="4"] {
+  margin-left: 4em;
+}
+sense[level="5"] {
+  margin-left: 5em;
+}
+sense[level="6"] {
+  margin-left: 6em;
+}
 foreign {
-  color: red;
+  color: navy;
+}
+etym::before {
+  content: '[';
+}
+etym::after {
+  content: ']';
 }
