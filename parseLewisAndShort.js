@@ -195,20 +195,12 @@ function getVerbMatch(orth, verbParts) {
 var entriesToSave = {};
 var entryMap = [];
 var minLength = 500000;
-var lastKeyFile = null;
 while( (entry = regexEntry.exec(xml)) ) {
   ++count;
   var orth = handleDiacritics(entry[4]);
   if(outputDictionaryDir) {
     var key = entry[1].match(/\s+key="([^"]+)"/);
     if(key) {
-      if(lastKeyFile) {
-        if(lastKeyFile == key) {
-          console.error('Last key of file would be first of this one:', key);
-          return;
-        }
-        lastKeyFile = null;
-      }
       key = key[1].toLowerCase().replace(/[^a-z]+/g,'');
       var altkey = orth.removeDiacritics().replace(/-/g,'').toLowerCase().replace(/æ/g,'ae').replace(/œ/g,'oe').replace(/ë/g,'e');
       if(altkey != key) {
@@ -217,17 +209,15 @@ while( (entry = regexEntry.exec(xml)) ) {
       var jsonEntries = JSON.stringify(entriesToSave);
       var keys = Object.keys(entriesToSave)
       var keyFileName = keys[0];
-      if(jsonEntries.length >= minLength) {
+      if(jsonEntries.length >= minLength && keys.slice(-1)[0] != key) {
         entryMap.push(keyFileName);
         fs.writeFileSync(outputDictionaryDir + keyFileName + '.json', jsonEntries);
         entriesToSave = {};
-        lastKeyFile = keys.slice(-1)[0];
+      } 
+      if(key in entriesToSave) {
+        entriesToSave[key].push(entry[0]);
       } else {
-        if(key in entriesToSave) {
-          entriesToSave[key].push(entry[0]);
-        } else {
-          entriesToSave[key] = [entry[0]];
-        }
+        entriesToSave[key] = [entry[0]];
       }
     } else {
       console.error('No key found in entry:', entry[0]);

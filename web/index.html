@@ -1,5 +1,5 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <link rel="stylesheet" href="style.css">
@@ -19,18 +19,21 @@
     <li role="presentation"><a href="#adjectives" aria-controls="adjectives" role="tab" data-toggle="tab">Adjectives</a></li>
     <li role="presentation"><a href="#indeclinables" aria-controls="indeclinables" role="tab" data-toggle="tab">Indeclinables</a></li>
   </ul>
-  <input id='search'>
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="dictionary">Dictionary: <span class='entry'></span>
-      <div>Previous: <span class='previous'></span>, Next: <span class='next'></span></div>
-      <div class='content'></div>
+  <div class="row">
+    <div class="col-sm-12">
+      <input id='search'> <span id='search-info'></span>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="dictionary">
+          <div class='content'></div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="words">Words</div>
+        <div role="tabpanel" class="tab-pane" id="verbs">Verbs</div>
+        <div role="tabpanel" class="tab-pane" id="nouns">Nouns</div>
+        <div role="tabpanel" class="tab-pane" id="adjectives">Adjectives</div>
+        <div role="tabpanel" class="tab-pane" id="indeclinables">Indeclinables</div>
+      </div>
     </div>
-    <div role="tabpanel" class="tab-pane" id="words">Words</div>
-    <div role="tabpanel" class="tab-pane" id="verbs">Verbs</div>
-    <div role="tabpanel" class="tab-pane" id="nouns">Nouns</div>
-    <div role="tabpanel" class="tab-pane" id="adjectives">Adjectives</div>
-    <div role="tabpanel" class="tab-pane" id="indeclinables">Indeclinables</div>
   </div>
 
 </div>
