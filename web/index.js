@@ -64,7 +64,7 @@ $(function() {
             getWordIndex(indexWords[index - 1], word, function(data) {
               var keys = Object.keys(data);
               keys.sort();
-              $('#search-info a.previous').attr('href','').text(keys.slice(-1)[0]);
+              $('#navigation a.previous').attr('href','').text(keys.slice(-1)[0]);
             });
             prev = 'Loading...'
           } else {
@@ -83,7 +83,7 @@ $(function() {
       }
       $('#search-info').html(html);
       html = '';
-      if(prev) html += ' Previous Entry: <a class="previous" '+(prev=='Loading'?'':'href=""')+' show-word>' + prev + '</a>';
+      if(prev) html += ' Previous Entry: <a class="previous" '+(prev=='Loading...'?'':'href=""')+' show-word>' + prev + '</a>';
       if(next) html += ', Next Entry: <a class="next" href="" show-word>' + next + '</a>';
       $('#navigation').html(html);
       $('.panel-title').text(curr);
