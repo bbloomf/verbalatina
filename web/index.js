@@ -1,5 +1,5 @@
 $(function() {
-  var indexWords, searchWord, words = {}, var lewisShortDir = '../lewis-short/'
+  var indexWords, searchWord, words = {}, lewisShortDir = '../lewis-short/'
   function setLoading(loading) {
     $('#dictionary .content').text(loading? 'Loading '+loading+'...' : '');
   }
