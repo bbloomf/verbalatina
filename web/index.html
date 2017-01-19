@@ -21,10 +21,16 @@
     <li role="presentation"><a href="#adjectives" aria-controls="adjectives" role="tab" data-toggle="tab">Adjectives</a></li>
     <li role="presentation"><a href="#indeclinables" aria-controls="indeclinables" role="tab" data-toggle="tab">Indeclinables</a></li>
   </ul>
-  <div class="row">
-    <div class="col-sm-12">
-      <input id='search'> <span id='search-info'></span>
-      <!-- Tab panes -->
+  <p></p>
+  <div class="form-group">
+    <input id='search' type='text' class='form-control' placeholder="Search">
+  </div>
+  <!-- Tab panes -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <span id="navigation" class="pull-right"></span><h3 class="panel-title" style="display: inline-block;"></h3> <span id="search-info"></span>
+    </div>
+    <div class="panel-body">
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="dictionary">
           <div class='content'></div>

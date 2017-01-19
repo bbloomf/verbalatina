@@ -79,18 +79,23 @@ $(function() {
       if(curr == word) {
         if(entry.length > 1) html = '(' + entry.length + ' entries)';  
       } else {
-        html = 'Not found, showing <b>' + curr + '</b>';
+        html = '(<b>' + word + '</b> was not found)';
       }
+      $('#search-info').html(html);
+      html = '';
       if(prev) html += ' Previous Entry: <a class="previous" '+(prev=='Loading'?'':'href=""')+' show-word>' + prev + '</a>';
       if(next) html += ', Next Entry: <a class="next" href="" show-word>' + next + '</a>';
-      $('#search-info').html(html);
+      $('#navigation').html(html);
+      $('.panel-title').text(curr);
       $('#dictionary .previous').text(prev);
       $('#dictionary .next').text(next);
-      $('#dictionary .content').html(entry.join('<hr/>'));
+      $('#dictionary .content').html(entry.join('<hr/>').replace(/v\.\s+(?!irreg\.)([a-z]{2,})\./g, function(match, word){
+        return 'v. <a href="" show-word>' + word + '</a>.';
+      }));
       $('#dictionary .content foreign[lang=greek]').each(function() {
         var $this = $(this);
         $this.text(betaCodeToGreek($this.text()));
-      })
+      });
     } else {
       setLoading(indexWord+'-'+(indexWords[index+1]||''));
       getWordIndex(indexWord, word, function() {
