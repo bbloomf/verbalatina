@@ -68,7 +68,7 @@ var replaceMap = {
 };
 
 function betaCodeToGreek(betacode) {
-  return betacode.replace(/\*?([a-z])[&!()+/:;=?@\\|]*/g, function(match) {
+  return betacode.replace(/\*?[&!()+/:;=?@\\|]*([a-z])[&!()+/:;=?@\\|]*/g, function(match, letter) {
     var replacement = match.replace(/[a-z&!()+/:;=?@\\|*]/g, function(char) {
       return replaceMap[char];
     });

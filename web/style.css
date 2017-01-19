@@ -16,6 +16,12 @@ pos {
 sense {
   display: block;
 }
+usg, bibl {
+  font-weight: bold;
+}
+bibl author {
+  font-style: italic;
+}
 sense[n]::before {
   content: attr(n) ". ";
   font-weight: bold;
@@ -46,4 +52,10 @@ etym::before {
 }
 etym::after {
   content: ']';
+}
+quote::before {
+  content: '«';
+}
+quote::after {
+  content: '»';
 }
