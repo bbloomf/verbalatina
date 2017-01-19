@@ -1,10 +1,10 @@
 $(function() {
-  var indexWords, searchWord, words = {};
+  var indexWords, searchWord, words = {}, var lewisShortDir = '../lewis-short/'
   function setLoading(loading) {
     $('#dictionary .content').text(loading? 'Loading '+loading+'...' : '');
   }
   setLoading('word index');
-  $.getJSON('../lewis-short/_.json', function(data) {
+  $.getJSON(lewisShortDir + '-.json', function(data) {
     indexWords = data;
     setLoading(false);
     if(searchWord) search(searchWord);
@@ -43,7 +43,7 @@ $(function() {
     return index - 1;
   }
   function getWordIndex(indexWord, word, callback) {
-    $.getJSON('../lewis-short/' + indexWord + '.json', function(data) {
+    $.getJSON(lewisShortDir + indexWord + '.json', function(data) {
       words[indexWord] = data;
       if(word == searchWord) callback(data);
     });

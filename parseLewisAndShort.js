@@ -319,7 +319,7 @@ if(outputDictionaryDir) {
     fs.writeFileSync(outputDictionaryDir + keyFileName + '.json', jsonEntries);
   }
 }
-fs.writeFileSync(outputDictionaryDir + '_.json', JSON.stringify(entryMap));
+fs.writeFileSync(outputDictionaryDir + '-.json', JSON.stringify(entryMap));
 fs.writeFileSync(fileVerbs,JSON.stringify(verbs, null, '\t'));
 fs.writeFileSync(fileNouns,JSON.stringify(nouns, null, '\t'));
 fs.writeFileSync(fileOmniaVerba, JSON.stringify(omniaVerba));
