@@ -150,15 +150,13 @@ latinWords.forEach(function(word){
     latin[unaccented.replace(/j/g,'i')] = word.replace(/j/g,'i');
   }
 });
-var psalmDir = fs.readdirSync('psalms');
 var count = 0;
 var found = 0;
 var wrong = 0;
-var notFound = 0;
+var notFound = {};
 var longByPosition = 0;
 var ambiguityCount = 0;
-psalmDir.forEach(function(name){
-  var text = fs.readFileSync('psalms/'+name, {encoding:'utf8'});
+var testText = function(text) {
   text = text.split(/[\s\d(-),.!:;'"“”‘’«»*†?]+/);
   text.forEach(function(originalWord) {
     var word = originalWord.toLowerCase();
@@ -167,12 +165,12 @@ psalmDir.forEach(function(name){
       return;
     }
     if(syllables.length > 2) {
-      if(ambiguities.indexOf(word) >= 0) {
+      if(ambiguities.indexOf(word.removeDiacritics()) >= 0) {
         ambiguityCount++;
         return;
       }
       syllables = syllables.reverse();
-      if(syllables[1].match(/au|ae|oe|[æœǽ]|(?:[aeiouyáéíóúýāēīōūȳ][^aeiouyæœǽáéíóúýāēīōūȳ])/i) || syllables[0].match(/^(?:x|[^aeiouyæœǽáéíóúýāēīōūȳ]{2,})/i)) {
+      if(syllables[1].match(/[aá]u|a[eé]|o[eé]|[æœǽ]|(?:[aeiouyáéíóúýāēīōūȳ][^aeiouyæœǽáéíóúýāēīōūȳ])/i) || syllables[0].match(/^(?:x|[^aeiouyæœǽáéíóúýāēīōūȳ]{2,})/i)) {
         // penult is long by position...don't bother saving it.
         longByPosition++;
         return;
@@ -195,16 +193,26 @@ psalmDir.forEach(function(name){
           console.info('different accent: expected “' + latin[unaccented] + '” but found “' + word + '”');
         }
       } else {
-        notFound++;
-        //console.info('word not found: ' + unaccented);
-        //console.info(syllables);
+        if(!(unaccented in notFound)) {
+          notFound[unaccented] = true;
+          console.info('word not found: ' + word);
+          //console.info(syllables);
+        }
       }
     }
-  })
-})
-console.info('count: ', found+wrong+notFound+longByPosition);
+  });
+}
+testText(fs.readFileSync('missal_list.txt', {encoding:'utf8'}));
+// var dirName = '../jgabc/psalms';
+// var psalmDir = fs.readdirSync(dirName);
+
+// psalmDir.forEach(function(name){
+//   var text = fs.readFileSync(dirName+'/'+name, {encoding:'utf8'});
+//   testText(text);
+// });
+console.info('count: ', found+wrong+Object.keys(notFound).length+longByPosition);
 console.info('found: ', found);
 console.info('wrong: ', wrong);
-console.info('notFound: ', notFound);
+console.info('notFound: ', Object.keys(notFound).length);
 console.info('longByPosition: ', longByPosition);
 console.info('ambiguityCount: ', ambiguityCount);
