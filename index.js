@@ -89,7 +89,7 @@ $(function() {
       $('.panel-title').text(curr);
       $('#dictionary .previous').text(prev);
       $('#dictionary .next').text(next);
-      $('#dictionary .content').html(entry.join('<hr/>').replace(/v\.\s+(?!(irreg|dep)\.)([a-z]{2,})\./g, function(match, word){
+      $('#dictionary .content').html(entry.join('<hr/>').replace(/v\.\s+(?!(?:irreg|dep)\.)([a-z]{2,})\./g, function(match, word){
         return 'v. <a href="" show-word>' + word + '</a>.';
       }).replace(/([āēīōūȳ])\^/gi, function(match, vowel) {
         return vowel + '\u0306'; // combining breve (˘)
