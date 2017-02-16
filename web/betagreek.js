@@ -75,7 +75,7 @@ function betaCodeToGreek(betacode) {
     replacement = combineChars(replacement);
     if(match.match(/\*/)) replacement = replacement.toUpperCase();
     return replacement;
-  });
+  }).replace(/σ$/,'ς');
 }
 
 function combineChars(greek) {
