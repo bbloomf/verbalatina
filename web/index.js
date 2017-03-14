@@ -95,7 +95,7 @@ $(function() {
         return vowel + '\u0306'; // combining breve (˘)
       }).replace(/([ăĕĭŏŭ])_/gi, function(match, vowel) {
         return vowel + '\u0304'; // combining macron (¯)
-      }));
+      }).replace(/\[dibreve\]/g, '\u035e'));
       $('#dictionary .content foreign[lang=greek]').each(function() {
         var $this = $(this);
         $this.text(betaCodeToGreek($this.text()));
