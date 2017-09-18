@@ -59,3 +59,21 @@ quote::before {
 quote::after {
   content: '»';
 }
+entryFree[type="hapax"]::before {
+  content: '* ';
+}
+entryFree[type="greek"]::before {
+  content: '† ';
+}
+entryFree[type="foreign"]::before {
+  content: '†† ';
+}
+entryFree[type="gloss"]::before {
+  content: '‡ ';
+}
+entryFree[type="spur"]::before {
+  content: '(';
+}
+entryFree[type="spur"]::after {
+  content: ')';
+}
