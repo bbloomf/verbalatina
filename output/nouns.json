@@ -760,8 +760,8 @@
 		"pos": "f"
 	},
 	{
-		"orthography": "Ăcanthĭus",
-		"type": "a, um",
+		"orthography": "ăcanthus",
+		"type": "i",
 		"pos": "m"
 	},
 	{
@@ -1223,6 +1223,11 @@
 		"orthography": "Ăcharrae",
 		"type": "ārum",
 		"pos": "f"
+	},
+	{
+		"orthography": "ăchātēs",
+		"type": "ae",
+		"pos": "m"
 	},
 	{
 		"orthography": "Ăchātes",
@@ -2082,6 +2087,11 @@
 	{
 		"orthography": "ădhortātus",
 		"type": "a, um",
+		"pos": "adj"
+	},
+	{
+		"orthography": "ădhortātus",
+		"type": "ūs",
 		"pos": "m"
 	},
 	{
@@ -3458,6 +3468,11 @@
 		"orthography": "āēr",
 		"type": "āĕris",
 		"pos": "m"
+	},
+	{
+		"orthography": "aera",
+		"type": "ae",
+		"pos": "f"
 	},
 	{
 		"orthography": "aera",
@@ -6850,7 +6865,7 @@
 		"pos": "f"
 	},
 	{
-		"orthography": "ancĭpes",
+		"orthography": "ancīsus",
 		"type": "a, um",
 		"pos": "adj"
 	},
@@ -36460,6 +36475,11 @@
 		"pos": "m"
 	},
 	{
+		"orthography": "daemon",
+		"type": "ŏnis",
+		"pos": "m"
+	},
+	{
 		"orthography": "Daemon",
 		"type": "ŏnis",
 		"pos": "m"
@@ -42405,6 +42425,11 @@
 		"pos": "n"
 	},
 	{
+		"orthography": "dŏlo",
+		"type": "ōnis",
+		"pos": "m"
+	},
+	{
 		"orthography": "Dŏlo",
 		"type": "ōnis",
 		"pos": "m"
@@ -42773,6 +42798,11 @@
 		"orthography": "drachma",
 		"type": "ae",
 		"pos": "f"
+	},
+	{
+		"orthography": "drăco",
+		"type": "ōnis",
+		"pos": "m"
 	},
 	{
 		"orthography": "Drăco",
@@ -46425,6 +46455,11 @@
 		"pos": "m"
 	},
 	{
+		"orthography": "Ĕrăsīnus",
+		"type": "i",
+		"pos": "m"
+	},
+	{
 		"orthography": "Ĕrăsistrătus",
 		"type": "i",
 		"pos": "m"
@@ -49975,6 +50010,11 @@
 		"pos": "m"
 	},
 	{
+		"orthography": "faenĕrārĭus",
+		"type": "ĭi",
+		"pos": "m"
+	},
+	{
 		"orthography": "faenĕrātĭo",
 		"type": "ōnis",
 		"pos": "f"
@@ -52115,6 +52155,11 @@
 		"pos": "f"
 	},
 	{
+		"orthography": "flōrālĭa",
+		"type": "ium",
+		"pos": "n"
+	},
+	{
 		"orthography": "Flōrālĭa",
 		"type": "ium",
 		"pos": "adj"
@@ -53405,8 +53450,8 @@
 		"pos": "m"
 	},
 	{
-		"orthography": "fūcōsus",
-		"type": "a, um",
+		"orthography": "fūcus",
+		"type": "i",
 		"pos": "m"
 	},
 	{
@@ -55768,6 +55813,11 @@
 		"orthography": "glaucōpis",
 		"type": "ĭdis",
 		"pos": "f"
+	},
+	{
+		"orthography": "glaucus",
+		"type": "i",
+		"pos": "m"
 	},
 	{
 		"orthography": "Glaucus",
@@ -68740,6 +68790,11 @@
 		"pos": "n"
 	},
 	{
+		"orthography": "labda",
+		"type": "ae",
+		"pos": "m"
+	},
+	{
 		"orthography": "Labdăcĭdes",
 		"type": "ae",
 		"pos": "adj"
@@ -72563,6 +72618,11 @@
 		"orthography": "limnestis",
 		"type": "ĭdis",
 		"pos": "f"
+	},
+	{
+		"orthography": "Līmo",
+		"type": "ōnis",
+		"pos": "m"
 	},
 	{
 		"orthography": "līmŏcinctus",
@@ -95927,6 +95987,11 @@
 	{
 		"orthography": "pĕlăgĭum",
 		"type": "ii",
+		"pos": "adj"
+	},
+	{
+		"orthography": "pĕlăgĭus",
+		"type": "a, um",
 		"pos": "f"
 	},
 	{
@@ -115225,6 +115290,11 @@
 		"pos": "f"
 	},
 	{
+		"orthography": "ruma",
+		"type": "ae",
+		"pos": "f"
+	},
+	{
 		"orthography": "rūmen",
 		"type": "ĭnis",
 		"pos": "n"
@@ -116448,6 +116518,11 @@
 		"orthography": "sălĭuncŭla",
 		"type": "ae",
 		"pos": "f"
+	},
+	{
+		"orthography": "Sălĭus",
+		"type": "ii",
+		"pos": "adj"
 	},
 	{
 		"orthography": "Sălĭus",
@@ -118203,6 +118278,11 @@
 		"orthography": "scătūrīgĭnes",
 		"type": "um",
 		"pos": "f"
+	},
+	{
+		"orthography": "Scaurĭānus",
+		"type": "a, um",
+		"pos": "adj"
 	},
 	{
 		"orthography": "Scaurus",
@@ -142880,7 +142960,7 @@
 		"pos": "m"
 	},
 	{
-		"orthography": "Vulturnus ventus",
+		"orthography": "Vulturnus",
 		"type": "i",
 		"pos": "m"
 	},
