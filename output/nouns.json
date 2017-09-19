@@ -54815,8 +54815,8 @@
 		"pos": "adj"
 	},
 	{
-		"orthography": "Gāvĭus",
-		"type": "a, um",
+		"orthography": "gāza",
+		"type": "ae",
 		"pos": "f"
 	},
 	{
@@ -71558,6 +71558,11 @@
 		"orthography": "Letus",
 		"type": "i",
 		"pos": "m"
+	},
+	{
+		"orthography": "leuca",
+		"type": "ae",
+		"pos": "f"
 	},
 	{
 		"orthography": "Leuca",
@@ -93466,6 +93471,11 @@
 	},
 	{
 		"orthography": "pănăcēa",
+		"type": "ae",
+		"pos": "f"
+	},
+	{
+		"orthography": "Pănăcēa",
 		"type": "ae",
 		"pos": "f"
 	},

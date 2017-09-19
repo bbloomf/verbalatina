@@ -22,7 +22,8 @@ usg, bibl {
 bibl author {
   font-style: italic;
 }
-sense[n]::before {
+sense[n]::before,
+entryFree[n]::before {
   content: attr(n) ". ";
   font-weight: bold;
 }
@@ -62,17 +63,40 @@ quote::after {
 entryFree[type="hapax"]::before {
   content: '* ';
 }
+entryFree[type="hapax"][n]::before {
+  content: attr(n) ". * ";
+  font-weight: bold;
+}
+
 entryFree[type="greek"]::before {
   content: '† ';
+}
+entryFree[type="greek"][n]::before {
+  content: attr(n) ". † ";
+  font-weight: bold;
 }
 entryFree[type="foreign"]::before {
   content: '†† ';
 }
+entryFree[type="foreign"][n]::before {
+  content: attr(n) ". †† ";
+  font-weight: bold;
+}
+
 entryFree[type="gloss"]::before {
   content: '‡ ';
 }
+entryFree[type="gloss"][n]::before {
+  content: attr(n) ". ‡ ";
+  font-weight: bold;
+}
+
 entryFree[type="spur"]::before {
   content: '(';
+}
+entryFree[type="spur"][n]::before {
+  content: attr(n) ". (";
+  font-weight: bold;
 }
 entryFree[type="spur"]::after {
   content: ')';
