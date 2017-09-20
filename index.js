@@ -89,9 +89,8 @@ $(function() {
       $('.panel-title').text(curr);
       $('#dictionary .previous').text(prev);
       $('#dictionary .next').text(next);
-      $('#dictionary .content').html(entry.join('<hr/>').replace(/v\.\s+(?!(?:irreg|dep)\.)([a-z]{2,})\./g, function(match, word){
-        return 'v. <a href="" show-word>' + word + '</a>.';
-      }).replace(/([āēīōūȳ])\^/gi, function(match, vowel) {
+      $('#dictionary .content').html(entry.join('<hr/>').replace(/(<mood>.*?<\/mood>\s+of\s+|v\.\s+(?!(?:irreg|dep)\.))([A-Za-z]{2,})(?=[.,;:< ])/g, '$1<a href="" show-word>$2</a>'
+      ).replace(/([āēīōūȳ])\^/gi, function(match, vowel) {
         return vowel + '\u0306'; // combining breve (˘)
       }).replace(/([ăĕĭŏŭ])_/gi, function(match, vowel) {
         return vowel + '\u0304'; // combining macron (¯)
